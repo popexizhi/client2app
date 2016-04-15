@@ -3,6 +3,7 @@ import sys
 from httper import httper
 from logMoner import logMon
 from dbget import db_mod
+from cfg_writer import filewriter
 
 class test_dev_p():
     def __init__(self):
@@ -21,12 +22,14 @@ class test_dev_p():
     
     def get_dev_pin(self, num):
         x = db_mod()
-        return x.get_pin(num)
-
+        new_dev_pin = x.get_pin(num)
+        cfg_w = filewriter("alone_dev.cfg")
+        cfg_w.savenewfile(new_dev_pin, app = 0)
+        
 
 if __name__=="__main__":
     num = int(sys.argv[1])
     a = test_dev_p()
     applications_name = [num]
     a.add_dev_lic(applications_name)
-    print a.get_dev_pin(num)
+    a.get_dev_pin(num)

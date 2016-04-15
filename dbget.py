@@ -6,7 +6,7 @@ class db_mod():
         self.cursor = self.db.cursor()        
 
     def get_pin(self, num = 1016):
-        sql = 'SELECT email, pin, pinhash from portal_host_pin where application_id = %d;' % num
+        sql = 'SELECT email, application_id, pin, pinhash from portal_host_pin where application_id = %d;' % num
         return self.select(sql)
 
     def select(self, sql):        
