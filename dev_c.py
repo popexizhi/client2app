@@ -1,4 +1,5 @@
 #-*-coding:utf8-*-
+import sys
 from httper import httper
 from logMoner import logMon
 from dbget import db_mod
@@ -24,7 +25,8 @@ class test_dev_p():
 
 
 if __name__=="__main__":
+    num = int(sys.argv[1])
     a = test_dev_p()
-    applications_name = [2]
+    applications_name = [num]
     a.add_dev_lic(applications_name)
-    print a.get_dev_pin(1016)
+    print a.get_dev_pin(num)

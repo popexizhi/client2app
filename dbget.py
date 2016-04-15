@@ -13,7 +13,6 @@ class db_mod():
         res = self.cursor.execute(sql)
         # Fetch a single row using fetchone() method.
         data = self.cursor.fetchone()
-        print data
         # disconnect from server
         self.db.close()
         return data
