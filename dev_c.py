@@ -24,6 +24,7 @@ class test_dev_p():
     def get_dev_pin(self, num):
         x = db_mod()
         new_dev_pin = x.get_pin(num)
+        assert new_dev_pin #db一定有返回
         cfg_w = filewriter("alone_dev.cfg")
         cfg_w.savenewfile(new_dev_pin, app = 0)
          
@@ -32,7 +33,8 @@ if __name__ == "__main__":
     num = int(sys.argv[1])
     a = test_dev_p()
     applications_name = [num]
-    a.add_dev_lic(applications_name)
+    print "add_dev_lic res is ..."
+    print a.add_dev_lic(applications_name)
     a.get_dev_pin(num)
     print "dev_cfg is ok ...."
 

@@ -7,11 +7,13 @@ class sh_control():
         pass
 
     def app_provision(self, num):
-        self.appserver_cmd = './app_server -cfg="cfg/app_%d_alone.cfg" -db -server_provision -host="%d" ' % (num, num)
+        #self.appserver_cmd = './app_server -cfg="cfg/app_%d_alone.cfg" -db -server_provision -host="%d" ' % (num, num)
+        self.appserver_cmd = './app_server.sh %d' % num
         self._com(self.appserver_cmd)
 
     def dev_provision(self, num):
-        self.dev_cmd = './slim_engine_test -cfg="cfg/dev_%d_alone.cfg" -db -provision -host="dev%d" ' % (num, num)
+        #self.dev_cmd = './slim_engine_test -cfg="cfg/dev_%d_alone.cfg" -db -provision -host="dev%d"  ' % (num, num)
+        self.dev_cmd = './slim_engine_test.sh %d' % num
         self._com(self.dev_cmd)
 
     def _com(self, cmd):
