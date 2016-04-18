@@ -1,0 +1,1177 @@
+[0418/165507:599002166505:INFO:app_server.cc(114)] Backend gateway IP:127.0.0.1 port:6000
+[0418/165507:599002166745:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0418/165507:599002166837:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0418/165507:599002166954:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:layerOneEngine
+[0418/165507:599002167292:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0418/165507:599002167539:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0418/165507:599002167746:INFO:noc_quic_appserver.cc(56)] QuicAppClientSystem::init ok
+[0418/165507:599002167896:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0418/165507:599002167984:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0418/165507:599002168236:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0418/165507:599002168421:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param:  NOC_FGW :relay_interface_log
+[0418/165507:599002168576:VERBOSE1:(0)] [2016/04/18/16/55/07/700:24][noc_quic_fgw.cc(51)][global:interface] [INTERFACE] [from main to fgw ]QuicNocFrontGWSystem::init ok
+
+[0418/165507:599002168733:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0418/165507:599002168823:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0418/165507:599002169019:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0418/165507:599002169141:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param:  NOC_BGW :relay_interface_log
+[0418/165507:599002169318:INFO:noc_quic_bgw.cc(45)] QuicNocBackGWSystem::init ok
+[0418/165508:599003171449:INFO:app_server.cc(160)] ---setting bgw address from configure file to ip 192.168.1.22
+[0418/165508:599003171545:INFO:app_server.cc(172)] ---setting app server address from configure file to ip 192.168.1.25
+[0418/165508:599003171586:INFO:app_server.cc(178)] ---setting pincode_url server address from configure file to url: https://192.168.1.43:443/api/admin/query/pincode
+[0418/165508:599003171643:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: module:Database
+[0418/165508:599003171700:VERBOSE1:(0)] [2016/04/18/16/55/08/703:157][AppServerDataService.cc(59)][module:Database] [INNER] AppServerDataService::Instance()
+[0418/165508:599003171742:VERBOSE1:(0)] [2016/04/18/16/55/08/703:209][AppServerDataService.cc(46)][module:Database] [INNER] AppServerDataService::AppServerDataService()
+[0418/165508:599003171779:VERBOSE1:(0)] [2016/04/18/16/55/08/703:247][AppServerDataService.cc(71)][module:Database] [INNER] AppServerDataService::InitDatabase() begin.
+[0418/165508:599003172193:VERBOSE1:(0)] [2016/04/18/16/55/08/703:651][AppServerDataService.cc(147)][module:Database] [INNER] AppServerDataService::SetupMailDbTables() begin.
+[0418/165508:599003176399:VERBOSE1:(0)] [2016/04/18/16/55/08/707:851][AppServerDataService.cc(159)][module:Database] [INNER] AppServerDataService::SetupMailDbTables() end. ret = 0
+[0418/165508:599003176474:VERBOSE1:(0)] [2016/04/18/16/55/08/707:936][AppServerDataService.cc(86)][module:Database] [INNER] AppServerDataService::InitDatabase() end. ret =0 
+[0418/165508:599003176522:VERBOSE1:(0)] [2016/04/18/16/55/08/707:988][AppServerDataService.cc(281)][module:Database] [INNER] AppServerDataService::DeleteAllHostInfo, begin
+[0418/165508:599003178194:VERBOSE1:(0)] [2016/04/18/16/55/08/709:648][AppServerDataService.cc(297)][module:Database] [INNER] AppServerDataService::DeleteAllHostInfo, end ret=-1
+[0418/165508:599003178266:VERBOSE1:(0)] [2016/04/18/16/55/08/709:730][AppServerDataService.cc(226)][module:Database] [INNER] AppServerDataService::GetAllHostInfo, begin
+[0418/165508:599003178473:VERBOSE1:(0)] [2016/04/18/16/55/08/709:895][AppServerDataService.cc(246)][module:Database] [INNER] AppServerDataService::GetAllHostInfo, end
+[0418/165508:599003178538:INFO:test_common.cc(540)] query database: get host_infors count = 0
+[0418/165508:599003178592:INFO:test_common.cc(577)] Start App Server Provision
+[0418/165508:599003178647:INFO:test_common.cc(491)] Reading App Server Provision Params...
+[0418/165508:599003178865:INFO:test_common.cc(509)] App Server Provision Params Read
+[0418/165508:599003267667:INFO:test_common.cc(584)] host_id: 207
+host_key: e9403faf-2243-1ae6-de48-918d45ceb7f7
+gateway_addr: 182.92.190.232
+[0418/165508:599003267784:INFO:test_common.cc(595)] 0.0.0.207
+[0418/165508:599003267927:VERBOSE1:(0)] [2016/04/18/16/55/08/799:386][noc_quic_L1_client_system.cc(131)][global:interface] [INTERFACE] [from NetWorkEngine to LayerOneEngine ]createClientLayerOneEndPoint ,ueId=1,hostID=0xcf000000,remote addr=192.168.1.22:6000
+[0418/165508:599003268116:INFO:noc_epoll_loop.cc(238)] EpollLoop::AddFdInLoop fd 9 ip port=34087
+[0418/165508:599003268215:INFO:noc_epoll_loop.cc(190)] EpollLoop::register_callback fd 9
+[0418/165508:599003268317:INFO:noc_epoll_socket_implement.cc(286)] EpollSocketLowPort::register_event_callback fd=9
+[0418/165508:599003268406:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0
+[0418/165508:599003268647:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x20d90c0
+[0418/165508:599003268664:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x20d64a0
+[0418/165508:599003268845:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x20dbae0
+[0418/165508:599003269012:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x20de2e0
+[0418/165508:599003269559:INFO:noc_quic_client_endpoint.cc(91)] [M]NocQuicClientEndPoint createEndpoint ok,ret id 3472883712
+[0418/165508:599003269677:INFO:slim_socket.cc(198)] slimSocketNode::createL2DataReqSocket on APP_CLIENT_MODE 
+[0418/165508:599003269777:VERBOSE1:(0)] [2016/04/18/16/55/08/801:223][noc_quic_L1_client_system.cc(155)][system:layerOneEngine] [INNER] createClientLayerOneEndPoint ,ueId=1,hostID=0xcf000000,layer1_id=3472883712 ,node_id=256
+[0418/165508:599003269902:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0
+[0418/165508:599003270051:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x20d64a0
+[0418/165508:599003270073:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x20d90c0
+[0418/165508:599003270182:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x20dbae0
+[0418/165508:599003270461:INFO:noc_quic_appserver.cc(151)] QuicAppClientSystem::createAppServerEndPointid=(3472883712,layer2_id 1 ) ,ret=1
+[0418/165508:599003270525:INFO:noc_quic_appserver.cc(155)] QuicAppClientSystem::createAppServerEndPoint, layer2 host_id=207
+[0418/165508:599003270474:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x20de2e0
+[0418/165508:599003270687:INFO:slim_socket_agent.cc(28)] SlimSocketAgent::SlimSocketAgent, slim_socket_fd_seq_=2048
+[0418/165508:599003270889:INFO:slim_socket_agent.cc(400)] SlimSocketAgent::SocketManagerRegister start, host_id=207, work mode = 1
+[0418/165508:599003270968:INFO:test_common.cc(611)] param.L1Host: 207
+param.L1Key: e9403faf-2243-1ae6-de48-918d45ceb7f7
+[0418/165508:599003271012:INFO:noc_quic_relay_simulator.cc(391)] simu_relay_secret_key_init ,keye9403faf-2243-1ae6-de48-918d45ceb7f7
+[0418/165508:599003271056:VERBOSE1:(0)] [2016/04/18/16/55/08/802:520][noc_quic_L1_client_system.cc(174)][global:interface] [INTERFACE] [from NetWorkEngine to LayerOneEngine ]DoLayerOneQuicConnection ,L1hostId=207
+[0418/165508:599003271101:VERBOSE1:(0)] [2016/04/18/16/55/08/802:567][noc_quic_L1_client_system.cc(195)][system:layerOneEngine] [INNER] NocQuicSocketSystem::connectL1SocketLayer,ueId=1,id=3472883712
+[0418/165508:599003271200:INFO:noc_quic_L1_client_system.cc(349)] NocClientLayerOneEngine::secretL1ConnectionHostID host=207 key =e9403faf-2243-1ae6-de48-918d45ceb7f7 secreted_hostID=143
+[0418/165508:599003271304:INFO:noc_quic_client.cc(272)] NocQuicClient::connect, send L1 connection reset
+[0418/165508:599003271361:INFO:noc_quic_client.cc(478)] NocQuicClient::SendRst(), send reset message to peer, connectionId=3472883712
+[0418/165508:599003272207:INFO:test_common.cc(629)] app server client...  run_alone_mode=0
+[0418/165508:599003282138:INFO:noc_epoll_socket_implement.cc(163)] EpollSocketLowPort save the first address infor  on: APP_CLIENT_MODE  fd=9, self_address=192.168.1.25:34087, peer_address=192.168.1.22:6000
+[0418/165508:599003282774:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 2 for ip: 192.168.1.25:34087
+[0418/165508:599003282887:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 3 for ip: 192.168.1.25:34087
+[0418/165508:599003282968:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 5 for ip: 192.168.1.25:34087
+[0418/165508:599003283058:INFO:noc_quic_client_endpoint.cc(180)] NocQuicClientEndPoint::onEvtConnected connection id is: 3472883712
+[0418/165508:599003283133:INFO:noc_user_if.cc(39)] -----user interface -- client response got ---
+[0418/165508:599003283190:INFO:noc_quic_L1_client_system.cc(236)] NocClientLayerOneEngine::OnActivedConnectionResultNotify on  APP_CLIENT_MODE  ( ueId: 1), success, errCode(0)
+[0418/165508:599003283262:VERBOSE1:(0)] [2016/04/18/16/55/08/814:715][noc_quic_L1_client_system.cc(442)][system:layerOneEngine] [INNER] NocClientLayerOneEngine::SetUpControlIndicationChannel
+[0418/165508:599003283584:INFO:test_common.cc(427)] Host: 207
+L1Key: e9403faf-2243-1ae6-de48-918d45ceb7f7
+[0418/165508:599003283658:VERBOSE1:(0)] [2016/04/18/16/55/08/815:121][AppServerDataService.cc(169)][module:Database] [INNER] AppServerDataService:: AddHostInfo, begin
+[0418/165508:599003285869:VERBOSE1:(0)] [2016/04/18/16/55/08/817:320][AppServerDataService.cc(182)][module:Database] [INNER] AppServerDataService:: AddHostInfo, add information successfully
+[0418/165508:599003285952:VERBOSE1:(0)] [2016/04/18/16/55/08/817:414][AppServerDataService.cc(190)][module:Database] [INNER] AppServerDataService:: AddHostInfo, end ret=0
+[0418/165508:599003286035:INFO:test_common.cc(644)] App Server Provision finished
+[0418/165508:599003286106:INFO:test_common.cc(169)] ++++++++++++create TCP server socket start +++++++++++++++++++++
+[0418/165508:599003286330:INFO:test_common.cc(174)] ++++++++++++create UDP server socket start +++++++++++++++++++++
+[0418/165508:599003286388:INFO:slim_socket_agent.cc(43)] SlimSocketAgent::Socket start,  __domain=0, __type=2, _protocol=0
+[0418/165508:599003286449:INFO:slim_socket_agent.cc(52)] SlimSocketAgent::Socket end, allocated fd=2048
+[0418/165508:599003286492:INFO:test_common.cc(136)] ************** UDP test server create socket fd  ******************
+
+
+
+2048
+[0418/165508:599003286549:INFO:slim_socket_agent.cc(61)] SlimSocketAgent::SlimBind start, host_id=207, fd=2048
+[0418/165508:599003286731:INFO:slim_socket_agent.cc(43)] SlimSocketAgent::Socket start,  __domain=0, __type=1, _protocol=0
+[0418/165508:599003286798:INFO:slim_socket_agent.cc(52)] SlimSocketAgent::Socket end, allocated fd=2049
+[0418/165508:599003286835:INFO:slim_socket_agent.cc(61)] SlimSocketAgent::SlimBind start, host_id=207, fd=2049
+[0418/165508:599003286916:INFO:test_common.cc(303)] -------test server socket fd 2049 listen return
+[0418/165508:599003286996:INFO:slim_socket_agent.cc(141)] SlimSocketAgent::PrepareAccept start...., fd=2049
+[0418/165523:599018443393:INFO:noc_quic_appserver.cc(90)] Pincode Query success, pincode url=https://192.168.1.43:443/api/admin/query/pincode
+[0418/165523:599018462327:INFO:noc_quic_appserver.cc(103)] Pincode Query success, pincode =  0ced3308-f086-73ba-539b-6c38299246bb use_pin_code_query_= 1
+[0418/165523:599018462415:INFO:noc_quic_appserver.cc(117)] QuicAppClientSlystem::HandleCtrlIndication208 verify buflen 968
+[0418/165523:599018462537:INFO:noc_L1_connect_request_socket.cc(250)] slimSocketNode::SendCtrlIndication ready to send on: APP_CLIENT_MODE  type=@ datalen=20
+[0418/165523:599018471372:INFO:noc_quic_server_endpoint.cc(182)] NocQuicSeverEndPoint::processSocketDataIn reset packet found
+[0418/165524:599018511817:INFO:noc_quic_server_endpoint.cc(190)] NocQuicSeverEndPoint::processSocketDataIn: incoming connection request, dispatch msg_loop=0x20d90c0
+[0418/165524:599018511872:INFO:noc_quic_server_endpoint.cc(193)] NocQuicSeverEndPoint self process packet: 0.0.0.207:10001
+[0418/165524:599018512550:INFO:noc_quic_crypto_stream.cc(163)] NocCryptoServerStream::OnHandshakeMessage ,this=0x7f5260024ba0
+[0418/165524:599018512614:INFO:noc_quic_crypto_stream.cc(192)] NocCryptoServerStream receive CHLO,  server_address=0.0.0.207:10001, connection_id=889058230480
+[0418/165524:599018512702:WARNING:quic_framer.cc(592)] Unable to process packet header.  Stopping parsing.
+[0418/165524:599018512799:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10002 on  APP_CLIENT_MODE  on thread: 0x20d90c0
+[0418/165524:599018512917:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10002 on  APP_CLIENT_MODE  on thread: 0x20d64a0
+[0418/165524:599018513009:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10002 on  APP_CLIENT_MODE  on thread: 0x20de2e0
+[0418/165524:599018513085:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10002 on  APP_CLIENT_MODE  on thread: 0x20dbae0
+[0418/165524:599018513141:INFO:noc_quic_server_endpoint.cc(366)] create new socket fd for connection 889058230480, new_self: 0.0.0.207:10002
+[0418/165524:599018513264:INFO:noc_quic_server.cc(206)] NocQuicServer::setConnectionTimeout disabled timeout
+[0418/165524:599018513293:INFO:noc_quic_server.cc(410)] NocQuicServer::InitQuicServerState
+[0418/165524:599018513320:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicServerStateSetup
+[0418/165524:599018513354:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicServerStateActive
+[0418/165524:599018513397:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicServerStateResume
+[0418/165524:599018513461:INFO:noc_quic_server_endpoint.cc(207)] NocQuicSeverEndPoint::evtL2CHLOMessageIn self=0.0.0.207:10001
+[0418/165524:599018514730:INFO:slim_socket.cc(361)] slimSocketBase::createSeverSlimNode begin
+[0418/165524:599018514851:INFO:slim_socket.cc(377)] slimSocketBase::createSeverSlimNode on 0.0.0.207:10002
+[0418/165524:599018514920:INFO:slim_socket.cc(198)] slimSocketNode::createL2DataReqSocket on APP_CLIENT_MODE 
+[0418/165524:599018515022:INFO:noc_quic_server.cc(295)] NocQuicServer::reserveDataStream reserved stream ID 2 for ip: 0.0.0.207:10002
+[0418/165524:599018515110:INFO:noc_quic_server.cc(295)] NocQuicServer::reserveDataStream reserved stream ID 4 for ip: 0.0.0.207:10002
+[0418/165524:599018515209:INFO:noc_quic_server.cc(295)] NocQuicServer::reserveDataStream reserved stream ID 5 for ip: 0.0.0.207:10002
+[0418/165524:599018548244:INFO:slim_socket_manager.cc(401)] SlimSocketManager::GetSlimBaseSocketr not found streamID 196616000 on connection 889058230480 from: 208.0.0.0:8888
+[0418/165524:599018548304:INFO:slim_socket_manager.cc(681)] SlimSocketManager::GetSocketConnectionCtrlInfor: connection_id, stream_id: (889058230480, 196616000) found, info: (tcp, 889058230480, 196616000, 0.0.0.208:8000, 0.0.0.2:3000)
+[0418/165524:599018548374:INFO:slim_socket_manager.cc(518)] SlimSocketManager::CheckInComingListenStream return true for streamID 196616000
+[0418/165524:599018548407:INFO:slim_socket_manager.cc(737)] SlimSocketManager::onDataIn, connection_request=a, read_count=1
+[0418/165524:599018548431:INFO:slim_base_socket.cc(161)] SlimBaseSocket::CheckPendingListDuplic size=0
+[0418/165524:599018548499:INFO:slim_base_socket.cc(156)] SlimBaseSocket::AcceptPendingListAdd, size=1
+[0418/165524:599018548525:INFO:slim_socket_manager.cc(445)] SlimSocketManager::PrepareInComingStreamOnListen directly callback user listen process.. 
+[0418/165524:599018548598:INFO:slim_socket_agent.cc(164)] SlimSocketAgent::PrepareAccept  return ,cnt= 0
+[0418/165524:599018548635:INFO:slim_socket_manager.cc(229)] SlimSocketManager::Accept fd begin: 2049
+[0418/165524:599018548672:INFO:slim_socket_manager.cc(660)] SlimSocketManager::RemoveSocketConnectionCtrlInfor: connection_id, stream_id: 889058230480, 196616000
+[0418/165524:599018548696:INFO:slim_socket_manager.cc(247)] SlimSocketManager::Accept new fd: 4048
+[0418/165524:599018548718:INFO:test_common.cc(311)] -------test server socket fd 2049 accept newfd:4048
+[0418/165524:599018548837:INFO:test_common.cc(303)] -------test server socket fd 2049 listen return
+[0418/165524:599018548867:INFO:slim_socket_agent.cc(141)] SlimSocketAgent::PrepareAccept start...., fd=2049
+[0418/165524:599018552093:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1 ,total_rcv_size=1000
+[0418/165524:599018554039:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=2 ,total_rcv_size=2000
+[0418/165524:599018557478:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=3 ,total_rcv_size=3000
+[0418/165524:599018559926:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=4 ,total_rcv_size=4000
+[0418/165524:599018565087:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=5 ,total_rcv_size=5000
+[0418/165524:599018566695:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=6 ,total_rcv_size=6000
+[0418/165524:599018570887:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=7 ,total_rcv_size=7000
+[0418/165524:599018572097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=8 ,total_rcv_size=8000
+[0418/165524:599018575972:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=9 ,total_rcv_size=9000
+[0418/165524:599018576372:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=10 ,total_rcv_size=10000
+[0418/165524:599018576797:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=11 ,total_rcv_size=11000
+[0418/165524:599018576967:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=12 ,total_rcv_size=12000
+[0418/165524:599018577403:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=13 ,total_rcv_size=13000
+[0418/165524:599018577572:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=14 ,total_rcv_size=14000
+[0418/165524:599018577891:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=15 ,total_rcv_size=15000
+[0418/165524:599018578055:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=16 ,total_rcv_size=16000
+[0418/165524:599018578210:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=347 rx_cnt=17 ,total_rcv_size=16347
+[0418/165524:599018616755:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=653 rx_cnt=18 ,total_rcv_size=17000
+[0418/165524:599018617702:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=19 ,total_rcv_size=18000
+[0418/165524:599018621173:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=20 ,total_rcv_size=19000
+[0418/165524:599018622206:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=21 ,total_rcv_size=20000
+[0418/165524:599018622921:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=22 ,total_rcv_size=21000
+[0418/165524:599018626575:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=23 ,total_rcv_size=22000
+[0418/165524:599018629743:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=24 ,total_rcv_size=23000
+[0418/165524:599018634787:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=25 ,total_rcv_size=24000
+[0418/165524:599018635496:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=26 ,total_rcv_size=25000
+[0418/165524:599018638605:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=27 ,total_rcv_size=26000
+[0418/165524:599018640957:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=28 ,total_rcv_size=27000
+[0418/165524:599018641743:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=29 ,total_rcv_size=28000
+[0418/165524:599018646056:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=30 ,total_rcv_size=29000
+[0418/165524:599018647194:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=31 ,total_rcv_size=30000
+[0418/165524:599018649758:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=32 ,total_rcv_size=31000
+[0418/165524:599018652193:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=33 ,total_rcv_size=32000
+[0418/165524:599018654260:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=34 ,total_rcv_size=33000
+[0418/165524:599018658204:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=35 ,total_rcv_size=34000
+[0418/165524:599018662492:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=36 ,total_rcv_size=35000
+[0418/165524:599018663617:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=37 ,total_rcv_size=36000
+[0418/165524:599018665465:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=38 ,total_rcv_size=37000
+[0418/165524:599018666664:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=39 ,total_rcv_size=38000
+[0418/165524:599018670470:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=40 ,total_rcv_size=39000
+[0418/165524:599018672641:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=41 ,total_rcv_size=40000
+[0418/165524:599018675604:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=42 ,total_rcv_size=41000
+[0418/165524:599018679438:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=43 ,total_rcv_size=42000
+[0418/165524:599018680210:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=44 ,total_rcv_size=43000
+[0418/165524:599018683923:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=45 ,total_rcv_size=44000
+[0418/165524:599018687081:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=46 ,total_rcv_size=45000
+[0418/165524:599018688062:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=47 ,total_rcv_size=46000
+[0418/165524:599018689571:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=48 ,total_rcv_size=47000
+[0418/165524:599018693312:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=49 ,total_rcv_size=48000
+[0418/165524:599018694586:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=50 ,total_rcv_size=49000
+[0418/165524:599018695784:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=51 ,total_rcv_size=50000
+[0418/165524:599018697322:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=52 ,total_rcv_size=51000
+[0418/165524:599018701754:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=53 ,total_rcv_size=52000
+[0418/165524:599018704786:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=54 ,total_rcv_size=53000
+[0418/165524:599018706720:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=55 ,total_rcv_size=54000
+[0418/165524:599018710512:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=56 ,total_rcv_size=55000
+[0418/165524:599018712523:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=57 ,total_rcv_size=56000
+[0418/165524:599018715350:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=58 ,total_rcv_size=57000
+[0418/165524:599018718916:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=59 ,total_rcv_size=58000
+[0418/165524:599018721566:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=60 ,total_rcv_size=59000
+[0418/165524:599018723970:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=61 ,total_rcv_size=60000
+[0418/165524:599018727121:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=62 ,total_rcv_size=61000
+[0418/165524:599018729530:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=63 ,total_rcv_size=61384
+[0418/165524:599018734738:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=64 ,total_rcv_size=62384
+[0418/165524:599018737997:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=65 ,total_rcv_size=63384
+[0418/165524:599018742132:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=66 ,total_rcv_size=64384
+[0418/165524:599018746637:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=67 ,total_rcv_size=65384
+[0418/165524:599018749949:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=68 ,total_rcv_size=66384
+[0418/165524:599018751984:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=69 ,total_rcv_size=67384
+[0418/165524:599018755628:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=70 ,total_rcv_size=68384
+[0418/165524:599018759308:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=71 ,total_rcv_size=69384
+[0418/165524:599018762364:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=72 ,total_rcv_size=70384
+[0418/165524:599018765042:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=73 ,total_rcv_size=71384
+[0418/165524:599018766037:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=74 ,total_rcv_size=72384
+[0418/165524:599018767160:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=75 ,total_rcv_size=73384
+[0418/165524:599018767562:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=76 ,total_rcv_size=74384
+[0418/165524:599018767882:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=77 ,total_rcv_size=75384
+[0418/165524:599018768381:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=78 ,total_rcv_size=76384
+[0418/165524:599018768715:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=79 ,total_rcv_size=77384
+[0418/165524:599018768915:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=80 ,total_rcv_size=78384
+[0418/165524:599018769147:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=81 ,total_rcv_size=78768
+[0418/165524:599018804140:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=232 rx_cnt=82 ,total_rcv_size=79000
+[0418/165524:599018808253:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=83 ,total_rcv_size=80000
+[0418/165524:599018809154:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=84 ,total_rcv_size=81000
+[0418/165524:599018811410:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=85 ,total_rcv_size=82000
+[0418/165524:599018812192:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=86 ,total_rcv_size=83000
+[0418/165524:599018813887:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=87 ,total_rcv_size=84000
+[0418/165524:599018818089:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=88 ,total_rcv_size=85000
+[0418/165524:599018821031:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=89 ,total_rcv_size=86000
+[0418/165524:599018822162:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=90 ,total_rcv_size=87000
+[0418/165524:599018824667:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=91 ,total_rcv_size=88000
+[0418/165524:599018828071:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=92 ,total_rcv_size=89000
+[0418/165524:599018835015:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=93 ,total_rcv_size=90000
+[0418/165524:599018836525:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=94 ,total_rcv_size=91000
+[0418/165524:599018839358:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=95 ,total_rcv_size=92000
+[0418/165524:599018842743:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=96 ,total_rcv_size=93000
+[0418/165524:599018844599:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=97 ,total_rcv_size=94000
+[0418/165524:599018845991:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=98 ,total_rcv_size=95000
+[0418/165524:599018846758:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=99 ,total_rcv_size=96000
+[0418/165524:599018847383:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=100 ,total_rcv_size=96384
+[0418/165524:599018853963:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=101 ,total_rcv_size=97000
+[0418/165524:599018860170:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=102 ,total_rcv_size=98000
+[0418/165524:599018864490:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=103 ,total_rcv_size=99000
+[0418/165524:599018869538:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=104 ,total_rcv_size=100000
+[0418/165524:599018878152:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=105 ,total_rcv_size=101000
+[0418/165524:599018882172:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=106 ,total_rcv_size=102000
+[0418/165524:599018886999:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=107 ,total_rcv_size=103000
+[0418/165524:599018891226:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=108 ,total_rcv_size=104000
+[0418/165524:599018893623:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=109 ,total_rcv_size=105000
+[0418/165524:599018894176:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=110 ,total_rcv_size=106000
+[0418/165524:599018894983:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=111 ,total_rcv_size=107000
+[0418/165524:599018895221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=112 ,total_rcv_size=108000
+[0418/165524:599018895585:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=113 ,total_rcv_size=109000
+[0418/165524:599018895876:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=114 ,total_rcv_size=110000
+[0418/165524:599018896350:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=115 ,total_rcv_size=111000
+[0418/165524:599018896643:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=116 ,total_rcv_size=112000
+[0418/165524:599018897036:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=117 ,total_rcv_size=113000
+[0418/165524:599018897340:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=118 ,total_rcv_size=114000
+[0418/165524:599018897632:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=119 ,total_rcv_size=114384
+[0418/165524:599018935280:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=120 ,total_rcv_size=115000
+[0418/165524:599018937105:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=121 ,total_rcv_size=116000
+[0418/165524:599018938898:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=122 ,total_rcv_size=117000
+[0418/165524:599018942445:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=123 ,total_rcv_size=118000
+[0418/165524:599018943327:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=124 ,total_rcv_size=119000
+[0418/165524:599018947793:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=125 ,total_rcv_size=120000
+[0418/165524:599018950865:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=126 ,total_rcv_size=121000
+[0418/165524:599018952616:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=127 ,total_rcv_size=122000
+[0418/165524:599018953487:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=128 ,total_rcv_size=123000
+[0418/165524:599018957504:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=129 ,total_rcv_size=124000
+[0418/165524:599018962019:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=130 ,total_rcv_size=125000
+[0418/165524:599018963111:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=131 ,total_rcv_size=126000
+[0418/165524:599018966299:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=132 ,total_rcv_size=127000
+[0418/165524:599018967590:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=133 ,total_rcv_size=128000
+[0418/165524:599018970748:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=134 ,total_rcv_size=129000
+[0418/165524:599018973584:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=135 ,total_rcv_size=130000
+[0418/165524:599018978216:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=136 ,total_rcv_size=131000
+[0418/165524:599018979516:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=137 ,total_rcv_size=132000
+[0418/165524:599018981888:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=138 ,total_rcv_size=133000
+[0418/165524:599018985441:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=139 ,total_rcv_size=134000
+[0418/165524:599018989087:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=140 ,total_rcv_size=135000
+[0418/165524:599018990392:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=141 ,total_rcv_size=136000
+[0418/165524:599018991227:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=142 ,total_rcv_size=137000
+[0418/165524:599018995380:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=143 ,total_rcv_size=138000
+[0418/165524:599018998280:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=144 ,total_rcv_size=139000
+[0418/165524:599019002554:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=145 ,total_rcv_size=140000
+[0418/165524:599019003505:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=146 ,total_rcv_size=141000
+[0418/165524:599019006340:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=147 ,total_rcv_size=142000
+[0418/165524:599019009624:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=148 ,total_rcv_size=143000
+[0418/165524:599019010523:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=149 ,total_rcv_size=144000
+[0418/165524:599019013171:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=150 ,total_rcv_size=145000
+[0418/165524:599019016273:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=151 ,total_rcv_size=146000
+[0418/165524:599019018809:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=152 ,total_rcv_size=147000
+[0418/165524:599019022161:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=153 ,total_rcv_size=148000
+[0418/165524:599019026706:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=154 ,total_rcv_size=149000
+[0418/165524:599019027747:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=155 ,total_rcv_size=150000
+[0418/165524:599019029819:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=156 ,total_rcv_size=151000
+[0418/165524:599019031289:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=157 ,total_rcv_size=152000
+[0418/165524:599019035466:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=158 ,total_rcv_size=153000
+[0418/165524:599019038041:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=159 ,total_rcv_size=154000
+[0418/165524:599019041541:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=160 ,total_rcv_size=155000
+[0418/165524:599019043615:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=161 ,total_rcv_size=156000
+[0418/165524:599019044390:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=162 ,total_rcv_size=157000
+[0418/165524:599019050865:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=163 ,total_rcv_size=158000
+[0418/165524:599019051630:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=164 ,total_rcv_size=159000
+[0418/165524:599019054897:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=165 ,total_rcv_size=160000
+[0418/165524:599019057192:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=166 ,total_rcv_size=161000
+[0418/165524:599019057971:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=167 ,total_rcv_size=162000
+[0418/165524:599019060867:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=168 ,total_rcv_size=163000
+[0418/165524:599019063172:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=169 ,total_rcv_size=164000
+[0418/165524:599019065480:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=170 ,total_rcv_size=165000
+[0418/165524:599019069132:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=171 ,total_rcv_size=166000
+[0418/165524:599019073470:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=172 ,total_rcv_size=167000
+[0418/165524:599019074139:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=173 ,total_rcv_size=168000
+[0418/165524:599019076177:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=174 ,total_rcv_size=169000
+[0418/165524:599019078379:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=175 ,total_rcv_size=170000
+[0418/165524:599019081401:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=176 ,total_rcv_size=171000
+[0418/165524:599019083111:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=177 ,total_rcv_size=172000
+[0418/165524:599019084903:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=178 ,total_rcv_size=173000
+[0418/165524:599019088816:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=179 ,total_rcv_size=174000
+[0418/165524:599019092269:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=180 ,total_rcv_size=175000
+[0418/165524:599019097788:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=181 ,total_rcv_size=176000
+[0418/165524:599019098579:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=182 ,total_rcv_size=177000
+[0418/165524:599019101030:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=183 ,total_rcv_size=178000
+[0418/165524:599019102470:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=184 ,total_rcv_size=179000
+[0418/165524:599019104480:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=185 ,total_rcv_size=180000
+[0418/165524:599019107586:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=186 ,total_rcv_size=181000
+[0418/165524:599019109968:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=187 ,total_rcv_size=182000
+[0418/165524:599019112113:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=188 ,total_rcv_size=183000
+[0418/165524:599019115942:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=189 ,total_rcv_size=184000
+[0418/165524:599019119989:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=190 ,total_rcv_size=185000
+[0418/165524:599019120709:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=191 ,total_rcv_size=186000
+[0418/165524:599019123444:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=192 ,total_rcv_size=187000
+[0418/165524:599019124935:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=193 ,total_rcv_size=188000
+[0418/165524:599019126310:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=194 ,total_rcv_size=189000
+[0418/165524:599019130012:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=195 ,total_rcv_size=190000
+[0418/165524:599019131767:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=196 ,total_rcv_size=191000
+[0418/165524:599019135220:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=197 ,total_rcv_size=192000
+[0418/165524:599019138557:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=198 ,total_rcv_size=193000
+[0418/165524:599019141167:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=199 ,total_rcv_size=194000
+[0418/165524:599019141948:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=200 ,total_rcv_size=195000
+[0418/165524:599019148181:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=201 ,total_rcv_size=196000
+[0418/165524:599019150258:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=202 ,total_rcv_size=197000
+[0418/165524:599019151913:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=203 ,total_rcv_size=198000
+[0418/165524:599019154027:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=204 ,total_rcv_size=199000
+[0418/165524:599019155066:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=205 ,total_rcv_size=200000
+[0418/165524:599019156365:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=206 ,total_rcv_size=201000
+[0418/165524:599019158136:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=207 ,total_rcv_size=202000
+[0418/165524:599019159662:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=208 ,total_rcv_size=203000
+[0418/165524:599019161552:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=209 ,total_rcv_size=204000
+[0418/165524:599019162263:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=210 ,total_rcv_size=204384
+[0418/165524:599019168529:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=211 ,total_rcv_size=205000
+[0418/165524:599019173200:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=212 ,total_rcv_size=206000
+[0418/165524:599019176523:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=213 ,total_rcv_size=207000
+[0418/165524:599019182523:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=214 ,total_rcv_size=208000
+[0418/165524:599019186469:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=215 ,total_rcv_size=209000
+[0418/165524:599019187423:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=216 ,total_rcv_size=210000
+[0418/165524:599019191372:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=217 ,total_rcv_size=211000
+[0418/165524:599019193066:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=218 ,total_rcv_size=212000
+[0418/165524:599019194749:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=219 ,total_rcv_size=213000
+[0418/165524:599019196277:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=220 ,total_rcv_size=214000
+[0418/165524:599019198847:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=221 ,total_rcv_size=215000
+[0418/165524:599019200564:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=222 ,total_rcv_size=216000
+[0418/165524:599019202468:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=223 ,total_rcv_size=217000
+[0418/165524:599019203453:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=224 ,total_rcv_size=218000
+[0418/165524:599019203927:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=225 ,total_rcv_size=219000
+[0418/165524:599019204216:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=226 ,total_rcv_size=220000
+[0418/165524:599019205150:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=227 ,total_rcv_size=221000
+[0418/165524:599019206125:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=228 ,total_rcv_size=222000
+[0418/165524:599019206755:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=229 ,total_rcv_size=222384
+[0418/165524:599019212534:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=230 ,total_rcv_size=223000
+[0418/165524:599019216863:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=231 ,total_rcv_size=224000
+[0418/165524:599019217213:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=232 ,total_rcv_size=225000
+[0418/165524:599019223962:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=233 ,total_rcv_size=226000
+[0418/165524:599019229191:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=234 ,total_rcv_size=227000
+[0418/165524:599019232116:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=235 ,total_rcv_size=228000
+[0418/165524:599019234186:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=236 ,total_rcv_size=229000
+[0418/165524:599019236508:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=237 ,total_rcv_size=230000
+[0418/165524:599019237223:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=238 ,total_rcv_size=231000
+[0418/165524:599019240706:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=239 ,total_rcv_size=232000
+[0418/165524:599019244023:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=240 ,total_rcv_size=233000
+[0418/165524:599019247332:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=241 ,total_rcv_size=234000
+[0418/165524:599019248192:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=242 ,total_rcv_size=235000
+[0418/165524:599019249328:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=243 ,total_rcv_size=236000
+[0418/165524:599019251401:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=244 ,total_rcv_size=237000
+[0418/165524:599019252529:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=245 ,total_rcv_size=238000
+[0418/165524:599019252686:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=246 ,total_rcv_size=239000
+[0418/165524:599019253352:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=247 ,total_rcv_size=240000
+[0418/165524:599019253723:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=248 ,total_rcv_size=240384
+[0418/165524:599019257799:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=249 ,total_rcv_size=241000
+[0418/165524:599019261912:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=250 ,total_rcv_size=242000
+[0418/165524:599019267242:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=251 ,total_rcv_size=243000
+[0418/165524:599019273506:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=252 ,total_rcv_size=244000
+[0418/165524:599019276841:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=253 ,total_rcv_size=245000
+[0418/165524:599019279120:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=254 ,total_rcv_size=246000
+[0418/165524:599019282810:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=255 ,total_rcv_size=247000
+[0418/165524:599019284816:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=256 ,total_rcv_size=248000
+[0418/165524:599019286081:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=257 ,total_rcv_size=249000
+[0418/165524:599019286259:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=258 ,total_rcv_size=250000
+[0418/165524:599019287350:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=259 ,total_rcv_size=251000
+[0418/165524:599019287559:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=260 ,total_rcv_size=252000
+[0418/165524:599019287741:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=261 ,total_rcv_size=253000
+[0418/165524:599019290465:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=262 ,total_rcv_size=254000
+[0418/165524:599019294021:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=263 ,total_rcv_size=255000
+[0418/165524:599019294819:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=264 ,total_rcv_size=256000
+[0418/165524:599019295889:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=265 ,total_rcv_size=257000
+[0418/165524:599019298345:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=266 ,total_rcv_size=258000
+[0418/165524:599019298487:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=267 ,total_rcv_size=258384
+[0418/165524:599019339644:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=268 ,total_rcv_size=259000
+[0418/165524:599019340773:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=269 ,total_rcv_size=260000
+[0418/165524:599019343010:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=270 ,total_rcv_size=261000
+[0418/165524:599019343569:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=271 ,total_rcv_size=262000
+[0418/165524:599019348215:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=272 ,total_rcv_size=263000
+[0418/165524:599019349875:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=273 ,total_rcv_size=264000
+[0418/165524:599019352885:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=274 ,total_rcv_size=265000
+[0418/165524:599019356459:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=275 ,total_rcv_size=266000
+[0418/165524:599019357388:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=276 ,total_rcv_size=267000
+[0418/165524:599019360601:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=277 ,total_rcv_size=268000
+[0418/165524:599019362546:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=278 ,total_rcv_size=269000
+[0418/165524:599019363906:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=279 ,total_rcv_size=270000
+[0418/165524:599019369444:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=280 ,total_rcv_size=271000
+[0418/165524:599019371779:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=281 ,total_rcv_size=272000
+[0418/165524:599019374778:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=282 ,total_rcv_size=273000
+[0418/165524:599019379005:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=283 ,total_rcv_size=274000
+[0418/165524:599019383423:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=284 ,total_rcv_size=275000
+[0418/165524:599019387213:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=285 ,total_rcv_size=276000
+[0418/165524:599019389980:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=286 ,total_rcv_size=277000
+[0418/165524:599019393548:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=287 ,total_rcv_size=278000
+[0418/165524:599019396104:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=288 ,total_rcv_size=279000
+[0418/165524:599019397124:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=289 ,total_rcv_size=280000
+[0418/165524:599019397841:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=290 ,total_rcv_size=281000
+[0418/165524:599019398052:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=291 ,total_rcv_size=282000
+[0418/165524:599019398261:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=292 ,total_rcv_size=283000
+[0418/165524:599019398454:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=293 ,total_rcv_size=284000
+[0418/165524:599019398677:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=294 ,total_rcv_size=285000
+[0418/165524:599019398891:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=295 ,total_rcv_size=285384
+[0418/165524:599019433484:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=296 ,total_rcv_size=286000
+[0418/165524:599019437818:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=297 ,total_rcv_size=287000
+[0418/165524:599019438562:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=298 ,total_rcv_size=288000
+[0418/165524:599019440792:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=299 ,total_rcv_size=289000
+[0418/165524:599019441734:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=300 ,total_rcv_size=290000
+[0418/165524:599019444259:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=301 ,total_rcv_size=291000
+[0418/165524:599019446984:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=302 ,total_rcv_size=292000
+[0418/165524:599019452770:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=303 ,total_rcv_size=293000
+[0418/165524:599019453507:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=304 ,total_rcv_size=294000
+[0418/165524:599019457286:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=305 ,total_rcv_size=295000
+[0418/165524:599019460594:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=306 ,total_rcv_size=296000
+[0418/165524:599019461592:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=307 ,total_rcv_size=297000
+[0418/165524:599019461767:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=308 ,total_rcv_size=298000
+[0418/165524:599019467365:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=309 ,total_rcv_size=299000
+[0418/165524:599019470313:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=310 ,total_rcv_size=300000
+[0418/165525:599019473397:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=311 ,total_rcv_size=301000
+[0418/165525:599019482874:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=312 ,total_rcv_size=302000
+[0418/165525:599019486442:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=313 ,total_rcv_size=303000
+[0418/165525:599019489456:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=314 ,total_rcv_size=304000
+[0418/165525:599019491883:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=315 ,total_rcv_size=305000
+[0418/165525:599019493878:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=316 ,total_rcv_size=306000
+[0418/165525:599019494266:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=317 ,total_rcv_size=307000
+[0418/165525:599019494489:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=318 ,total_rcv_size=308000
+[0418/165525:599019494812:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=319 ,total_rcv_size=309000
+[0418/165525:599019495128:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=320 ,total_rcv_size=310000
+[0418/165525:599019495273:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=321 ,total_rcv_size=311000
+[0418/165525:599019495444:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=322 ,total_rcv_size=312000
+[0418/165525:599019495597:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=323 ,total_rcv_size=312384
+[0418/165525:599019525109:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=324 ,total_rcv_size=313000
+[0418/165525:599019529701:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=325 ,total_rcv_size=314000
+[0418/165525:599019530112:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=326 ,total_rcv_size=315000
+[0418/165525:599019532753:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=327 ,total_rcv_size=316000
+[0418/165525:599019533422:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=328 ,total_rcv_size=317000
+[0418/165525:599019536447:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=329 ,total_rcv_size=318000
+[0418/165525:599019538897:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=330 ,total_rcv_size=319000
+[0418/165525:599019541470:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=331 ,total_rcv_size=320000
+[0418/165525:599019544865:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=332 ,total_rcv_size=321000
+[0418/165525:599019548038:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=333 ,total_rcv_size=322000
+[0418/165525:599019550914:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=334 ,total_rcv_size=323000
+[0418/165525:599019551987:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=335 ,total_rcv_size=324000
+[0418/165525:599019555447:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=336 ,total_rcv_size=325000
+[0418/165525:599019557097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=337 ,total_rcv_size=326000
+[0418/165525:599019559470:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=338 ,total_rcv_size=327000
+[0418/165525:599019573096:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=339 ,total_rcv_size=328000
+[0418/165525:599019574568:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=340 ,total_rcv_size=329000
+[0418/165525:599019575537:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=341 ,total_rcv_size=330000
+[0418/165525:599019577248:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=342 ,total_rcv_size=331000
+[0418/165525:599019580369:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=343 ,total_rcv_size=332000
+[0418/165525:599019582687:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=344 ,total_rcv_size=333000
+[0418/165525:599019584896:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=345 ,total_rcv_size=334000
+[0418/165525:599019585431:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=346 ,total_rcv_size=335000
+[0418/165525:599019585669:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=347 ,total_rcv_size=336000
+[0418/165525:599019587221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=348 ,total_rcv_size=337000
+[0418/165525:599019589630:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=349 ,total_rcv_size=338000
+[0418/165525:599019590266:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=350 ,total_rcv_size=339000
+[0418/165525:599019598554:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=351 ,total_rcv_size=339384
+[0418/165525:599019604725:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=352 ,total_rcv_size=340000
+[0418/165525:599019611455:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=353 ,total_rcv_size=341000
+[0418/165525:599019614602:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=354 ,total_rcv_size=342000
+[0418/165525:599019620811:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=355 ,total_rcv_size=343000
+[0418/165525:599019622875:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=356 ,total_rcv_size=344000
+[0418/165525:599019624588:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=357 ,total_rcv_size=345000
+[0418/165525:599019626040:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=358 ,total_rcv_size=346000
+[0418/165525:599019627538:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=359 ,total_rcv_size=347000
+[0418/165525:599019629003:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=360 ,total_rcv_size=348000
+[0418/165525:599019630450:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=361 ,total_rcv_size=349000
+[0418/165525:599019632135:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=362 ,total_rcv_size=350000
+[0418/165525:599019633081:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=363 ,total_rcv_size=351000
+[0418/165525:599019633575:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=364 ,total_rcv_size=352000
+[0418/165525:599019633938:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=365 ,total_rcv_size=353000
+[0418/165525:599019634257:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=366 ,total_rcv_size=354000
+[0418/165525:599019645373:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=367 ,total_rcv_size=355000
+[0418/165525:599019646104:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=368 ,total_rcv_size=356000
+[0418/165525:599019647810:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=369 ,total_rcv_size=357000
+[0418/165525:599019648559:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=370 ,total_rcv_size=357384
+[0418/165525:599019654448:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=371 ,total_rcv_size=358000
+[0418/165525:599019656099:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=372 ,total_rcv_size=359000
+[0418/165525:599019657108:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=373 ,total_rcv_size=360000
+[0418/165525:599019659169:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=374 ,total_rcv_size=361000
+[0418/165525:599019665926:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=375 ,total_rcv_size=362000
+[0418/165525:599019668990:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=376 ,total_rcv_size=363000
+[0418/165525:599019671319:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=377 ,total_rcv_size=364000
+[0418/165525:599019679111:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=378 ,total_rcv_size=365000
+[0418/165525:599019683913:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=379 ,total_rcv_size=366000
+[0418/165525:599019687437:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=380 ,total_rcv_size=367000
+[0418/165525:599019691880:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=381 ,total_rcv_size=368000
+[0418/165525:599019695030:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=382 ,total_rcv_size=369000
+[0418/165525:599019695874:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=383 ,total_rcv_size=370000
+[0418/165525:599019696314:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=384 ,total_rcv_size=371000
+[0418/165525:599019696594:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=385 ,total_rcv_size=372000
+[0418/165525:599019696856:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=386 ,total_rcv_size=373000
+[0418/165525:599019697143:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=387 ,total_rcv_size=374000
+[0418/165525:599019697378:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=388 ,total_rcv_size=375000
+[0418/165525:599019697791:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=389 ,total_rcv_size=375384
+[0418/165525:599019732890:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=390 ,total_rcv_size=376384
+[0418/165525:599019733098:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=391 ,total_rcv_size=377000
+[0418/165525:599019735057:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=392 ,total_rcv_size=378000
+[0418/165525:599019736211:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=393 ,total_rcv_size=379000
+[0418/165525:599019740054:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=394 ,total_rcv_size=380000
+[0418/165525:599019742106:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=395 ,total_rcv_size=381000
+[0418/165525:599019745020:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=396 ,total_rcv_size=382000
+[0418/165525:599019749494:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=397 ,total_rcv_size=383000
+[0418/165525:599019750732:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=398 ,total_rcv_size=384000
+[0418/165525:599019753930:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=399 ,total_rcv_size=385000
+[0418/165525:599019758895:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=400 ,total_rcv_size=386000
+[0418/165525:599019759073:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=401 ,total_rcv_size=387000
+[0418/165525:599019760411:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=402 ,total_rcv_size=388000
+[0418/165525:599019762350:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=403 ,total_rcv_size=389000
+[0418/165525:599019765336:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=404 ,total_rcv_size=390000
+[0418/165525:599019770238:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=405 ,total_rcv_size=391000
+[0418/165525:599019771152:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=406 ,total_rcv_size=392000
+[0418/165525:599019773696:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=407 ,total_rcv_size=393000
+[0418/165525:599019775491:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=408 ,total_rcv_size=394000
+[0418/165525:599019778221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=409 ,total_rcv_size=395000
+[0418/165525:599019780527:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=410 ,total_rcv_size=396000
+[0418/165525:599019782526:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=411 ,total_rcv_size=397000
+[0418/165525:599019785668:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=412 ,total_rcv_size=398000
+[0418/165525:599019791161:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=413 ,total_rcv_size=399000
+[0418/165525:599019792888:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=414 ,total_rcv_size=400000
+[0418/165525:599019796913:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=415 ,total_rcv_size=401000
+[0418/165525:599019799163:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=416 ,total_rcv_size=402000
+[0418/165525:599019803138:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=417 ,total_rcv_size=403000
+[0418/165525:599019805232:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=418 ,total_rcv_size=404000
+[0418/165525:599019807330:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=419 ,total_rcv_size=405000
+[0418/165525:599019808274:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=420 ,total_rcv_size=406000
+[0418/165525:599019810465:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=421 ,total_rcv_size=407000
+[0418/165525:599019812356:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=422 ,total_rcv_size=408000
+[0418/165525:599019813706:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=423 ,total_rcv_size=409000
+[0418/165525:599019813961:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=424 ,total_rcv_size=410000
+[0418/165525:599019814307:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=425 ,total_rcv_size=410384
+[0418/165525:599019818783:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=426 ,total_rcv_size=411000
+[0418/165525:599019824456:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=427 ,total_rcv_size=412000
+[0418/165525:599019835219:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=428 ,total_rcv_size=413000
+[0418/165525:599019840831:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=429 ,total_rcv_size=414000
+[0418/165525:599019847607:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=430 ,total_rcv_size=415000
+[0418/165525:599019853199:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=431 ,total_rcv_size=416000
+[0418/165525:599019853912:INFO:quic_flow_controller.cc(153)] Client: New max window increase for stream 4 after 14735 us, and RTT is 7404us. max wndw: 32768
+[0418/165525:599019855432:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=432 ,total_rcv_size=417000
+[0418/165525:599019858465:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=433 ,total_rcv_size=418000
+[0418/165525:599019859964:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=434 ,total_rcv_size=419000
+[0418/165525:599019860235:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=435 ,total_rcv_size=420000
+[0418/165525:599019861358:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=436 ,total_rcv_size=421000
+[0418/165525:599019861699:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=437 ,total_rcv_size=422000
+[0418/165525:599019861934:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=438 ,total_rcv_size=423000
+[0418/165525:599019862409:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=439 ,total_rcv_size=424000
+[0418/165525:599019862819:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=440 ,total_rcv_size=425000
+[0418/165525:599019863122:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=441 ,total_rcv_size=426000
+[0418/165525:599019863331:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=442 ,total_rcv_size=427000
+[0418/165525:599019863657:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=443 ,total_rcv_size=428000
+[0418/165525:599019863993:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=444 ,total_rcv_size=428384
+[0418/165525:599019896865:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=445 ,total_rcv_size=429000
+[0418/165525:599019897905:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=446 ,total_rcv_size=430000
+[0418/165525:599019900476:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=447 ,total_rcv_size=431000
+[0418/165525:599019901334:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=448 ,total_rcv_size=432000
+[0418/165525:599019902859:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=449 ,total_rcv_size=433000
+[0418/165525:599019906429:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=450 ,total_rcv_size=434000
+[0418/165525:599019909159:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=451 ,total_rcv_size=435000
+[0418/165525:599019911213:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=452 ,total_rcv_size=436000
+[0418/165525:599019913161:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=453 ,total_rcv_size=437000
+[0418/165525:599019914742:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=454 ,total_rcv_size=438000
+[0418/165525:599019918786:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=455 ,total_rcv_size=439000
+[0418/165525:599019919829:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=456 ,total_rcv_size=440000
+[0418/165525:599019923148:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=457 ,total_rcv_size=441000
+[0418/165525:599019926205:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=458 ,total_rcv_size=442000
+[0418/165525:599019927636:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=459 ,total_rcv_size=443000
+[0418/165525:599019929224:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=460 ,total_rcv_size=444000
+[0418/165525:599019936752:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=461 ,total_rcv_size=445000
+[0418/165525:599019944506:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=462 ,total_rcv_size=446000
+[0418/165525:599019949919:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=463 ,total_rcv_size=447000
+[0418/165525:599019953534:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=464 ,total_rcv_size=448000
+[0418/165525:599019954310:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=465 ,total_rcv_size=449000
+[0418/165525:599019955042:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=466 ,total_rcv_size=450000
+[0418/165525:599019955337:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=467 ,total_rcv_size=451000
+[0418/165525:599019955557:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=468 ,total_rcv_size=452000
+[0418/165525:599019955797:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=469 ,total_rcv_size=453000
+[0418/165525:599019956097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=470 ,total_rcv_size=454000
+[0418/165525:599019956294:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=471 ,total_rcv_size=455000
+[0418/165525:599019956471:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=472 ,total_rcv_size=455384
+[0418/165525:599019989949:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=473 ,total_rcv_size=456000
+[0418/165525:599019991074:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=474 ,total_rcv_size=457000
+[0418/165525:599019993511:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=475 ,total_rcv_size=458000
+[0418/165525:599019994380:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=476 ,total_rcv_size=459000
+[0418/165525:599019995863:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=477 ,total_rcv_size=460000
+[0418/165525:599019999166:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=478 ,total_rcv_size=461000
+[0418/165525:599020001333:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=479 ,total_rcv_size=462000
+[0418/165525:599020004215:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=480 ,total_rcv_size=463000
+[0418/165525:599020007887:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=481 ,total_rcv_size=464000
+[0418/165525:599020009426:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=482 ,total_rcv_size=465000
+[0418/165525:599020012236:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=483 ,total_rcv_size=466000
+[0418/165525:599020019047:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=484 ,total_rcv_size=467000
+[0418/165525:599020024580:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=485 ,total_rcv_size=468000
+[0418/165525:599020029107:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=486 ,total_rcv_size=469000
+[0418/165525:599020033263:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=487 ,total_rcv_size=470000
+[0418/165525:599020035882:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=488 ,total_rcv_size=471000
+[0418/165525:599020039891:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=489 ,total_rcv_size=472000
+[0418/165525:599020042891:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=490 ,total_rcv_size=473000
+[0418/165525:599020044941:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=491 ,total_rcv_size=474000
+[0418/165525:599020045917:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=492 ,total_rcv_size=475000
+[0418/165525:599020046173:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=493 ,total_rcv_size=476000
+[0418/165525:599020046769:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=494 ,total_rcv_size=477000
+[0418/165525:599020047172:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=495 ,total_rcv_size=478000
+[0418/165525:599020047332:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=496 ,total_rcv_size=479000
+[0418/165525:599020047486:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=497 ,total_rcv_size=480000
+[0418/165525:599020047660:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=498 ,total_rcv_size=481000
+[0418/165525:599020047812:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=499 ,total_rcv_size=482000
+[0418/165525:599020047985:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=500 ,total_rcv_size=482384
+[0418/165525:599020084020:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=501 ,total_rcv_size=483000
+[0418/165525:599020085649:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=502 ,total_rcv_size=484000
+[0418/165525:599020087293:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=503 ,total_rcv_size=485000
+[0418/165525:599020090051:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=504 ,total_rcv_size=486000
+[0418/165525:599020092559:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=505 ,total_rcv_size=487000
+[0418/165525:599020095033:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=506 ,total_rcv_size=488000
+[0418/165525:599020099072:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=507 ,total_rcv_size=489000
+[0418/165525:599020104139:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=508 ,total_rcv_size=490000
+[0418/165525:599020104820:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=509 ,total_rcv_size=491000
+[0418/165525:599020106843:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=510 ,total_rcv_size=492000
+[0418/165525:599020108221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=511 ,total_rcv_size=493000
+[0418/165525:599020111671:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=512 ,total_rcv_size=494000
+[0418/165525:599020114637:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=513 ,total_rcv_size=495000
+[0418/165525:599020118845:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=514 ,total_rcv_size=496000
+[0418/165525:599020119927:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=515 ,total_rcv_size=497000
+[0418/165525:599020123866:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=516 ,total_rcv_size=498000
+[0418/165525:599020127601:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=517 ,total_rcv_size=499000
+[0418/165525:599020128442:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=518 ,total_rcv_size=500000
+[0418/165525:599020130418:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=519 ,total_rcv_size=501000
+[0418/165525:599020131732:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=520 ,total_rcv_size=502000
+[0418/165525:599020135317:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=521 ,total_rcv_size=503000
+[0418/165525:599020137972:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=522 ,total_rcv_size=504000
+[0418/165525:599020141175:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=523 ,total_rcv_size=505000
+[0418/165525:599020142986:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=524 ,total_rcv_size=506000
+[0418/165525:599020143766:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=525 ,total_rcv_size=507000
+[0418/165525:599020148466:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=526 ,total_rcv_size=508000
+[0418/165525:599020149218:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=527 ,total_rcv_size=509000
+[0418/165525:599020151991:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=528 ,total_rcv_size=510000
+[0418/165525:599020155921:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=529 ,total_rcv_size=511000
+[0418/165525:599020156811:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=530 ,total_rcv_size=512000
+[0418/165525:599020159218:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=531 ,total_rcv_size=513000
+[0418/165525:599020161242:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=532 ,total_rcv_size=514000
+[0418/165525:599020163290:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=533 ,total_rcv_size=515000
+[0418/165525:599020165374:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=534 ,total_rcv_size=516000
+[0418/165525:599020168654:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=535 ,total_rcv_size=517000
+[0418/165525:599020172706:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=536 ,total_rcv_size=518000
+[0418/165525:599020174607:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=537 ,total_rcv_size=519000
+[0418/165525:599020175837:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=538 ,total_rcv_size=520000
+[0418/165525:599020179852:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=539 ,total_rcv_size=521000
+[0418/165525:599020181144:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=540 ,total_rcv_size=522000
+[0418/165525:599020181959:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=541 ,total_rcv_size=523000
+[0418/165525:599020184374:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=542 ,total_rcv_size=524000
+[0418/165525:599020186465:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=543 ,total_rcv_size=525000
+[0418/165525:599020189448:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=544 ,total_rcv_size=526000
+[0418/165525:599020193628:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=545 ,total_rcv_size=527000
+[0418/165525:599020195412:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=546 ,total_rcv_size=528000
+[0418/165525:599020196633:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=547 ,total_rcv_size=529000
+[0418/165525:599020199727:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=548 ,total_rcv_size=530000
+[0418/165525:599020200851:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=549 ,total_rcv_size=531000
+[0418/165525:599020201958:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=550 ,total_rcv_size=532000
+[0418/165525:599020203948:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=551 ,total_rcv_size=533000
+[0418/165525:599020205778:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=552 ,total_rcv_size=534000
+[0418/165525:599020209400:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=553 ,total_rcv_size=535000
+[0418/165525:599020213581:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=554 ,total_rcv_size=536000
+[0418/165525:599020216041:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=555 ,total_rcv_size=537000
+[0418/165525:599020219438:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=556 ,total_rcv_size=538000
+[0418/165525:599020222736:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=557 ,total_rcv_size=539000
+[0418/165525:599020226123:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=558 ,total_rcv_size=540000
+[0418/165525:599020230502:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=559 ,total_rcv_size=541000
+[0418/165525:599020235464:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=560 ,total_rcv_size=542000
+[0418/165525:599020238104:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=561 ,total_rcv_size=543000
+[0418/165525:599020240671:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=562 ,total_rcv_size=544000
+[0418/165525:599020242227:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=563 ,total_rcv_size=545000
+[0418/165525:599020242946:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=564 ,total_rcv_size=546000
+[0418/165525:599020244694:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=565 ,total_rcv_size=547000
+[0418/165525:599020245567:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=566 ,total_rcv_size=548000
+[0418/165525:599020246610:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=567 ,total_rcv_size=549000
+[0418/165525:599020247010:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=568 ,total_rcv_size=550000
+[0418/165525:599020247369:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=569 ,total_rcv_size=551000
+[0418/165525:599020247747:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=570 ,total_rcv_size=552000
+[0418/165525:599020248890:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=571 ,total_rcv_size=553000
+[0418/165525:599020252687:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=572 ,total_rcv_size=554000
+[0418/165525:599020253820:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=573 ,total_rcv_size=554384
+[0418/165525:599020259890:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=574 ,total_rcv_size=555000
+[0418/165525:599020263954:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=575 ,total_rcv_size=556000
+[0418/165525:599020265040:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=576 ,total_rcv_size=557000
+[0418/165525:599020269209:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=577 ,total_rcv_size=558000
+[0418/165525:599020272617:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=578 ,total_rcv_size=559000
+[0418/165525:599020276379:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=579 ,total_rcv_size=560000
+[0418/165525:599020280759:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=580 ,total_rcv_size=561000
+[0418/165525:599020283571:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=581 ,total_rcv_size=562000
+[0418/165525:599020287378:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=582 ,total_rcv_size=563000
+[0418/165525:599020290310:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=583 ,total_rcv_size=564000
+[0418/165525:599020293188:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=584 ,total_rcv_size=565000
+[0418/165525:599020294500:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=585 ,total_rcv_size=566000
+[0418/165525:599020294994:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=586 ,total_rcv_size=567000
+[0418/165525:599020295892:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=587 ,total_rcv_size=568000
+[0418/165525:599020296567:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=588 ,total_rcv_size=569000
+[0418/165525:599020296791:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=589 ,total_rcv_size=570000
+[0418/165525:599020298675:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=590 ,total_rcv_size=571000
+[0418/165525:599020299660:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=591 ,total_rcv_size=572000
+[0418/165525:599020300146:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=592 ,total_rcv_size=572384
+[0418/165525:599020307734:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=593 ,total_rcv_size=573000
+[0418/165525:599020309991:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=594 ,total_rcv_size=574000
+[0418/165525:599020313046:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=595 ,total_rcv_size=575000
+[0418/165525:599020314967:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=596 ,total_rcv_size=576000
+[0418/165525:599020316704:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=597 ,total_rcv_size=577000
+[0418/165525:599020319550:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=598 ,total_rcv_size=578000
+[0418/165525:599020320400:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=599 ,total_rcv_size=579000
+[0418/165525:599020323826:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=600 ,total_rcv_size=580000
+[0418/165525:599020327240:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=601 ,total_rcv_size=581000
+[0418/165525:599020333538:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=602 ,total_rcv_size=582000
+[0418/165525:599020337449:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=603 ,total_rcv_size=583000
+[0418/165525:599020339187:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=604 ,total_rcv_size=584000
+[0418/165525:599020341885:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=605 ,total_rcv_size=585000
+[0418/165525:599020345097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=606 ,total_rcv_size=586000
+[0418/165525:599020346105:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=607 ,total_rcv_size=587000
+[0418/165525:599020346435:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=608 ,total_rcv_size=588000
+[0418/165525:599020346758:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=609 ,total_rcv_size=589000
+[0418/165525:599020346979:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=610 ,total_rcv_size=590000
+[0418/165525:599020347268:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=611 ,total_rcv_size=590384
+[0418/165525:599020375325:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=612 ,total_rcv_size=591000
+[0418/165525:599020381443:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=613 ,total_rcv_size=592000
+[0418/165525:599020382407:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=614 ,total_rcv_size=593000
+[0418/165525:599020384499:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=615 ,total_rcv_size=594000
+[0418/165525:599020385301:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=616 ,total_rcv_size=595000
+[0418/165525:599020389630:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=617 ,total_rcv_size=596000
+[0418/165525:599020391034:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=618 ,total_rcv_size=597000
+[0418/165525:599020394412:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=619 ,total_rcv_size=598000
+[0418/165525:599020398485:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=620 ,total_rcv_size=599000
+[0418/165525:599020403359:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=621 ,total_rcv_size=600000
+[0418/165525:599020404717:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=622 ,total_rcv_size=601000
+[0418/165525:599020407528:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=623 ,total_rcv_size=602000
+[0418/165525:599020409186:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=624 ,total_rcv_size=603000
+[0418/165525:599020410251:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=625 ,total_rcv_size=604000
+[0418/165525:599020414704:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=626 ,total_rcv_size=605000
+[0418/165525:599020417605:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=627 ,total_rcv_size=606000
+[0418/165525:599020422685:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=628 ,total_rcv_size=607000
+[0418/165525:599020424053:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=629 ,total_rcv_size=608000
+[0418/165525:599020427277:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=630 ,total_rcv_size=609000
+[0418/165525:599020429710:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=631 ,total_rcv_size=610000
+[0418/165525:599020430960:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=632 ,total_rcv_size=611000
+[0418/165525:599020433390:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=633 ,total_rcv_size=612000
+[0418/165525:599020436734:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=634 ,total_rcv_size=613000
+[0418/165525:599020438686:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=635 ,total_rcv_size=614000
+[0418/165525:599020443524:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=636 ,total_rcv_size=615000
+[0418/165525:599020448364:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=637 ,total_rcv_size=616000
+[0418/165525:599020449144:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=638 ,total_rcv_size=617000
+[0418/165525:599020452018:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=639 ,total_rcv_size=618000
+[0418/165525:599020456158:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=640 ,total_rcv_size=619000
+[0418/165525:599020457606:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=641 ,total_rcv_size=620000
+[0418/165525:599020459179:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=642 ,total_rcv_size=621000
+[0418/165525:599020468247:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=643 ,total_rcv_size=622000
+[0418/165525:599020469128:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=644 ,total_rcv_size=623000
+[0418/165525:599020469284:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=645 ,total_rcv_size=624000
+[0418/165525:599020469462:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=646 ,total_rcv_size=625000
+[0418/165525:599020471511:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=647 ,total_rcv_size=626000
+[0418/165526:599020477030:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=648 ,total_rcv_size=627000
+[0418/165526:599020478682:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=649 ,total_rcv_size=628000
+[0418/165526:599020479943:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=650 ,total_rcv_size=629000
+[0418/165526:599020481550:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=651 ,total_rcv_size=630000
+[0418/165526:599020484791:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=652 ,total_rcv_size=631000
+[0418/165526:599020486715:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=653 ,total_rcv_size=632000
+[0418/165526:599020487979:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=654 ,total_rcv_size=633000
+[0418/165526:599020490025:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=655 ,total_rcv_size=634000
+[0418/165526:599020494766:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=656 ,total_rcv_size=635000
+[0418/165526:599020498765:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=657 ,total_rcv_size=636000
+[0418/165526:599020503797:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=658 ,total_rcv_size=637000
+[0418/165526:599020505771:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=659 ,total_rcv_size=638000
+[0418/165526:599020508256:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=660 ,total_rcv_size=639000
+[0418/165526:599020509430:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=661 ,total_rcv_size=640000
+[0418/165526:599020510937:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=662 ,total_rcv_size=641000
+[0418/165526:599020511658:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=663 ,total_rcv_size=642000
+[0418/165526:599020512393:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=664 ,total_rcv_size=643000
+[0418/165526:599020512601:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=665 ,total_rcv_size=644000
+[0418/165526:599020512733:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=666 ,total_rcv_size=644384
+[0418/165526:599020536289:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=667 ,total_rcv_size=645000
+[0418/165526:599020540427:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=668 ,total_rcv_size=646000
+[0418/165526:599020541385:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=669 ,total_rcv_size=647000
+[0418/165526:599020544321:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=670 ,total_rcv_size=648000
+[0418/165526:599020545062:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=671 ,total_rcv_size=649000
+[0418/165526:599020546859:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=672 ,total_rcv_size=650000
+[0418/165526:599020548148:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=673 ,total_rcv_size=651000
+[0418/165526:599020551246:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=674 ,total_rcv_size=652000
+[0418/165526:599020554786:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=675 ,total_rcv_size=653000
+[0418/165526:599020556453:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=676 ,total_rcv_size=654000
+[0418/165526:599020559246:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=677 ,total_rcv_size=655000
+[0418/165526:599020562367:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=678 ,total_rcv_size=656000
+[0418/165526:599020564660:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=679 ,total_rcv_size=657000
+[0418/165526:599020568315:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=680 ,total_rcv_size=658000
+[0418/165526:599020570383:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=681 ,total_rcv_size=659000
+[0418/165526:599020572482:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=682 ,total_rcv_size=660000
+[0418/165526:599020574277:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=683 ,total_rcv_size=661000
+[0418/165526:599020576142:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=684 ,total_rcv_size=662000
+[0418/165526:599020579638:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=685 ,total_rcv_size=663000
+[0418/165526:599020582253:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=686 ,total_rcv_size=664000
+[0418/165526:599020584194:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=687 ,total_rcv_size=665000
+[0418/165526:599020588817:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=688 ,total_rcv_size=666000
+[0418/165526:599020593863:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=689 ,total_rcv_size=667000
+[0418/165526:599020597867:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=690 ,total_rcv_size=668000
+[0418/165526:599020600870:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=691 ,total_rcv_size=669000
+[0418/165526:599020602860:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=692 ,total_rcv_size=670000
+[0418/165526:599020606019:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=693 ,total_rcv_size=671000
+[0418/165526:599020611204:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=694 ,total_rcv_size=672000
+[0418/165526:599020613792:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=695 ,total_rcv_size=673000
+[0418/165526:599020615551:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=696 ,total_rcv_size=674000
+[0418/165526:599020617340:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=697 ,total_rcv_size=675000
+[0418/165526:599020618205:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=698 ,total_rcv_size=676000
+[0418/165526:599020618793:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=699 ,total_rcv_size=677000
+[0418/165526:599020619043:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=700 ,total_rcv_size=678000
+[0418/165526:599020619215:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=701 ,total_rcv_size=679000
+[0418/165526:599020619357:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=702 ,total_rcv_size=680000
+[0418/165526:599020619877:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=703 ,total_rcv_size=680384
+[0418/165526:599020654992:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=704 ,total_rcv_size=681000
+[0418/165526:599020659758:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=705 ,total_rcv_size=682000
+[0418/165526:599020660598:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=706 ,total_rcv_size=683000
+[0418/165526:599020663033:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=707 ,total_rcv_size=684000
+[0418/165526:599020663972:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=708 ,total_rcv_size=685000
+[0418/165526:599020666197:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=709 ,total_rcv_size=686000
+[0418/165526:599020668851:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=710 ,total_rcv_size=687000
+[0418/165526:599020670919:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=711 ,total_rcv_size=688000
+[0418/165526:599020674622:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=712 ,total_rcv_size=689000
+[0418/165526:599020678599:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=713 ,total_rcv_size=690000
+[0418/165526:599020679980:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=714 ,total_rcv_size=691000
+[0418/165526:599020681734:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=715 ,total_rcv_size=692000
+[0418/165526:599020683032:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=716 ,total_rcv_size=693000
+[0418/165526:599020686677:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=717 ,total_rcv_size=694000
+[0418/165526:599020690291:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=718 ,total_rcv_size=695000
+[0418/165526:599020693881:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=719 ,total_rcv_size=696000
+[0418/165526:599020696045:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=720 ,total_rcv_size=697000
+[0418/165526:599020697278:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=721 ,total_rcv_size=698000
+[0418/165526:599020700262:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=722 ,total_rcv_size=699000
+[0418/165526:599020703952:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=723 ,total_rcv_size=700000
+[0418/165526:599020706774:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=724 ,total_rcv_size=701000
+[0418/165526:599020707982:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=725 ,total_rcv_size=702000
+[0418/165526:599020710480:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=726 ,total_rcv_size=703000
+[0418/165526:599020712481:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=727 ,total_rcv_size=704000
+[0418/165526:599020716435:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=728 ,total_rcv_size=705000
+[0418/165526:599020721125:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=729 ,total_rcv_size=706000
+[0418/165526:599020721967:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=730 ,total_rcv_size=707000
+[0418/165526:599020724806:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=731 ,total_rcv_size=708000
+[0418/165526:599020725891:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=732 ,total_rcv_size=709000
+[0418/165526:599020729647:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=733 ,total_rcv_size=710000
+[0418/165526:599020731696:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=734 ,total_rcv_size=711000
+[0418/165526:599020735087:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=735 ,total_rcv_size=712000
+[0418/165526:599020739560:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=736 ,total_rcv_size=713000
+[0418/165526:599020740323:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=737 ,total_rcv_size=714000
+[0418/165526:599020744028:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=738 ,total_rcv_size=715000
+[0418/165526:599020746453:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=739 ,total_rcv_size=716000
+[0418/165526:599020747708:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=740 ,total_rcv_size=717000
+[0418/165526:599020750721:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=741 ,total_rcv_size=718000
+[0418/165526:599020753369:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=742 ,total_rcv_size=719000
+[0418/165526:599020756087:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=743 ,total_rcv_size=720000
+[0418/165526:599020758247:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=744 ,total_rcv_size=721000
+[0418/165526:599020760862:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=745 ,total_rcv_size=722000
+[0418/165526:599020763816:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=746 ,total_rcv_size=723000
+[0418/165526:599020768456:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=747 ,total_rcv_size=724000
+[0418/165526:599020769376:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=748 ,total_rcv_size=725000
+[0418/165526:599020774201:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=749 ,total_rcv_size=726000
+[0418/165526:599020776352:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=750 ,total_rcv_size=727000
+[0418/165526:599020779396:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=751 ,total_rcv_size=728000
+[0418/165526:599020784196:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=752 ,total_rcv_size=729000
+[0418/165526:599020785827:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=753 ,total_rcv_size=730000
+[0418/165526:599020787466:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=754 ,total_rcv_size=731000
+[0418/165526:599020789027:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=755 ,total_rcv_size=732000
+[0418/165526:599020791563:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=756 ,total_rcv_size=733000
+[0418/165526:599020795992:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=757 ,total_rcv_size=734000
+[0418/165526:599020798029:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=758 ,total_rcv_size=734384
+[0418/165526:599020802249:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=759 ,total_rcv_size=735000
+[0418/165526:599020804622:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=760 ,total_rcv_size=736000
+[0418/165526:599020807610:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=761 ,total_rcv_size=737000
+[0418/165526:599020809093:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=762 ,total_rcv_size=738000
+[0418/165526:599020810680:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=763 ,total_rcv_size=739000
+[0418/165526:599020811341:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=764 ,total_rcv_size=740000
+[0418/165526:599020814726:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=765 ,total_rcv_size=741000
+[0418/165526:599020816510:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=766 ,total_rcv_size=742000
+[0418/165526:599020817430:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=767 ,total_rcv_size=743000
+[0418/165526:599020818458:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=768 ,total_rcv_size=743384
+[0418/165526:599020854221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=769 ,total_rcv_size=744000
+[0418/165526:599020855532:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=770 ,total_rcv_size=745000
+[0418/165526:599020857175:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=771 ,total_rcv_size=746000
+[0418/165526:599020858996:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=772 ,total_rcv_size=747000
+[0418/165526:599020862338:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=773 ,total_rcv_size=748000
+[0418/165526:599020864240:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=774 ,total_rcv_size=749000
+[0418/165526:599020865921:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=775 ,total_rcv_size=750000
+[0418/165526:599020870094:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=776 ,total_rcv_size=751000
+[0418/165526:599020873871:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=777 ,total_rcv_size=752000
+[0418/165526:599020875504:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=778 ,total_rcv_size=753000
+[0418/165526:599020876727:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=779 ,total_rcv_size=754000
+[0418/165526:599020880159:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=780 ,total_rcv_size=755000
+[0418/165526:599020881694:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=781 ,total_rcv_size=756000
+[0418/165526:599020883181:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=782 ,total_rcv_size=757000
+[0418/165526:599020888097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=783 ,total_rcv_size=758000
+[0418/165526:599020888886:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=784 ,total_rcv_size=759000
+[0418/165526:599020891587:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=785 ,total_rcv_size=760000
+[0418/165526:599020894646:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=786 ,total_rcv_size=761000
+[0418/165526:599020895947:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=787 ,total_rcv_size=762000
+[0418/165526:599020897610:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=788 ,total_rcv_size=763000
+[0418/165526:599020901068:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=789 ,total_rcv_size=764000
+[0418/165526:599020903253:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=790 ,total_rcv_size=765000
+[0418/165526:599020905898:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=791 ,total_rcv_size=766000
+[0418/165526:599020907967:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=792 ,total_rcv_size=767000
+[0418/165526:599020913435:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=793 ,total_rcv_size=768000
+[0418/165526:599020915635:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=794 ,total_rcv_size=769000
+[0418/165526:599020919474:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=795 ,total_rcv_size=770000
+[0418/165526:599020922074:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=796 ,total_rcv_size=771000
+[0418/165526:599020926262:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=797 ,total_rcv_size=772000
+[0418/165526:599020929607:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=798 ,total_rcv_size=773000
+[0418/165526:599020931968:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=799 ,total_rcv_size=774000
+[0418/165526:599020932774:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=800 ,total_rcv_size=775000
+[0418/165526:599020932960:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=801 ,total_rcv_size=776000
+[0418/165526:599020933139:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=802 ,total_rcv_size=777000
+[0418/165526:599020933454:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=803 ,total_rcv_size=778000
+[0418/165526:599020933666:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=804 ,total_rcv_size=779000
+[0418/165526:599020933837:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=805 ,total_rcv_size=779384
+[0418/165526:599020964591:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=806 ,total_rcv_size=780000
+[0418/165526:599020969284:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=807 ,total_rcv_size=781000
+[0418/165526:599020969995:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=808 ,total_rcv_size=782000
+[0418/165526:599020973018:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=809 ,total_rcv_size=783000
+[0418/165526:599020973689:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=810 ,total_rcv_size=784000
+[0418/165526:599020976214:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=811 ,total_rcv_size=785000
+[0418/165526:599020977177:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=812 ,total_rcv_size=786000
+[0418/165526:599020980142:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=813 ,total_rcv_size=787000
+[0418/165526:599020983815:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=814 ,total_rcv_size=788000
+[0418/165526:599020986367:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=815 ,total_rcv_size=789000
+[0418/165526:599020988277:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=816 ,total_rcv_size=790000
+[0418/165526:599020990108:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=817 ,total_rcv_size=791000
+[0418/165526:599020993396:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=818 ,total_rcv_size=792000
+[0418/165526:599020997306:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=819 ,total_rcv_size=793000
+[0418/165526:599020999312:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=820 ,total_rcv_size=794000
+[0418/165526:599021001902:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=821 ,total_rcv_size=795000
+[0418/165526:599021003686:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=822 ,total_rcv_size=796000
+[0418/165526:599021006311:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=823 ,total_rcv_size=797000
+[0418/165526:599021008907:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=824 ,total_rcv_size=797384
+[0418/165526:599021013620:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=825 ,total_rcv_size=798384
+[0418/165526:599021016926:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=826 ,total_rcv_size=799384
+[0418/165526:599021022080:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=827 ,total_rcv_size=800384
+[0418/165526:599021026254:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=828 ,total_rcv_size=801384
+[0418/165526:599021032097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=829 ,total_rcv_size=802384
+[0418/165526:599021037403:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=830 ,total_rcv_size=803384
+[0418/165526:599021041880:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=831 ,total_rcv_size=804384
+[0418/165526:599021045193:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=832 ,total_rcv_size=805384
+[0418/165526:599021046226:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=833 ,total_rcv_size=806384
+[0418/165526:599021047000:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=834 ,total_rcv_size=807384
+[0418/165526:599021047249:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=835 ,total_rcv_size=808384
+[0418/165526:599021047363:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=836 ,total_rcv_size=809384
+[0418/165526:599021047590:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=837 ,total_rcv_size=810384
+[0418/165526:599021047759:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=838 ,total_rcv_size=811384
+[0418/165526:599021047923:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=839 ,total_rcv_size=812384
+[0418/165526:599021048229:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=840 ,total_rcv_size=813384
+[0418/165526:599021048456:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=841 ,total_rcv_size=814384
+[0418/165526:599021048675:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=842 ,total_rcv_size=814768
+[0418/165526:599021085398:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=232 rx_cnt=843 ,total_rcv_size=815000
+[0418/165526:599021088207:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=844 ,total_rcv_size=816000
+[0418/165526:599021089487:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=845 ,total_rcv_size=817000
+[0418/165526:599021090647:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=846 ,total_rcv_size=818000
+[0418/165526:599021091013:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=847 ,total_rcv_size=819000
+[0418/165526:599021094902:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=848 ,total_rcv_size=820000
+[0418/165526:599021097193:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=849 ,total_rcv_size=821000
+[0418/165526:599021100808:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=850 ,total_rcv_size=822000
+[0418/165526:599021102318:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=851 ,total_rcv_size=823000
+[0418/165526:599021102943:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=852 ,total_rcv_size=823384
+[0418/165526:599021107460:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=853 ,total_rcv_size=824000
+[0418/165526:599021111602:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=854 ,total_rcv_size=825000
+[0418/165526:599021113693:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=855 ,total_rcv_size=826000
+[0418/165526:599021114561:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=856 ,total_rcv_size=827000
+[0418/165526:599021116434:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=857 ,total_rcv_size=828000
+[0418/165526:599021118518:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=858 ,total_rcv_size=829000
+[0418/165526:599021120246:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=859 ,total_rcv_size=830000
+[0418/165526:599021123555:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=860 ,total_rcv_size=831000
+[0418/165526:599021127457:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=861 ,total_rcv_size=832000
+[0418/165526:599021130193:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=862 ,total_rcv_size=833000
+[0418/165526:599021134140:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=863 ,total_rcv_size=834000
+[0418/165526:599021136066:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=864 ,total_rcv_size=835000
+[0418/165526:599021136751:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=865 ,total_rcv_size=836000
+[0418/165526:599021138791:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=866 ,total_rcv_size=837000
+[0418/165526:599021140518:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=867 ,total_rcv_size=838000
+[0418/165526:599021141224:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=868 ,total_rcv_size=839000
+[0418/165526:599021142430:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=869 ,total_rcv_size=840000
+[0418/165526:599021143680:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=870 ,total_rcv_size=841000
+[0418/165526:599021145229:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=871 ,total_rcv_size=841384
+[0418/165526:599021153012:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=872 ,total_rcv_size=842000
+[0418/165526:599021158007:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=873 ,total_rcv_size=843000
+[0418/165526:599021161328:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=874 ,total_rcv_size=844000
+[0418/165526:599021169833:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=875 ,total_rcv_size=845000
+[0418/165526:599021175714:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=876 ,total_rcv_size=846000
+[0418/165526:599021182950:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=877 ,total_rcv_size=847000
+[0418/165526:599021186969:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=878 ,total_rcv_size=848000
+[0418/165526:599021188029:INFO:quic_flow_controller.cc(153)] Client: New max window increase for stream 0 after 10770 us, and RTT is 7755us. max wndw: 32768
+[0418/165526:599021191280:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=879 ,total_rcv_size=849000
+[0418/165526:599021192187:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=880 ,total_rcv_size=850000
+[0418/165526:599021192937:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=881 ,total_rcv_size=851000
+[0418/165526:599021194055:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=882 ,total_rcv_size=852000
+[0418/165526:599021194443:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=883 ,total_rcv_size=853000
+[0418/165526:599021194663:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=884 ,total_rcv_size=854000
+[0418/165526:599021194970:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=885 ,total_rcv_size=855000
+[0418/165526:599021195278:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=886 ,total_rcv_size=856000
+[0418/165526:599021195551:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=887 ,total_rcv_size=857000
+[0418/165526:599021195834:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=888 ,total_rcv_size=858000
+[0418/165526:599021196166:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=889 ,total_rcv_size=859000
+[0418/165526:599021196469:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=890 ,total_rcv_size=859384
+[0418/165526:599021231889:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=891 ,total_rcv_size=860000
+[0418/165526:599021233151:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=892 ,total_rcv_size=861000
+[0418/165526:599021234601:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=893 ,total_rcv_size=862000
+[0418/165526:599021235828:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=894 ,total_rcv_size=863000
+[0418/165526:599021237932:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=895 ,total_rcv_size=864000
+[0418/165526:599021240467:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=896 ,total_rcv_size=865000
+[0418/165526:599021243667:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=897 ,total_rcv_size=866000
+[0418/165526:599021247200:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=898 ,total_rcv_size=867000
+[0418/165526:599021247640:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=899 ,total_rcv_size=868000
+[0418/165526:599021250397:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=900 ,total_rcv_size=869000
+[0418/165526:599021253400:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=901 ,total_rcv_size=870000
+[0418/165526:599021254307:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=902 ,total_rcv_size=871000
+[0418/165526:599021256707:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=903 ,total_rcv_size=872000
+[0418/165526:599021259592:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=904 ,total_rcv_size=873000
+[0418/165526:599021261965:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=905 ,total_rcv_size=874000
+[0418/165526:599021264175:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=906 ,total_rcv_size=875000
+[0418/165526:599021267973:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=907 ,total_rcv_size=876000
+[0418/165526:599021268765:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=908 ,total_rcv_size=877000
+[0418/165526:599021273913:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=909 ,total_rcv_size=878000
+[0418/165526:599021281623:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=910 ,total_rcv_size=879000
+[0418/165526:599021284261:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=911 ,total_rcv_size=880000
+[0418/165526:599021286719:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=912 ,total_rcv_size=881000
+[0418/165526:599021287950:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=913 ,total_rcv_size=882000
+[0418/165526:599021288742:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=914 ,total_rcv_size=883000
+[0418/165526:599021288973:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=915 ,total_rcv_size=884000
+[0418/165526:599021289178:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=916 ,total_rcv_size=885000
+[0418/165526:599021289411:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=917 ,total_rcv_size=886000
+[0418/165526:599021289682:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=918 ,total_rcv_size=886384
+[0418/165526:599021321625:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=919 ,total_rcv_size=887000
+[0418/165526:599021326261:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=920 ,total_rcv_size=888000
+[0418/165526:599021327414:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=921 ,total_rcv_size=889000
+[0418/165526:599021330519:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=922 ,total_rcv_size=890000
+[0418/165526:599021331709:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=923 ,total_rcv_size=891000
+[0418/165526:599021334910:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=924 ,total_rcv_size=892000
+[0418/165526:599021337912:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=925 ,total_rcv_size=893000
+[0418/165526:599021342379:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=926 ,total_rcv_size=894000
+[0418/165526:599021344100:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=927 ,total_rcv_size=895000
+[0418/165526:599021346975:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=928 ,total_rcv_size=896000
+[0418/165526:599021348073:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=929 ,total_rcv_size=897000
+[0418/165526:599021351063:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=930 ,total_rcv_size=898000
+[0418/165526:599021352752:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=931 ,total_rcv_size=899000
+[0418/165526:599021356356:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=932 ,total_rcv_size=900000
+[0418/165526:599021358605:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=933 ,total_rcv_size=901000
+[0418/165526:599021361774:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=934 ,total_rcv_size=902000
+[0418/165526:599021364934:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=935 ,total_rcv_size=903000
+[0418/165526:599021365593:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=936 ,total_rcv_size=904000
+[0418/165526:599021369007:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=937 ,total_rcv_size=905000
+[0418/165526:599021374319:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=938 ,total_rcv_size=906000
+[0418/165526:599021374646:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=939 ,total_rcv_size=907000
+[0418/165526:599021376775:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=940 ,total_rcv_size=908000
+[0418/165526:599021379527:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=941 ,total_rcv_size=909000
+[0418/165526:599021381709:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=942 ,total_rcv_size=910000
+[0418/165526:599021384221:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=943 ,total_rcv_size=911000
+[0418/165526:599021384935:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=944 ,total_rcv_size=912000
+[0418/165526:599021388319:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=945 ,total_rcv_size=913000
+[0418/165526:599021391278:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=946 ,total_rcv_size=914000
+[0418/165526:599021395018:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=947 ,total_rcv_size=915000
+[0418/165526:599021398804:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=948 ,total_rcv_size=916000
+[0418/165526:599021399469:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=949 ,total_rcv_size=917000
+[0418/165526:599021400654:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=950 ,total_rcv_size=918000
+[0418/165526:599021403325:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=951 ,total_rcv_size=919000
+[0418/165526:599021406284:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=952 ,total_rcv_size=920000
+[0418/165526:599021409739:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=953 ,total_rcv_size=921000
+[0418/165526:599021410462:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=954 ,total_rcv_size=922000
+[0418/165526:599021413883:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=955 ,total_rcv_size=923000
+[0418/165526:599021416644:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=956 ,total_rcv_size=924000
+[0418/165526:599021417350:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=957 ,total_rcv_size=925000
+[0418/165526:599021420050:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=958 ,total_rcv_size=926000
+[0418/165526:599021422309:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=959 ,total_rcv_size=927000
+[0418/165526:599021424258:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=960 ,total_rcv_size=928000
+[0418/165526:599021426287:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=961 ,total_rcv_size=929000
+[0418/165526:599021431908:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=962 ,total_rcv_size=930000
+[0418/165526:599021432644:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=963 ,total_rcv_size=931000
+[0418/165526:599021434718:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=964 ,total_rcv_size=932000
+[0418/165526:599021436020:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=965 ,total_rcv_size=933000
+[0418/165526:599021439365:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=966 ,total_rcv_size=934000
+[0418/165526:599021441926:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=967 ,total_rcv_size=935000
+[0418/165526:599021444860:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=968 ,total_rcv_size=936000
+[0418/165526:599021448787:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=969 ,total_rcv_size=937000
+[0418/165526:599021450041:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=970 ,total_rcv_size=938000
+[0418/165526:599021452836:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=971 ,total_rcv_size=939000
+[0418/165526:599021453676:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=972 ,total_rcv_size=940000
+[0418/165526:599021455828:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=973 ,total_rcv_size=941000
+[0418/165526:599021458391:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=974 ,total_rcv_size=942000
+[0418/165526:599021462040:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=975 ,total_rcv_size=943000
+[0418/165526:599021464122:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=976 ,total_rcv_size=944000
+[0418/165526:599021465334:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=977 ,total_rcv_size=945000
+[0418/165526:599021468324:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=978 ,total_rcv_size=946000
+[0418/165526:599021471648:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=979 ,total_rcv_size=947000
+[0418/165527:599021473530:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=980 ,total_rcv_size=948000
+[0418/165527:599021474905:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=981 ,total_rcv_size=949000
+[0418/165527:599021477857:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=982 ,total_rcv_size=950000
+[0418/165527:599021481243:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=983 ,total_rcv_size=951000
+[0418/165527:599021483876:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=984 ,total_rcv_size=952000
+[0418/165527:599021485059:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=985 ,total_rcv_size=953000
+[0418/165527:599021487536:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=986 ,total_rcv_size=954000
+[0418/165527:599021488918:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=987 ,total_rcv_size=955000
+[0418/165527:599021490340:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=988 ,total_rcv_size=956000
+[0418/165527:599021494449:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=989 ,total_rcv_size=957000
+[0418/165527:599021497843:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=990 ,total_rcv_size=958000
+[0418/165527:599021501980:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=991 ,total_rcv_size=959000
+[0418/165527:599021504243:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=992 ,total_rcv_size=960000
+[0418/165527:599021506097:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=993 ,total_rcv_size=961000
+[0418/165527:599021507164:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=994 ,total_rcv_size=962000
+[0418/165527:599021510446:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=995 ,total_rcv_size=963000
+[0418/165527:599021511524:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=996 ,total_rcv_size=964000
+[0418/165527:599021512652:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=997 ,total_rcv_size=965000
+[0418/165527:599021514423:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=998 ,total_rcv_size=966000
+[0418/165527:599021517766:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=999 ,total_rcv_size=967000
+[0418/165527:599021519543:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=384 rx_cnt=1000 ,total_rcv_size=967384
+[0418/165527:599021526090:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=616 rx_cnt=1001 ,total_rcv_size=968000
+[0418/165527:599021528164:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1002 ,total_rcv_size=969000
+[0418/165527:599021528987:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1003 ,total_rcv_size=970000
+[0418/165527:599021533072:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1004 ,total_rcv_size=971000
+[0418/165527:599021534873:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1005 ,total_rcv_size=972000
+[0418/165527:599021537587:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1006 ,total_rcv_size=973000
+[0418/165527:599021540875:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1007 ,total_rcv_size=974000
+[0418/165527:599021545126:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1008 ,total_rcv_size=975000
+[0418/165527:599021545859:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1009 ,total_rcv_size=976000
+[0418/165527:599021549592:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1010 ,total_rcv_size=977000
+[0418/165527:599021552375:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1011 ,total_rcv_size=978000
+[0418/165527:599021553269:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1012 ,total_rcv_size=979000
+[0418/165527:599021556346:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1013 ,total_rcv_size=980000
+[0418/165527:599021558502:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1014 ,total_rcv_size=981000
+[0418/165527:599021560079:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1015 ,total_rcv_size=982000
+[0418/165527:599021561661:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1016 ,total_rcv_size=983000
+[0418/165527:599021563734:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1017 ,total_rcv_size=984000
+[0418/165527:599021565747:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1018 ,total_rcv_size=985000
+[0418/165527:599021568160:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1019 ,total_rcv_size=986000
+[0418/165527:599021570473:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1020 ,total_rcv_size=987000
+[0418/165527:599021572488:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1021 ,total_rcv_size=988000
+[0418/165527:599021576479:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1022 ,total_rcv_size=989000
+[0418/165527:599021579324:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1023 ,total_rcv_size=990000
+[0418/165527:599021583420:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1024 ,total_rcv_size=991000
+[0418/165527:599021587803:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1025 ,total_rcv_size=992000
+[0418/165527:599021589212:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1026 ,total_rcv_size=993000
+[0418/165527:599021592869:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1027 ,total_rcv_size=994000
+[0418/165527:599021605388:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1028 ,total_rcv_size=995000
+[0418/165527:599021605985:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1029 ,total_rcv_size=996000
+[0418/165527:599021606099:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1030 ,total_rcv_size=997000
+[0418/165527:599021606202:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1031 ,total_rcv_size=998000
+[0418/165527:599021606353:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1032 ,total_rcv_size=999000
+[0418/165527:599021606497:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1033 ,total_rcv_size=1000000
+[0418/165527:599021606994:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1034 ,total_rcv_size=1001000
+[0418/165527:599021607133:INFO:test_common.cc(264)] -------test server(4048 )rcv data: count=1000 rx_cnt=1035 ,total_rcv_size=1002000
