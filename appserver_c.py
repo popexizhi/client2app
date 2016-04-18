@@ -6,7 +6,7 @@ class appserver():
         pass
 
     def app_provision(self, num):
-        cmd = './app_server -cfg="cfg/%d_alone.cfg" -db -server_provision' % num
+        cmd = './app_server -cfg="cfg/%d_alone.cfg" -db -server_provision -host="%d" ' % (num, num)
         getchar = "a"
         print cmd
         self.app_log_b = subprocess.Popen([cmd], shell=True,  stdout = subprocess.PIPE, stdin = subprocess.PIPE)
