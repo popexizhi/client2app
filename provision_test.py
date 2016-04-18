@@ -6,7 +6,7 @@ class test_p():
     def __init__(self):
         self.eap_ip = "192.168.1.43"
         self.eap_http = httper(self.eap_ip)
-        self.std = 1000 # appserver申请时的id补偿
+        self.std = 2000 # appserver申请时的id补偿
 
     def add_appserver_lic(self, tot = 10):
         self.app_servers = []
@@ -30,7 +30,7 @@ class test_p():
             print i 
 
 if __name__ == "__main__":
-    test_num = 100
+    test_num = 500
     a = test_p()
     a.add_appserver_lic(test_num)
     a.get_new_appserver_cfgs()
