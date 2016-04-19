@@ -7,12 +7,12 @@ class test_p():
     def __init__(self, std = 3000):
         self.eap_ip = "192.168.1.43"
         self.eap_http = httper(self.eap_ip)
-        self.std = std # appserver申请时的id补偿
+        self.std = int(std) # appserver申请时的id补偿
 
     def add_appserver_lic(self, tot = 10):
         self.app_servers = []
         for i in xrange(tot):
-            add_res = self.eap_http.add_appserver_lic(i+self.std)
+            add_res = self.eap_http.add_appserver_lic(i + self.std)
             if 0 == add_res["result"]:
                 self.app_servers.append(add_res)
             else:
