@@ -13,6 +13,12 @@ python dev_c.py
 
 python test_report.py
 #test_report根据log生成html报告
+
+
+-auto 
+python tester.py xxx
+#xxx为开始lic的id, 可以直接执行use中的全部步骤
+
 -
 PS:
 appserver_c.py与dev_c.py可以同时启动，无启动顺序要求

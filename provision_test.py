@@ -30,12 +30,16 @@ class test_p():
         for i in self.app_servers : 
             print i 
 
+def get_app_lic(num= 100, std = 3000 ):
+    test_num = num
+    a = test_p(std)
+    a.add_appserver_lic(test_num)
+    a.get_new_appserver_cfgs()
+
 if __name__ == "__main__":
     test_num = 500
     if len(sys.argv) > 1 :
         std = sys.argv[1]
-        a = test_p(std)
     else:
-        a = test_p()
-    a.add_appserver_lic(test_num)
-    a.get_new_appserver_cfgs()
+        std = 3000
+    get_app_lic(test_num, std)
