@@ -1020,7 +1020,7 @@ class HTMLTestRunner_ex(HTMLTestRunner):
         self.description = desc
 
         self.startTime_set = datetime.datetime.now()
-        self.duration_set = datetime.datetime.now() - datetime.datetime.now()
+        self.duration_set = self.startTime_set - datetime.datetime.now()
         self.status_set = desc
 
     def g_report_test(self,testsuitname,testcasename,teststat,des):

@@ -16,6 +16,10 @@ class sh_control():
         self.dev_cmd = './slim_engine_test.sh %d' % num
         self._com(self.dev_cmd)
 
+    def kill_all(self):
+        self.kill_cmd = './stop_app.sh'
+        self._com(self.kill_cmd)
+
     def _com(self, cmd):
         getchar = "a"
         print cmd
