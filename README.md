@@ -11,6 +11,8 @@ python appserver_c.py
 python dev_c.py 
 #dev_c监控appserver的log完成appserver provision后，添加dev lic,生成dev的配置文件后，启动dev
 
+python test_report.py
+#test_report根据log生成html报告
 -
 PS:
 appserver_c.py与dev_c.py可以同时启动，无启动顺序要求

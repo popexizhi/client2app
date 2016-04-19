@@ -5,6 +5,7 @@ from logMoner import logMon
 from dbget import db_mod
 from cfg_writer import filewriter
 from shell_con import sh_control
+import thread, time
 
 class test_dev_p():
     def __init__(self):
@@ -29,8 +30,7 @@ class test_dev_p():
         cfg_w.savenewfile(new_dev_pin, app = 0)
          
 
-if __name__ == "__main__":
-    num = int(sys.argv[1])
+def dev_provision(num):
     a = test_dev_p()
     applications_name = [num]
     print "add_dev_lic res is ..."
@@ -41,3 +41,10 @@ if __name__ == "__main__":
     #启动client
     c = sh_control()
     c.dev_provision(num)
+
+if __name__ == "__main__":
+    num = int(sys.argv[1])
+    for i in xrange(10):
+        thread.start_new_thread(dev_provision,(i + num, ))
+        print "start ....%d" % int(i + num)
+        time.sleep(1)
