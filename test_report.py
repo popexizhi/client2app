@@ -32,7 +32,7 @@ class logMon_check():
 
         return res_file
 
-    def res_process(self, dir_p):
+    def res_process(self, dir_p, backup_dir):
         res = {}
         err_res = []
         pass_num = 0
@@ -51,14 +51,14 @@ class logMon_check():
 
         totle = len(res)
         desc = "总测试 appserver 为 %d个 , dev 为%d 个<br /> 其中pass 完成provision的dev为 %d 个, 占%f<br />" % (totle, totle, pass_num, pass_num/float(totle))
-        desc = desc + 'log 保存位置见  <a href="http://192.168.1.25/test_96/log/">http://192.168.1.25/test_96/log</a> <br />'
-        desc = desc + 'coredump 位置见 <a href="http://192.168.1.25/test_96/corefile/">http://192.168.1.25/test_96/corefile</a> <br />'
-        a.set_report("provision test", desc )
-        a.g_savefile("ue_provision_res.html")
+        desc = desc + 'log 保存位置见  <a href="http://192.168.1.25/%s/log/">http://192.168.1.25/%s/log</a> <br />'  % (backup_dir, backup_dir)
+        desc = desc + 'coredump 位置见 <a href="http://192.168.1.25/%s/corefile/">http://192.168.1.25/%s/corefile</a> <br />' % (backup_dir, backup_dir)
+        a.set_report("%s : provision test" % backup_dir, desc )
+        a.g_savefile("ue_provision_res_%s.html" % backup_dir)
         return res, err_res
 
 
 if __name__ == "__main__":
     x = logMon_check()
-    x.res_process("log")
+    x.res_process("log", "test_II")
         
