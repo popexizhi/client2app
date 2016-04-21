@@ -4,7 +4,7 @@ from os import walk
 from HTMLTestRunnerx import HTMLTestRunner_ex #html 报告使用
 class logMon_check():
     def __init__(self):
-        self.ue_provision_finish = "test client send finished"
+        self.ue_provision_finish = "ProvisionStatusIndication: status\\(Completed\\)"#"test client send finished"
 
     def mon_all_lines(self, inputfile):
         res = 0

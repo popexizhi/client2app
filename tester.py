@@ -16,7 +16,7 @@ def doing_test(num):
 
 
 if __name__ == "__main__":
-    num  = int(sys.argv[1])
+    num  = int(time.time())#int(sys.argv[1])
     #前置条件，注册app 的lic
     get_app_lic(num = 100,std = num)
     
