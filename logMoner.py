@@ -1,3 +1,4 @@
+#-*- coding:utf8 -*-
 #http://www.pythonclub.org/python-files/last-line
 #http://code.activestate.com/recipes/578095/
 import os, re
@@ -6,6 +7,24 @@ class logMon():
     def __init__(self):
         self.app_log_provision_finish = "App Server Provision finished"
         self.readfilenum = 0
+        
+
+    def get_l2_data(self, inputfile):
+        """返回ue的log中最后一行的send data的number """
+        res = 0
+        
+        filepath = open(inputfile)
+        con = filepath.readlines()
+        filepath.close()
+        
+        search_l2 = re.compile(r'\*{6} (\d+) total')
+        for i in con:
+            pat_search = search_l2.search(i)
+            if pat_search != None:
+                res = int(pat_search.group(1))    
+        
+        return res
+                
 
     def get_last_line(self, inputfile) :
         filesize = os.path.getsize(inputfile)
@@ -61,7 +80,7 @@ class logMon():
 
 if __name__ == "__main__":
     x = logMon()
-    x.mon_provision()
-
+    #x.mon_provision()
+    print x.get_l2_data("log//ue_client_1461233499.log.txt")
 
 
