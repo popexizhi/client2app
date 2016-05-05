@@ -4,7 +4,7 @@ from os import walk
 from HTMLTestRunnerx import HTMLTestRunner_ex #html 报告使用
 class logMon_check():
     def __init__(self):
-        self.ue_provision_finish = "ProvisionStatusIndication: status\\(Completed\\)"#"test client send finished"
+        self.ue_provision_finish = "ProvisionStatusIndication: status\\(.*Completed\\)"#"test client send finished"
 
     def get_l2_data(self, inputfile):
         """返回ue的log中最后一行的send data的number """
@@ -23,7 +23,7 @@ class logMon_check():
                 res_pack = int(pat_search.group(1))    
                 res_total_send_size = int(search_l2_total.search(i).group(1))
         
-     return res_pack, res_total_send_size
+        return res_pack, res_total_send_size
 
     def mon_all_lines(self, inputfile):
         res = 0
@@ -85,6 +85,6 @@ class logMon_check():
         return res
 if __name__ == "__main__":
     x = logMon_check()
-    #x.res_process("log", "test_II")
-    print x.get_l2_data("log//ue_client_1461233499.log.txt")       
-    print x.res_l2("log")
+    x.res_process("log", "test_II")
+    #print x.get_l2_data("log//ue_client_1461233499.log.txt")       
+    #print x.res_l2("log")
