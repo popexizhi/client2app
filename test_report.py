@@ -6,6 +6,25 @@ class logMon_check():
     def __init__(self):
         self.ue_provision_finish = "ProvisionStatusIndication: status\\(Completed\\)"#"test client send finished"
 
+    def get_l2_data(self, inputfile):
+        """返回ue的log中最后一行的send data的number """
+        res_pack = 0
+        res_total_send_size = 0
+
+        filepath = open(inputfile)
+        con = filepath.readlines()
+        filepath.close()
+        
+        search_l2 = re.compile(r'\*{6} (\d+) total')
+        search_l2_total = re.compile(r'total_send_size=(\d+)')
+        for i in con:
+            pat_search = search_l2.search(i)
+            if pat_search != None:
+                res_pack = int(pat_search.group(1))    
+                res_total_send_size = int(search_l2_total.search(i).group(1))
+        
+     return res_pack, res_total_send_size
+
     def mon_all_lines(self, inputfile):
         res = 0
         filepath = open(inputfile)
@@ -57,8 +76,15 @@ class logMon_check():
         a.g_savefile("ue_provision_res_%s.html" % backup_dir)
         return res, err_res
 
+    def res_l2(self, dir_p):
+        res = {}
+        for i in self.get_dir_files(dir_p):
+            res[i] = self.get_l2_data(dir_p+"//"+i)
+            #if self.get_l2_data(dir_p+"//"+i) >0 :
 
+        return res
 if __name__ == "__main__":
     x = logMon_check()
-    x.res_process("log", "test_II")
-        
+    #x.res_process("log", "test_II")
+    print x.get_l2_data("log//ue_client_1461233499.log.txt")       
+    print x.res_l2("log")
