@@ -1,0 +1,99 @@
+[0421/112907:838642346843:INFO:app_server.cc(114)] Backend gateway IP:127.0.0.1 port:6000
+[0421/112907:838642347047:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0421/112907:838642347104:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0421/112907:838642347159:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:layerOneEngine
+[0421/112907:838642347386:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0421/112907:838642347540:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0421/112907:838642347708:INFO:noc_quic_appserver.cc(56)] QuicAppClientSystem::init ok
+[0421/112907:838642348018:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0421/112907:838642348071:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0421/112907:838642348182:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0421/112907:838642348400:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param:  NOC_FGW :relay_interface_log
+[0421/112907:838642348503:VERBOSE1:(0)] [2016/04/21/11/29/07/879:963][noc_quic_fgw.cc(51)][global:interface] [INTERFACE] [from main to fgw ]QuicNocFrontGWSystem::init ok
+
+[0421/112907:838642348572:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:infor
+[0421/112907:838642348615:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:error
+[0421/112907:838642348705:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: system:NocQuicSeverEndPoint
+[0421/112907:838642348773:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param:  NOC_BGW :relay_interface_log
+[0421/112907:838642348847:INFO:noc_quic_bgw.cc(45)] QuicNocBackGWSystem::init ok
+[0421/112908:838643350498:INFO:app_server.cc(160)] ---setting bgw address from configure file to ip 192.168.1.22
+[0421/112908:838643350579:INFO:app_server.cc(172)] ---setting app server address from configure file to ip 192.168.1.25
+[0421/112908:838643350619:INFO:app_server.cc(178)] ---setting pincode_url server address from configure file to url: https://192.168.1.43:443/api/admin/query/pincode
+[0421/112908:838643350674:INFO:parameter_item.cc(97)] ParameterItem::InsertSorted param: module:Database
+[0421/112908:838643350747:VERBOSE1:(0)] [2016/04/21/11/29/08/882:207][AppServerDataService.cc(59)][module:Database] [INNER] AppServerDataService::Instance()
+[0421/112908:838643350800:VERBOSE1:(0)] [2016/04/21/11/29/08/882:265][AppServerDataService.cc(46)][module:Database] [INNER] AppServerDataService::AppServerDataService()
+[0421/112908:838643350836:VERBOSE1:(0)] [2016/04/21/11/29/08/882:304][AppServerDataService.cc(71)][module:Database] [INNER] AppServerDataService::InitDatabase() begin.
+[0421/112908:838643351229:VERBOSE1:(0)] [2016/04/21/11/29/08/882:687][AppServerDataService.cc(147)][module:Database] [INNER] AppServerDataService::SetupMailDbTables() begin.
+[0421/112908:838643375732:VERBOSE1:(0)] [2016/04/21/11/29/08/907:179][AppServerDataService.cc(159)][module:Database] [INNER] AppServerDataService::SetupMailDbTables() end. ret = 0
+[0421/112908:838643375804:VERBOSE1:(0)] [2016/04/21/11/29/08/907:268][AppServerDataService.cc(86)][module:Database] [INNER] AppServerDataService::InitDatabase() end. ret =0 
+[0421/112908:838643375852:VERBOSE1:(0)] [2016/04/21/11/29/08/907:318][AppServerDataService.cc(281)][module:Database] [INNER] AppServerDataService::DeleteAllHostInfo, begin
+[0421/112908:838643377230:VERBOSE1:(0)] [2016/04/21/11/29/08/908:685][AppServerDataService.cc(297)][module:Database] [INNER] AppServerDataService::DeleteAllHostInfo, end ret=-1
+[0421/112908:838643377297:VERBOSE1:(0)] [2016/04/21/11/29/08/908:761][AppServerDataService.cc(226)][module:Database] [INNER] AppServerDataService::GetAllHostInfo, begin
+[0421/112908:838643377461:VERBOSE1:(0)] [2016/04/21/11/29/08/908:915][AppServerDataService.cc(246)][module:Database] [INNER] AppServerDataService::GetAllHostInfo, end
+[0421/112908:838643377518:INFO:test_common.cc(540)] query database: get host_infors count = 0
+[0421/112908:838643377634:INFO:test_common.cc(577)] Start App Server Provision
+[0421/112908:838643377697:INFO:test_common.cc(491)] Reading App Server Provision Params...
+[0421/112908:838643377911:INFO:test_common.cc(509)] App Server Provision Params Read
+[0421/112908:838643453804:INFO:test_common.cc(584)] host_id: 2489
+host_key: e34eee72-ee22-0417-8041-2101bfe53387
+gateway_addr: 182.92.190.232
+[0421/112908:838643453938:INFO:test_common.cc(595)] 0.0.9.185
+[0421/112908:838643454074:VERBOSE1:(0)] [2016/04/21/11/29/08/985:525][noc_quic_L1_client_system.cc(131)][global:interface] [INTERFACE] [from NetWorkEngine to LayerOneEngine ]createClientLayerOneEndPoint ,ueId=1,hostID=0xb9090000,remote addr=192.168.1.22:6000
+[0421/112908:838643454266:INFO:noc_epoll_loop.cc(238)] EpollLoop::AddFdInLoop fd 9 ip port=32843
+[0421/112908:838643454355:INFO:noc_epoll_loop.cc(190)] EpollLoop::register_callback fd 9
+[0421/112908:838643454450:INFO:noc_epoll_socket_implement.cc(286)] EpollSocketLowPort::register_event_callback fd=9
+[0421/112908:838643454695:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0
+[0421/112908:838643454964:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x1e3ad10
+[0421/112908:838643455004:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x1e3da70
+[0421/112908:838643455187:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x1e406b0
+[0421/112908:838643455281:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 9 on  APP_CLIENT_MODE  on thread: 0x1e42eb0
+[0421/112908:838643455687:INFO:noc_quic_client_endpoint.cc(91)] [M]NocQuicClientEndPoint createEndpoint ok,ret id 3104374784
+[0421/112908:838643455808:INFO:slim_socket.cc(198)] slimSocketNode::createL2DataReqSocket on APP_CLIENT_MODE 
+[0421/112908:838643455986:VERBOSE1:(0)] [2016/04/21/11/29/08/987:431][noc_quic_L1_client_system.cc(155)][system:layerOneEngine] [INNER] createClientLayerOneEndPoint ,ueId=1,hostID=0xb9090000,layer1_id=3104374784 ,node_id=256
+[0421/112908:838643456149:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0
+[0421/112908:838643456349:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x1e3ad10
+[0421/112908:838643456387:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x1e3da70
+[0421/112908:838643456598:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x1e406b0
+[0421/112908:838643456684:INFO:noc_quic_appserver.cc(151)] QuicAppClientSystem::createAppServerEndPointid=(3104374784,layer2_id 1 ) ,ret=1
+[0421/112908:838643456708:INFO:noc_epoll_proxy.cc(125)] NocEpollProxy::AddUserInThread for fd 10001 on  APP_CLIENT_MODE  on thread: 0x1e42eb0
+[0421/112908:838643456738:INFO:noc_quic_appserver.cc(155)] QuicAppClientSystem::createAppServerEndPoint, layer2 host_id=2489
+[0421/112908:838643456822:INFO:slim_socket_agent.cc(28)] SlimSocketAgent::SlimSocketAgent, slim_socket_fd_seq_=2048
+[0421/112908:838643456912:INFO:slim_socket_agent.cc(400)] SlimSocketAgent::SocketManagerRegister start, host_id=2489, work mode = 1
+[0421/112908:838643457033:INFO:test_common.cc(611)] param.L1Host: 2489
+param.L1Key: e34eee72-ee22-0417-8041-2101bfe53387
+[0421/112908:838643457121:INFO:noc_quic_relay_simulator.cc(391)] simu_relay_secret_key_init ,keye34eee72-ee22-0417-8041-2101bfe53387
+[0421/112908:838643457296:VERBOSE1:(0)] [2016/04/21/11/29/08/988:745][noc_quic_L1_client_system.cc(174)][global:interface] [INTERFACE] [from NetWorkEngine to LayerOneEngine ]DoLayerOneQuicConnection ,L1hostId=2489
+[0421/112908:838643457385:VERBOSE1:(0)] [2016/04/21/11/29/08/988:837][noc_quic_L1_client_system.cc(195)][system:layerOneEngine] [INNER] NocQuicSocketSystem::connectL1SocketLayer,ueId=1,id=3104374784
+[0421/112908:838643457485:INFO:noc_quic_L1_client_system.cc(349)] NocClientLayerOneEngine::secretL1ConnectionHostID host=2489 key =e34eee72-ee22-0417-8041-2101bfe53387 secreted_hostID=2096
+[0421/112908:838643457572:INFO:noc_quic_client.cc(272)] NocQuicClient::connect, send L1 connection reset
+[0421/112908:838643457639:INFO:noc_quic_client.cc(478)] NocQuicClient::SendRst(), send reset message to peer, connectionId=3104374784
+[0421/112908:838643458395:INFO:test_common.cc(629)] app server client...  run_alone_mode=0
+[0421/112908:838643462615:INFO:noc_epoll_socket_implement.cc(163)] EpollSocketLowPort save the first address infor  on: APP_CLIENT_MODE  fd=9, self_address=192.168.1.25:32843, peer_address=192.168.1.22:6000
+[0421/112908:838643463338:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 2 for ip: 192.168.1.25:32843
+[0421/112908:838643463430:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 3 for ip: 192.168.1.25:32843
+[0421/112908:838643463504:INFO:noc_quic_client.cc(302)] NocQuicServer::reserveDataStream reserved stream ID 5 for ip: 192.168.1.25:32843
+[0421/112908:838643463572:INFO:noc_quic_client_endpoint.cc(180)] NocQuicClientEndPoint::onEvtConnected connection id is: 3104374784
+[0421/112908:838643463646:INFO:noc_user_if.cc(39)] -----user interface -- client response got ---
+[0421/112908:838643463679:INFO:noc_quic_L1_client_system.cc(236)] NocClientLayerOneEngine::OnActivedConnectionResultNotify on  APP_CLIENT_MODE  ( ueId: 1), success, errCode(0)
+[0421/112908:838643463765:VERBOSE1:(0)] [2016/04/21/11/29/08/995:185][noc_quic_L1_client_system.cc(442)][system:layerOneEngine] [INNER] NocClientLayerOneEngine::SetUpControlIndicationChannel
+[0421/112908:838643464082:INFO:test_common.cc(427)] Host: 2489
+L1Key: e34eee72-ee22-0417-8041-2101bfe53387
+[0421/112908:838643464143:VERBOSE1:(0)] [2016/04/21/11/29/08/995:607][AppServerDataService.cc(169)][module:Database] [INNER] AppServerDataService:: AddHostInfo, begin
+[0421/112908:838643469321:VERBOSE1:(0)] [2016/04/21/11/29/08/00:773][AppServerDataService.cc(182)][module:Database] [INNER] AppServerDataService:: AddHostInfo, add information successfully
+[0421/112908:838643469371:VERBOSE1:(0)] [2016/04/21/11/29/08/00:836][AppServerDataService.cc(190)][module:Database] [INNER] AppServerDataService:: AddHostInfo, end ret=0
+[0421/112908:838643469446:INFO:test_common.cc(644)] App Server Provision finished
+[0421/112908:838643469479:INFO:test_common.cc(169)] ++++++++++++create TCP server socket start +++++++++++++++++++++
+[0421/112909:838643475913:INFO:test_common.cc(174)] ++++++++++++create UDP server socket start +++++++++++++++++++++
+[0421/112909:838643476040:INFO:slim_socket_agent.cc(43)] SlimSocketAgent::Socket start,  __domain=0, __type=1, _protocol=0
+[0421/112909:838643476224:INFO:slim_socket_agent.cc(52)] SlimSocketAgent::Socket end, allocated fd=2048
+[0421/112909:838643476259:INFO:slim_socket_agent.cc(61)] SlimSocketAgent::SlimBind start, host_id=2489, fd=2048
+[0421/112909:838643476328:INFO:slim_socket_agent.cc(43)] SlimSocketAgent::Socket start,  __domain=0, __type=2, _protocol=0
+[0421/112909:838643476459:INFO:slim_socket_agent.cc(52)] SlimSocketAgent::Socket end, allocated fd=2049
+[0421/112909:838643476521:INFO:test_common.cc(136)] ************** UDP test server create socket fd  ******************
+
+
+
+2049
+[0421/112909:838643476598:INFO:slim_socket_agent.cc(61)] SlimSocketAgent::SlimBind start, host_id=2489, fd=2049
+[0421/112909:838643476343:INFO:test_common.cc(303)] -------test server socket fd 2048 listen return
+[0421/112909:838643476768:INFO:slim_socket_agent.cc(141)] SlimSocketAgent::PrepareAccept start...., fd=2048
