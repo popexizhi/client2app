@@ -399,7 +399,10 @@ h1 {
     margin-top: 4ex;
     margin-bottom: 6ex;
 }
-
+h4 {
+        font-size: 10pt;
+        color: blue;
+}
 /* -- css div popup ------------------------------------------------------------------------ */
 a.popup_link {
 }
@@ -469,7 +472,7 @@ a.popup_link:hover {
     HEADING_TMPL = """<div class='heading'>
 <h1>%(title)s</h1>
 %(parameters)s
-<p class='description'><h3>%(description)s<h3></p>
+<p class='description'><h3>%(description)s</h3></p>
 </div>
 
 """ # variables: (title, parameters, description)
@@ -484,12 +487,12 @@ a.popup_link:hover {
     #
 
     REPORT_TMPL = """
-<p id='show_detail_line'>Show
+<b><p id='show_detail_line'>Show
 <a href='javascript:showCase(0)'>Summary</a>
 <a href='javascript:showCase(1)'>Failed</a>
 <a href='javascript:showCase(3)'>Pass</a>
 <a href='javascript:showCase(2)'>All</a>
-</p>
+</p></b>
 <table id='result_table'>
 <colgroup>
 <col align='left' />
