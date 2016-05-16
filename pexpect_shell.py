@@ -2,9 +2,11 @@
 # pexpect use for stdout
 import pexpect,time
 import re
+from httper import httper
 class sh_pex():
     def __init__(self):
-        pass
+        self.pexpect = None
+        
     def get_url(self):
         app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""
         get_char_1 = "App Server Provision Params Read"
@@ -23,8 +25,18 @@ class sh_pex():
 #        print "*** " * 20
         app_id = re.findall(r"\d+$",x.after)
         print app_id[0]
-        x.interact() # 把sh的连接交给用户控制
+        #x.interact() # 把sh的连接交给用户控制
+        self.pexpect = x #将shell控制权交给类变量
         return app_id[0]
+    
+    def send_provision(self):
+        """appserver provision,监控 appserver log的provision结果"""
+        assert self.pexpect
+        appserver_provision = "App Server Provision finished"
+        self.pexpect.expect(appserver_provision)
+        print self.pexpect.after
+        
+
 
 if __name__=="__main__":
     a = sh_pex()

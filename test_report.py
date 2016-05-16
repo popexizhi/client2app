@@ -129,4 +129,4 @@ if __name__ == "__main__":
     x = logMon_check()
     x.res_process("log", "test_II")
     #print x.get_l2_data("log//ue_client_1461233499.log.txt")       
-    x.res_l2()
+    x.res_l2() #new app provision doing next: open
