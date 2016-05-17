@@ -28,7 +28,7 @@ if __name__ == "__main__":
         doing_test(app_id)        
         print "start kill dev %d " % app_id
         print "** " * 20
-        x.kill_all()
+        x.kill_dev()
 
     #结果处理
     rep_writer = logMon_check()
