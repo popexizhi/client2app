@@ -15,7 +15,7 @@ def app_provision(num):
     a = sh_pex()
     #1.start appserver
     #2.wait log 打印 request url id
-    url_id = a.get_url()
+    url_id = a.get_url(num)
     assert url_id #检查返回的id一定存在
     print "get url_id is "
     print url_id
@@ -30,10 +30,10 @@ def app_provision(num):
     print "log is " + "$$ " * 20
     a.send_provision()
     #4.wait log 打印 request url id
-
+    a.l2_provision()
 
 def start_app(std):
-    for i in xrange(10):
+    for i in xrange(1):
         thread.start_new_thread(app_provision,(i + std , ))
         print "start app....%d" % int(i +std)
         time.sleep(5)

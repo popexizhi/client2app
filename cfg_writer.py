@@ -6,6 +6,7 @@ class filewriter():
         self.cfgfile = filename
         self.cfg_data = []
         self.chang_cfg_list_app = ["app_prov_customer_name", "app_prov_license_key", "app_prov_license_serial", "app_prov_application_id"]
+        self.chang_cfg_list_app_x = ["app_prov_application_id"]
         self.chang_cfg_list_dev = ["dev_prov_email_addr", "dev_prov_application_id", "dev_prov_pincode", "dev_prov_pinhash"]
         self.__readfile()
 
@@ -25,11 +26,19 @@ class filewriter():
         for i in chang_cfg_list:
             self._change_cfg(str(i), str(newcfgs[t]))
             t = t + 1
-        
-
         file_name_pre = (("app_%s" % newcfgs[0]) if 1 == app else ("dev_%s" % newcfgs[1]))
         self.__save_newfile(file_name_pre)
         
+    def savenewfilex(self, newcfgs = ["app3"], app = 1 ):
+        chang_cfg_list = self.chang_cfg_list_app_x if 1 == app else self.chang_cfg_list_dev
+        t = 0
+        for i in chang_cfg_list:
+            self._change_cfg(str(i), str(newcfgs[t]))
+            t = t + 1
+        file_name_pre = (("app_%s" % newcfgs[0]) if 1 == app else ("dev_%s" % newcfgs[1]))
+        self.__save_newfile(file_name_pre)
+
+
     def _change_cfg(self, cfg_lab, newcfg):
         u_re = cfg_lab + " =.*\n"
         link = re.compile(u_re)
@@ -52,7 +61,10 @@ class filewriter():
         f.close()
 
 if __name__ == "__main__":
-    a = filewriter("alone_dev.cfg")
-    a.savenewfile()
-    a.savenewfile((u'testdev@senlime.com', '2254',u'e3435805-dcb1-3343-b875-ab9e067d5be9', u'50dbb8b3207e9de966f824f4aeb7ed265045a9a72713977b3472b708f6c99498'), app = 0)
+    a = filewriter("alone_app.cfg")
+    #a.savenewfile()
+    
+    #a.savenewfile((u'testdev@senlime.com', '2254',u'e3435805-dcb1-3343-b875-ab9e067d5be9', u'50dbb8b3207e9de966f824f4aeb7ed265045a9a72713977b3472b708f6c99498'), app = 0)
+    a.savenewfilex()
+    
     

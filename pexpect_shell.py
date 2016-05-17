@@ -7,8 +7,10 @@ class sh_pex():
     def __init__(self):
         self.pexpect = None
         
-    def get_url(self):
-        app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""
+    def get_url(self, num):
+        #app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""
+        #app_sta_shell = """./app_server -cfg="alone_%d_app.cfg" -db -server_provision"""
+        app_sta_shell = './app_server -cfg="cfg/app_%d_alone.cfg" -db -server_provision -host="%d" ' % (num, num)
         get_char_1 = "App Server Provision Params Read"
         get_char_2 = "App Server Added on EAP, please register on EAP"
         send_c = "a"
@@ -35,8 +37,13 @@ class sh_pex():
         appserver_provision = "App Server Provision finished"
         self.pexpect.expect(appserver_provision)
         print self.pexpect.after
-        
-
+       
+    def l2_provision(self):
+        """dev provision """
+        assert self.pexpect
+        dev_provision = "rcv data:" #通过L2 数据开始传入作为成功的条件
+        self.pexpect.expect(dev_provision)
+        print self.pexpect.after
 
 if __name__=="__main__":
     a = sh_pex()

@@ -13,7 +13,7 @@ class test_dev_p():
         self.eap_http = httper(self.eap_ip)
    
     def add_dev_lic(self, applications_name):
-        self._mon_app_log()
+        #self._mon_app_log() #app provision修改后，不再使用此流程
         add_res = self.eap_http.add_dev_lic(applications_name)
         return add_res["result"]
 
@@ -42,7 +42,7 @@ def dev_provision(num):
     c = sh_control()
     c.dev_provision(num)
 def start_dev(num):
-    for i in xrange(10):
+    for i in xrange(1):
         thread.start_new_thread(dev_provision,(i + num, ))
         print "start dev....%d" % int(i + num)
         time.sleep(1)

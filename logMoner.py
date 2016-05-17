@@ -206,6 +206,7 @@ class logMon():
                 return 0 # appserver provision is ok
             else:
                 time.sleep(1)
+        pass
 
     def mon_provision(self, applog = "app_server.log.txt"):
         res = 1

@@ -1,7 +1,7 @@
 #-*-coding:utf8-*-
 import MySQLdb
 class db_mod():
-    def __init__(self, db_name = "nexus_eap_test" , ip = "192.168.1.44", user = "slim", pd = "password"):
+    def __init__(self, db_name = "nexus_eap" , ip = "192.168.1.44", user = "slim", pd = "password"):
         self.db = MySQLdb.connect(ip ,user, pd, db_name, port=3306, charset="utf8")
         self.cursor = self.db.cursor()        
 
