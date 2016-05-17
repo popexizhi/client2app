@@ -20,6 +20,10 @@ class sh_control():
         self.kill_cmd = './stop_app.sh'
         self._com(self.kill_cmd)
 
+    def kill_dev(self):
+        self.kill_cmd = './stop_dev.sh'
+        self._com(self.kill_cmd)
+
     def back_up(self, num):
         self.back_up = './backall.sh %s' % num
         self._com(self.back_up)

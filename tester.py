@@ -26,9 +26,9 @@ if __name__ == "__main__":
     for i in xrange(use_num): 
         app_id = i*10 + num
         doing_test(app_id)        
-        #print "start kill all %d + 10" % app_id
-        #print "** " * 20
-        #x.kill_all()
+        print "start kill dev %d " % app_id
+        print "** " * 20
+        x.kill_all()
 
     #结果处理
     rep_writer = logMon_check()
