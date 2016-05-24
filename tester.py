@@ -5,19 +5,20 @@ import sys, time
 from shell_con import sh_control
 from test_report import logMon_check
 from provision_test import *
-
+from app_lock import app_provision_res # app_provision use
 def doing_test(num):
     #app start
     wait_time = 5 #等待完成间隔
-    start_app(num)
+    app_Mon = app_provision_res(num)
+    start_app(num, app_Mon)
     time.sleep( wait_time )
-    start_dev(num)
-    time.sleep( wait_time * 2)
+    start_dev(num, app_Mon)
+    #time.sleep( wait_time )
 
 
 if __name__ == "__main__":
     num  = int(time.time())#int(sys.argv[1])
-    use_num = 1 # 100
+    use_num = 100 # 100
     #前置条件，注册app 的lic
     get_app_lic(use_num ,std = num)
     

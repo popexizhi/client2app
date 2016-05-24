@@ -6,7 +6,9 @@ from logMoner import logMon #L2 data use
 
 class logMon_check():
     def __init__(self):
-        self.ue_provision_finish = "ProvisionStatusIndication: status\\(.*Completed\\)"#"test client send finished"
+        #self.ue_provision_finish = "ProvisionStatusIndication: status\\(.*Completed\\)"#"test client send finished"
+        #
+        self.ue_provision_finish = "send count"
 
     def get_l2_data(self, inputfile):
         """返回ue的log中最后一行的send data的number """

@@ -41,7 +41,16 @@ def dev_provision(num):
     #启动client
     c = sh_control()
     c.dev_provision(num)
-def start_dev(num):
+def start_dev(num, app_Mon):
+    sh = sh_control()
+    while 1 :
+        if 1 == app_Mon.get_provision_status():
+            print "%s app provision is ok ..." % str(num)                
+            sh.back_up_app(num)
+            break
+        else:
+            print "wait %s app provision" % str(num)
+            time.sleep(1)
     for i in xrange(1):
         thread.start_new_thread(dev_provision,(i + num, ))
         print "start dev....%d" % int(i + num)

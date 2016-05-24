@@ -28,6 +28,10 @@ class sh_control():
         self.back_up = './backall.sh %s' % num
         self._com(self.back_up)
 
+    def back_up_app(self, num):
+        self.back_up = './app_backall.sh %s' % num
+        self._com(self.back_up)
+
     def _com(self, cmd):
         getchar = "a"
         print cmd

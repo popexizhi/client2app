@@ -5,7 +5,7 @@ from pexpect_shell import sh_pex
 from httper import httper
 import thread
 import time
-def app_provision(num):
+def app_provision(num, app_Mon):
     """
     1.start appserver
     2.wait log 打印 request url id
@@ -29,14 +29,19 @@ def app_provision(num):
     print http_x.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
     print "log is " + "$$ " * 20
     a.send_provision()
+    app_Mon.set_provision_pass()
     #4.wait log 打印 request url id
     a.l2_provision()
 
-def start_app(std):
+def start_app(std, app_Mon):
     for i in xrange(1):
-        thread.start_new_thread(app_provision,(i + std , ))
-        print "start app....%d" % int(i +std)
-        time.sleep(5)
+        try:
+            thread.start_new_thread(app_provision,(i + std , app_Mon, ))
+            print "start app....%d" % int(i +std)
+            time.sleep(5)
+        except:
+            print "start_app err " * 20
+
 
     #    a = sh_control()
     #    a.app_provision(i+std)
