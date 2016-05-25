@@ -1,1 +1,1 @@
-echo `cp app_server.log.txt log\app_server_$1.log`
+echo `cp app_server.log.txt applog/app_server_$1.log`

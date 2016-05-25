@@ -17,6 +17,7 @@ def app_provision(num, app_Mon):
     #2.wait log 打印 request url id
     url_id = a.get_url(num)
     assert url_id #检查返回的id一定存在
+    print "** " * 20
     print "get url_id is "
     print url_id
 
@@ -41,8 +42,8 @@ def start_app(std, app_Mon):
             time.sleep(5)
         except:
             print "start_app err " * 20
-
-
+            break
+            
     #    a = sh_control()
     #    a.app_provision(i+std)
 

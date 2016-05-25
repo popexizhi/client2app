@@ -12,8 +12,9 @@ def doing_test(num):
     app_Mon = app_provision_res(num)
     start_app(num, app_Mon)
     time.sleep( wait_time )
-    start_dev(num, app_Mon)
-    #time.sleep( wait_time )
+    res = start_dev(num, app_Mon)
+    if -1 == res:
+        return res
 
 
 if __name__ == "__main__":
@@ -25,12 +26,15 @@ if __name__ == "__main__":
     #测试过程
     x = sh_control()
     for i in xrange(use_num): 
-        app_id = i*10 + num
-        doing_test(app_id)        
+        app_id = i + num
+        res = doing_test(app_id)        
+        if -1 == res:
+            print "err for app provision" * 20
+            break
         print "start kill dev %d " % app_id
-        print "** " * 20
         x.kill_dev()
-
+        print "** " * 200
+        time.sleep(5)
     #结果处理
     rep_writer = logMon_check()
     testsuit_name = "test_%s" % str(num) #测试名称，报告和备份是使用

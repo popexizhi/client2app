@@ -43,14 +43,20 @@ def dev_provision(num):
     c.dev_provision(num)
 def start_dev(num, app_Mon):
     sh = sh_control()
+    app_provision_wait_time = 0
+    ts = 1
     while 1 :
         if 1 == app_Mon.get_provision_status():
             print "%s app provision is ok ..." % str(num)                
             sh.back_up_app(num)
             break
         else:
-            print "wait %s app provision" % str(num)
-            time.sleep(1)
+            print "wait %s app provision ; app_provision_wait_time is %f" % (str(num), app_provision_wait_time)
+            time.sleep(ts)
+            app_provision_wait_time = app_provision_wait_time + ts
+            if app_provision_wait_time > 30 :
+                return -1 # app_provision_wait_time超时无法完成后续工作
+
     for i in xrange(1):
         thread.start_new_thread(dev_provision,(i + num, ))
         print "start dev....%d" % int(i + num)

@@ -36,6 +36,7 @@ class sh_pex():
         """appserver provision,监控 appserver log的provision结果"""
         assert self.pexpect
         appserver_provision = "App Server Provision finished"
+        print "wait .. .." + appserver_provision
         self.pexpect.expect(appserver_provision)
         print self.pexpect.after
        
