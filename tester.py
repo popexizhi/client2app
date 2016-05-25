@@ -19,7 +19,7 @@ def doing_test(num):
 
 if __name__ == "__main__":
     num  = int(time.time())#int(sys.argv[1])
-    use_num = 100 # 100
+    use_num = 101 # 100
     #前置条件，注册app 的lic
     get_app_lic(use_num ,std = num)
     
@@ -39,4 +39,5 @@ if __name__ == "__main__":
     rep_writer = logMon_check()
     testsuit_name = "test_%s" % str(num) #测试名称，报告和备份是使用
     rep_writer.res_process("log", testsuit_name)
+    rep_writer.save_res() #保存L1测试报告
     x.back_up(testsuit_name)
