@@ -1,8 +1,7 @@
 #include "test_c.h"
 #include "base/logging.h"
 
-test_c::test_c(){
-}
+test_c::test_c(){}
 
 test_c::~test_c() {}
 

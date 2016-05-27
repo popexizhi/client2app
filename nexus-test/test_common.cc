@@ -51,6 +51,11 @@ void client_udp_socket_test( int ue_id)
   if (SlimBind(client_socket2, (struct sockaddr *)&sin, sizeof(sin)) != 0) {
     
   }
+  //==========================
+  //test_slim_upd
+  TestSlimUdp udp3(ue_id, L2_app_host_ip_str);
+  udp3.ShowLog();
+  udp3.SendData();
   //===========================
   //sendto
   DVLOG(1) << "-------test client sendto server begin---" ;
@@ -376,9 +381,7 @@ void server_socket_test(int ue_id)
 
 void L2ConnectionEvtNotify(unsigned int  ue_id ,CONNECTION_NOTIFY_TYPE evt,bool success , int errCode , void * cb_param)
 {
-  test_c a;
-  a.set_log();
-  //set_log();
+
   if(evt == APP_SOCKET_READY)
   {
     //创建 SOCKET 程序的测试 线程
@@ -399,6 +402,7 @@ void L2ConnectionEvtNotify(unsigned int  ue_id ,CONNECTION_NOTIFY_TYPE evt,bool 
     {
       base::Thread * pClientThread = new base::Thread("client_socket_thread");
       pClientThread->Start();
+      udp_socket_test = true; //popexizhi add use for udp test
       if(udp_socket_test == true)
       {
         pClientThread->message_loop()->PostTask(FROM_HERE, base::Bind(&client_udp_socket_test,ue_id));
