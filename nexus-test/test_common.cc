@@ -31,65 +31,18 @@ void client_udp_socket_test( int ue_id)
   //==========================
   //test_slim_upd
   TestSlimUdp udp3(ue_id, L2_app_host_ip_str);
-  udp3.ShowLog();
-  udp3.SendData(); 
+  //udp3.ShowLog();
+  //udp3.SendData(); 
+  std::string file_path = "sendfile//app_server.log.txt"; 
+  udp3.SendFile(file_path);
 }
 
 //udp server port: 4000
 void server_udp_socket_test(int ue_id)
 {
-  net::IPEndPoint peer_address;
-  struct sockaddr_in sin;
-  memset(&sin, 0, sizeof(sin));
-  sin.sin_family = AF_INET;
-  if (!inet_pton(AF_INET, (const char*)&L2_app_host_ip_str[0], &sin.sin_addr)) {
-  }
-
-  int server_socket = SlimSocket(PF_INET,SOCK_DGRAM,0);
-  DVLOG(0) << "************** UDP test server create socket fd  ******************\n\n\n\n" << server_socket;
-  sin.sin_port = ntohs(4000);
-  if (SlimBind(server_socket, (struct sockaddr *)&sin, sizeof(sin)) != 0) {
-    DVLOG(1) << "-------test server UDP socket fd " << server_socket << " bind error" ;
-  }
-
-  DVLOG(1) << "-------test server UDP socket fd " << server_socket << " bind ok" ;
-
-  int rx_cnt = 1;
-  int total_rcv_size = 0;   
-  socklen_t from_len = sizeof(struct sockaddr_in);
-  struct sockaddr_in from_addr;
-  char rcv_buf[1600] ;
-  int read_count = 0;
-  char from_ip[20];
   
-  while(exit_flg == 0)
-  {
-    read_count = SlimRecvFrom(server_socket,rcv_buf,1500,0, (struct sockaddr *)(&from_addr), &from_len);
-    total_rcv_size += read_count; 
-
-    if (!inet_ntop(AF_INET, &from_addr.sin_addr, &from_ip[0], 16)) {
-      DCHECK(0 && "IP address convert fail");
-    }
-    
-    DVLOG(0) << "UDPserver(" << server_socket << " )rcv data: count="  << read_count << " rx_cnt=" << rx_cnt << " ,total_rcv_size=" << total_rcv_size<<", from="<<from_ip<<"."<< ntohs(from_addr.sin_port)<<", value= "<<rcv_buf;
-
-    rx_cnt++;
-    //=======================
-    //send back the data
-    int send_count;
-     do
-     {
-         send_count = SlimSendTo(server_socket,rcv_buf, read_count,0, (struct sockaddr *)&from_addr, from_len );
-         if(send_count <= 0)
-         {
-             usleep(50);
-         }
-         else
-         {
-             DVLOG(0) << "UDP server(" << server_socket << " )send data: count="  << send_count <<", to="<<from_ip<<"."<< ntohs(from_addr.sin_port)<<", value= "<<rcv_buf;
-         }
-     }while(send_count <= 0);
-  }
+  TestSlimUdp server_udp(ue_id, L2_app_host_ip_str, true, 4000);
+  server_udp.RecvData();
 }
 
 static base::Thread * pServerThreadTcp = nullptr;

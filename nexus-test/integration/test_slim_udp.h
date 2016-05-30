@@ -53,6 +53,7 @@
 class TestSlimUdp {
  public:
    TestSlimUdp(int ue_id, char * appserveraddr ,int sin_port=8003);
+   TestSlimUdp(int ue_id, char * appserveraddr ,bool is_server, int sin_port=4000);
    ~TestSlimUdp();
    void ShowLog();
 
@@ -63,6 +64,7 @@ class TestSlimUdp {
    int Recv(char * rcv_buf);
 
    bool SendData(); //默认测试发送50000包
+   bool RecvData(); //默认测试接受5000包
    bool SendFile(std::string file_path); //发送指定路径的文件
    bool SendDir(std::string dir_path);  //发送指定路径的文件夹内容
  protected:
@@ -70,7 +72,8 @@ class TestSlimUdp {
  private:
     int ue_id_;
     int sin_port_ ;
-    int client_socket_ ;
+    int socket_ ;
+    bool is_server_ ;
     struct sockaddr_in sin_;
     struct sockaddr_in server_sin_;
 };
