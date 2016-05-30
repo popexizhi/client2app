@@ -53,47 +53,52 @@ bool TestSlimUdp::SendData(){
     char snd_buf[1500];
     int snd_len = 1000;
     //res use ==========================
-    socklen_t form_len = sizeof(struct sockaddr_in);
-    struct sockaddr_in from_addr;
     char rcv_buf[1600];
     int read_count = 0;
-    char from_ip[20];
     
     int exit_flg = 0;
 
     while(!err && (test_packet < 50000) && (0 == exit_flg)){
         DVLOG(0) << "[popexizhi] -------test client send begin ---,test_packet=" << test_packet<<", exit_flg="<<exit_flg;
+        //UDP socket 
+        DVLOG(0)<<"[popexizhi] Start to call UDP ClientSendTo() for socket " << client_socket_;
+        //send
+        sprintf(snd_buf, "Hello UDP %d %d \n", client_socket_, test_packet);
+        int count = Send(snd_buf, snd_len);
+        total_send_size += count;
+        DVLOG(0) << "[popexizhi]socket client(" << ue_id_ << " )send count ---"  << count << " ** " << test_packet << " total_send_size=" << total_send_size;      
+        //recv
+        read_count = Recv(rcv_buf);
 
-        int total_send = 0;
-        int count = 0 ;
-        do
-        {
-          //UDP socket 
-          DVLOG(0)<<"[popexizhi] Start to call UDP ClientSendTo() for socket " << client_socket_;
-
-          sprintf(snd_buf, "Hello UDP %d %d \n", client_socket_, test_packet);
-          count = SlimSendTo(client_socket_,snd_buf, snd_len - total_send,0, (struct sockaddr *)&server_sin_, sizeof(server_sin_) );
-   
-          if(count <= 0){
-            usleep(50);
-          }
-          else{
-            total_send_size += count;
-            DVLOG(0) << "[popexizhi]socket client(" << ue_id_ << " )send count ---"  << count << " ** " << test_packet << " total_send_size=" << total_send_size;      
-            //==================
-            read_count = SlimRecvFrom(client_socket_,rcv_buf,1500,0, (struct sockaddr *)(&from_addr), &form_len);
-            if (!inet_ntop(AF_INET, &from_addr.sin_addr, &from_ip[0], 16)) {
-                DCHECK(0 && "IP address convert fail");
-            }
-            DVLOG(0) << "UDPclient(" << client_socket_ << " )rcv data: count="  << read_count <<", from="<<from_ip<<"."<< ntohs(from_addr.sin_port)<<", value= "<<rcv_buf;
-            //================== 
-          }
-        }while(count <= 0 && (0 == exit_flg) );
 
         test_packet++;
     }
     DVLOG(0) << "[popexizhi] test client UDP is finished" ;
     return res;
+}
+int TestSlimUdp::Recv(char * rcv_buf){
+        socklen_t form_len = sizeof(struct sockaddr_in);
+        struct sockaddr_in from_addr;
+        char from_ip[20];
+
+        int read_count = SlimRecvFrom(client_socket_,rcv_buf,1500,0, (struct sockaddr *)(&from_addr), &form_len);
+        if (!inet_ntop(AF_INET, &from_addr.sin_addr, &from_ip[0], 16)) {
+            DCHECK(0 && "IP address convert fail");
+        }
+        DVLOG(0) << "UDPclient(" << client_socket_ << " )rcv data: count="  << read_count <<", from="<<from_ip<<"."<< ntohs(from_addr.sin_port)<<", value= "<<rcv_buf;
+
+        return read_count;
+
+}
+int TestSlimUdp::Send(char * snd_buf, int snd_len){
+    int count = 0 ;
+    do{
+        count = SlimSendTo(client_socket_,snd_buf, snd_len, 0, (struct sockaddr *)&server_sin_, sizeof(server_sin_) );
+        if (count <= 0){
+            usleep(50);
+        }
+    }while(count <= 0);
+    return count;
 }
 
 void TestSlimUdp::ShowLog() {

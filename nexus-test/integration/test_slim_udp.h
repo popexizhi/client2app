@@ -60,6 +60,8 @@ class TestSlimUdp {
    //
    bool InitSocket();
    bool SendData();
+   int Send(char * snd_buf, int snd_len);
+   int Recv(char * rcv_buf);
  protected:
     
  private:
