@@ -59,9 +59,12 @@ class TestSlimUdp {
    //=============
    //
    bool InitSocket();
-   bool SendData();
    int Send(char * snd_buf, int snd_len);
    int Recv(char * rcv_buf);
+
+   bool SendData(); //默认测试发送50000包
+   bool SendFile(std::string file_path); //发送指定路径的文件
+   bool SendDir(std::string dir_path);  //发送指定路径的文件夹内容
  protected:
     
  private:

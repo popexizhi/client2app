@@ -41,10 +41,6 @@ bool TestSlimUdp::SendData(){
     //sendto
     bool res = true;
     DVLOG(0) << "[popexizhi]----------test client sendto server begin-------" ;
-//    if(!inet_pton(AF_INET, (const char*)&L2_app_host_ip_str[0], &server_sin_.sin_addr)){
-//        res = false ;
-//        return res;
-//    }
     //send use ========================
 
     int test_packet = 1;
@@ -103,4 +99,18 @@ int TestSlimUdp::Send(char * snd_buf, int snd_len){
 
 void TestSlimUdp::ShowLog() {
    DVLOG(0)<<"[popexizhi] TestSlimUdp::ShowLog......";
+}
+
+bool TestSlimUdp::SendFile(std::string file_path){
+    // 发送指定路径的文件
+    bool res = true;
+
+    return res;
+}
+
+bool TestSlimUdp::SendDir(std::string dir_path){
+    //发送指定路径的文件夹内容
+    bool res = true;
+
+    return res;
 }

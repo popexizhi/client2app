@@ -1,4 +1,4 @@
-#include "test_common.h"
+#include "test_common_intergration.h"
 #include "noc_quic_appserver.h"
 
 using namespace std;
