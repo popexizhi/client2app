@@ -61,12 +61,15 @@ class TestSlimUdp {
    //
    bool InitSocket();
    int Send(char * snd_buf, int snd_len);
+   int Send(std::string snd_sbuf);
    int Recv(char * rcv_buf);
 
    bool SendData(); //默认测试发送50000包
    bool RecvData(); //默认测试接受5000包
    bool SendFile(std::string file_path); //发送指定路径的文件
    bool SendDir(std::string dir_path);  //发送指定路径的文件夹内容
+   void RecvDir(std::string dir_path="getfile//");  //接受文件存放到指定路径
+   bool CheckFile(std::string *snd_sbuf); //检查rcv_str_中文件名称，并回复结果
  protected:
     
  private:
@@ -76,6 +79,25 @@ class TestSlimUdp {
     bool is_server_ ;
     struct sockaddr_in sin_;
     struct sockaddr_in server_sin_;
+
+    std::string rcv_str_;
+    //fileHead 传输使用
+    //send : f_name_USE_ + file_path + f_spl_USE_ + f_length_USE_ + std::to_string(file_length) + f_spl_USE_ ;
+    //rec pass : f_name_USE_ + file_path + f_spl_USE_ + f_length_USE_ + std::to_string(file_length) + f_spl_USE_ + f_PASS_USE_ + f_spl_USE_;
+    std::string f_length_USE_; // = "filelength:";
+    std::string f_name_USE_ ;// = "filename:";
+    std::string f_spl_USE_ ;//= ";";   
+    std::string f_PASS_USE_ ; //= "pass";
+    std::string f_FAIL_USE_ ; //= "fail";
+    
+    //在rcv_str_中检查FileHead使用
+    bool FileHeadPass(std::string *snd_sbuf);
+    void GetFileHead(std::string *file_path, std::string *file_length, std::string *file_head);
+
+    //发送文件内容
+    bool FileBodySend(FILE *fp, int file_length);
+    //接受文件内容
+    bool FileBodyRecv(std::string file_head, std::string dir_path);
 };
 
 //extern void set_log();

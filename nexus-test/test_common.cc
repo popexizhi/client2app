@@ -42,7 +42,8 @@ void server_udp_socket_test(int ue_id)
 {
   
   TestSlimUdp server_udp(ue_id, L2_app_host_ip_str, true, 4000);
-  server_udp.RecvData();
+  //server_udp.RecvData();
+  server_udp.RecvDir();
 }
 
 static base::Thread * pServerThreadTcp = nullptr;
