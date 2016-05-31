@@ -238,7 +238,7 @@ bool TestSlimUdp::FileBodySend(FILE *fp, int file_length){
                 snd_len = file_length % SENDBUF;
         }
         fread(snd_buf, snd_len, 1, fp);
-        DVLOG(0) <<"[popexizhi] send count is " << i;
+        DVLOG(0) <<"[popexizhi] send count is " << i << "\t; count is "<< count;
         Send(snd_buf, snd_len);
     } 
     
@@ -283,7 +283,9 @@ bool TestSlimUdp::FileBodyRecv(std::string file_head, std::string dir_path){
     GetFileHead(&file_path, &file_slength, &file_head);
     DVLOG(0) << "[popexizhi] --------file_slength is "<< file_slength;
     int file_ilength = std::stoi(file_slength);
-
+    
+    file_path = dir_path + file_path;   
+    DVLOG(0) << "[popexizhi] --------file_path is "<< file_path;
     //FILE *fp_new=NULL;
     //存储文件
     int total_rcv_size = 0;   
@@ -296,11 +298,18 @@ bool TestSlimUdp::FileBodyRecv(std::string file_head, std::string dir_path){
         read_count = Recv(rcv_buf);
         file_body = file_body + rcv_buf;
         total_rcv_size += read_count;
-        DVLOG(0) << "[popexizhi] --------total_rcv_size is "<< total_rcv_size <<"------------rcv_buf :" << rcv_buf ;
-        if(total_rcv_size >= file_ilength)
+        DVLOG(0) << "[popexizhi] --------total_rcv_size is "<< total_rcv_size <<"\t file_ilength "<< file_ilength <<"-----rcv_buf :" << rcv_buf ;
+        if(total_rcv_size >= file_ilength){
             exit_flg = 1;
-
+            DVLOG(0) << "[popexizhi]  file get is end --------total_rcv_size is "<< total_rcv_size <<" file_ilength "<< file_ilength;
+        }
     }
+    FILE *fp_new=NULL;
+    DVLOG(0) << "[popexizhi] start save file " <<file_path;
+    fp_new = fopen(file_path.c_str(), "w");
+    fwrite(file_body.c_str(),file_ilength, 1, fp_new);
+    fclose(fp_new);
+    DVLOG(0) << "[popexizhi] end save file " <<file_path;
     return true;
 }
 void TestSlimUdp::GetFileHead(std::string *file_path, std::string *file_length, std::string *file_head){
