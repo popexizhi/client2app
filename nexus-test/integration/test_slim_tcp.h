@@ -14,6 +14,7 @@ class TestSlimTcp {
 
     void Log(std::string log_con); 
     std::string GetTestFileCon(); //获得测试文件的内容
+    bool GetTestDataFile(); //读取测试数据文件内容
   protected:
 
   private:

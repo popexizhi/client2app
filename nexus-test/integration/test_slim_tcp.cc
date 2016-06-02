@@ -76,10 +76,16 @@ std::string TestSlimTcp::GetTestFileCon(){
   int i = system(cmd.c_str());
   Log(cmd + " res is " + std::to_string(i));
 
+  //2.读取测试数据文件内容
+  res_con = GetTestDataFile();
   return res_con;
 }
 
-
+bool TestSlimTcp::GetTestDataFile(){
+    //读取测试数据文件内容
+    //当前目录下test_random_packets.td.csv
+    char *file_name="test_random_packets.td.csv";
+}
 
 
 
