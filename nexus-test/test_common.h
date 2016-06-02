@@ -52,6 +52,7 @@
 #include "test_noc_ue_interface.h"
 #include "intergration/test_c.h" //popexizhi add
 #include "intergration/test_slim_udp.h" //popexizhi add
+#include "intergration/test_slim_tcp.h" //popexizhi add
 
 extern char L2_app_host_ip_str[64] ;
 

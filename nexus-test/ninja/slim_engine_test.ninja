@@ -105,7 +105,9 @@ build obj/test_c.o : cxx ../runtests/intergration/test_c.cc
 
 build obj/test_slim_udp.o : cxx ../runtests/intergration/test_slim_udp.cc
 
-build obj/test_common_intergration.o : cxx ../runtests/test_common_intergration.cc
+build obj/test_slim_tcp.o : cxx ../runtests/intergration/test_slim_tcp.cc
+
+build obj/test_common.o : cxx ../runtests/test_common.cc
 
 build obj/test_noc_ue_interface.o : cxx ../runtests/test_noc_ue_interface.cc
 
@@ -201,6 +203,7 @@ build slim_engine_test: link obj/slim_engine_test.o $
      obj/net/libnew_net.a $
      obj/test_c.o $
      obj/test_slim_udp.o $
-     obj/test_common_intergration.o
+     obj/test_slim_tcp.o $
+     obj/test_common.o
 ld = $ldxx
 

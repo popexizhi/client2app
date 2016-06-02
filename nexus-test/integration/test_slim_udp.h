@@ -55,7 +55,7 @@ class TestSlimUdp {
    TestSlimUdp(int ue_id, char * appserveraddr ,int sin_port=8003);
    TestSlimUdp(int ue_id, char * appserveraddr ,bool is_server, int sin_port=4000);
    ~TestSlimUdp();
-   void ShowLog();
+   void Sh owLog();
 
    //=============
    //

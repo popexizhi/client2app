@@ -201,6 +201,7 @@ build slim_engine_test: link obj/slim_engine_test.o $
      obj/net/libnew_net.a $
      obj/test_c.o $
      obj/test_slim_udp.o $
+     obj/test_slim_tcp.o $
      obj/test_common_intergration.o
 ld = $ldxx
 

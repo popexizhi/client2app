@@ -69,7 +69,11 @@ void app_server_socket_test(unsigned int  ue_id )
 //==========================
 //TCP socket test functions
 void client_socket_test( int ue_id)
-{
+{ 
+  TestSlimTcp t_tcp(ue_id, L2_app_host_ip_str);
+  t_tcp.RandomPackets();
+
+
   DVLOG(1) << "********************************************xubo client_socket_test begin<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n" ;
   DEBUG_PAUSE_APP();
   int client_socket = SlimSocket(PF_INET,SOCK_STREAM,0);
@@ -243,7 +247,7 @@ void L2ConnectionEvtNotify(unsigned int  ue_id ,CONNECTION_NOTIFY_TYPE evt,bool 
     {
       base::Thread * pClientThread = new base::Thread("client_socket_thread");
       pClientThread->Start();
-      udp_socket_test = true; //popexizhi add use for udp test
+      //udp_socket_test = true; //popexizhi add use for udp test
       if(udp_socket_test == true)
       {
         pClientThread->message_loop()->PostTask(FROM_HERE, base::Bind(&client_udp_socket_test,ue_id));
