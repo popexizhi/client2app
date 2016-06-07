@@ -13,16 +13,23 @@ class slim_socket():
         
         self.so = ctypes.CDLL(lib_path)
         self.log("len self.argv is %d" % len(self.argv))
-        self.log(" self.argv is %s" % str(self.argv))
+        self.log("self.argv is %s" % str(self.argv))
 
     def log(self, message):
         print "*** " * 20
         print "[slim_socket]\t " + str(message)
 
-    def nexusLibMainEntry(self):
-        pass
+    def NexusLibMainEntry(self):
+        num_numbers = len(self.argv)
+        array_type = ctypes.c_char_p * num_numbers
+        self.log("array_type is %s "% str(array_type))
+        
+        self.so.NexusLibMainEntry(ctypes.c_int(num_numbers), array_type(*self.argv))
 
 if __name__ == "__main__":
     cmd = ["py_lib.py", "-cfg=alone.cfg", "-relay"]
     x = slim_socket(cmd)
+    x.NexusLibMainEntry()
+    while 1:
+        time.sleep(1)
 
