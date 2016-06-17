@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+<testcase name="L2_TCP_send_10_packages">
+    <summary>clinet send 10 tcp packages</summary>
+    <preconditions>npl1.db,ue_1.cfg</preconditions>
+    <execution_type>1</execution_type>
+    <steps>
+        <step>
+            <step_number>1</step_number>
+            <actions>send 10 packages</actions>
+            <expectedresults>send pass</expectedresults>
+            <execution_type>1</execution_type>
+        </step>
+        <step>
+            <step_number>2</step_number>
+            <actions>stop ue</actions>
+            <expectedresults>stop ue</expectedresults>
+            <execution_type>1</execution_type>
+        </step>
+    </steps>
+    <custom_fields>
+        <custom_field>
+            <name>ue_1.cfg</name>
+            <value>jenkins_use_cfg</value>
+        </custom_field>
+    </custom_fields>
+</testcase>
