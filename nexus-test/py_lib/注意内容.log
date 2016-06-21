@@ -1,4 +1,6 @@
 1.导入环境变量
+export LD_LIBRARY_PATH=lib/$export LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/lib_so/$export LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=./$export LD_LIBRARY_PATH
 2.运行参数
 ./a.out -cfg=alone.cfg -relay
@@ -9,8 +11,15 @@ export LD_LIBRARY_PATH=./$export LD_LIBRARY_PATH
 sleep的使用库要添加为#include <unistd.h>
 
 4.导出的头文件位置
-noc/engine/slim_engine_test.cc
+noc/engine/slim_engine_test.cc //NexusLibMainEntry
+common/slim_socket_interface.h //SlimSocket
+common/app_socket_port.h
 
 5.编译命令
 gcc test.c  -L ./ -lNexus_Engine_SDK -lPocoCrypto   -lPocoNetSSL
+
+
+0.
+-cfg="alone_with_provision.cfg" -host=1464165278
+-cfg="alone_with_provision.cfg" -host=1465202670
 
