@@ -25,11 +25,12 @@ class slim_socket():
         self.argv = argv
         self.lib_path_so = "export LD_LIBRARY_PATH=lib/$export LD_LIBRARY_PATH" 
         #os.system(self.lib_path_so)
-
+        
         self.so = ctypes.CDLL(lib_path)
+        self.log("lib_path is %s" % lib_path)
         self.log("len self.argv is %d" % len(self.argv))
         self.log("self.argv is %s" % str(self.argv))
-
+    
     def log(self, message, meg_doc = ""):
         print "*** " * 20
         print "[slim_socket]\t%s\t%s " % (meg_doc , str(message))
@@ -52,8 +53,8 @@ class slim_socket():
         self.log("array_type is %s "% str(array_type))
 
         #provision
-        self.so.NexusAPPMainEntry.argtypes = (ctypes.c_int, ctypes.POINTER(ctypes.c_char_p))
-        self.so.NexusAPPMainEntry(ctypes.c_int(num_numbers), array_type(*sys.argv))        
+        #self.so.NexusAPPMainEntry.argtypes = (ctypes.c_int, ctypes.POINTER(ctypes.c_char_p))
+        self.so.NexusAPPMainEntry(ctypes.c_int(num_numbers), array_type(*self.argv))        
         time.sleep(self.NexusAPPMainEntry_WT)
 
     def SlimSocket(self):

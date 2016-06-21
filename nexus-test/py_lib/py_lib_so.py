@@ -1,4 +1,4 @@
-#-*- encoding:utf8 -*-
+#-*- coding:utf8 -*-
 #!/usr/bin/python
 
 #from ctypes import *
@@ -37,7 +37,7 @@ if __name__ =="__main__":
     #_sum.add(ctypes.c_int(num_numbers), array_type(*sys.argv))
 
 
-    #L2 provision
+    #L2 provisionn
     so.NexusAPPMainEntry(ctypes.c_int(num_numbers), array_type(*sys.argv))
     time.sleep(10)
     #server_fd = so.SlimSocket(ctypes.c_int(socket.AF_INET), ctypes.c_int(socket.SOCK_STREAM), 0) #client use
