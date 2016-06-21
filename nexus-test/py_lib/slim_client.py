@@ -4,12 +4,13 @@
 # 
 import time
 from slimtest import slim_socket
-
+from g_db import g_db
 class slim_client():
     def __init__(self):
         self.socket = None
-    
-    def start_client(self):
+        self.g_db = g_db()
+        
+    def start_client(self, db_num = 1465202670):
         """
         cmd = ["py_lib.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
         x = slim_socket(cmd)
@@ -19,12 +20,18 @@ class slim_client():
         x.SlimConnect()
 
         """
-        cmd = ["py_lib.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
+        cmd = ["py_lib.py", '-cfg=alone_with_provision.cfg', "-host=%d" % db_num]
+        db_path = "npl%d.db" % db_num
+        host_id = self.g_db.get_hostid(db_path) #从db中读取本地host_id
+        target_host_id = self.g_db.get_target_hostid(db_path)#从db中读取server host_id
+
         self.socket = slim_socket(cmd)
         self.socket.NexusLibMainEntry()
         self.socket.SlimSocket()
-        self.socket.SlimBind()
-        self.socket.SlimConnect()
+        assert host_id
+        self.socket.SlimBind(host_id_i = host_id)
+        assert target_host_id
+        self.socket.SlimConnect(s_host_id_i = target_host_id)
 
     def send_data(self, data = "hi ,i am here .Unu wir statas vi!"):
         """

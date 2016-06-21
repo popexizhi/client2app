@@ -3,12 +3,13 @@
 
 import time
 from slimtest import slim_socket
-
+from g_db import g_db
 class slim_server():
     def __init__(self):
         self.socket = None
+        self.g_db = g_db()
 
-    def start_server(self):
+    def start_server(self, db_num = 1465202670):
         """
         cmd = ["slimtest.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
         server_lib = "/home/lijie/test/lib_nexus/app_lib/lib/libAPP_Server_SDK.so"
@@ -19,12 +20,16 @@ class slim_server():
         x.SlimListen()
         x.SlimAccept()       
         """
-        cmd = ["slim_server.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
+        cmd = ["slim_server.py", '-cfg=alone_with_provision.cfg', "-host=%d" % db_num]
         server_lib = "/home/lijie/test/lib_nexus/app_lib/lib/libAPP_Server_SDK.so"
+        db_path = "nplServer%d.db" % db_num
+        print "db_path is %s " % db_path
+        host_id = self.g_db.get_hostid(db_path)
         self.socket = slim_socket(cmd, lib_path = server_lib)
         self.socket.NexusAPPMainEntry()
         self.socket.SlimSocket()
-        self.socket.SlimBind(3000, 2102)
+        assert host_id
+        self.socket.SlimBind(3000, host_id_i = host_id)
         self.socket.SlimListen()
         self.socket.SlimAccept()
 
