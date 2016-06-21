@@ -1,5 +1,5 @@
 # python py_lib.py -cfg=alone.cfg -relay
-# -*- encoding:utf8 -*-
+# -*- coding:utf8 -*-
 #!/usr/bin/python
 
 import sys, os
@@ -54,11 +54,46 @@ class slim_socket():
         self.log(res, " SlimBind res is ")
         assert res > -1
 
-    def SlimConnect(self):
-        pass
+    def SlimConnect(self, s_port = 3000, s_host_id_i = 2102 ):
+        self.SlimConnect_WT = 1 # 1s
+        self.s_port_i = s_port
+        self.s_host_id_i = s_host_id_i
+        sockaddr_in = struct.pack("HHi",socket.AF_INET, socket.ntohs(self.s_port_i), socket.htonl(self.s_host_id_i))
+        sockaddr_in_len = 16 #16 is long for sockaddr_in 
+        self.s_addr_in_len = ctypes.c_int(sockaddr_in_len)        
+        
+        self.log("[SlimConnect] \t sockaddr_in is %s; sockaddr_in len is %s" % (repr(sockaddr_in), len(sockaddr_in)))
+        assert self.fd_
 
-     
+        res = self.so.SlimConnect(self.fd_, sockaddr_in, self.s_addr_in_len )
+        time.sleep(self.SlimConnect_WT)
+        self.log(res, "SlimConnect res is")
+        assert res > -1
 
+    def SlimSend(self, send_str):
+        assert self.fd_
+        self.c_send_str_length_i = ctypes.c_int(len(send_str))
+        self.c_char_p_send_str = ctypes.c_char_p(send_str)
+        
+        self.log("[SlimSend] start send ...")
+        send_num = self.so.SlimSend(self.fd_, self.c_char_p_send_str, self.c_send_str_length_i, 0)
+        self.log("send_num is %d" % send_num)
+       
+        res = ""
+        if send_num < self.c_send_str_length_i:
+            c_send_str_length_i = ctypes.c_int(len(send_str) - send_num)
+            self.log("new send length is %s" % str(c_send_str_length_i))
+
+            res = send_str[send_num:-1]
+            self.log("new res is %s" % res)
+            c_char_p_str = ctypes.c_char_p(res)
+            send_e_len = self.so.SlimSend(self.fd_, c_char_p_str, c_send_str_length_i, 0)
+
+            send_num = send_num + send_e_len
+            
+
+        self.log("[SlimSend] end send ...")
+        return send_num
 
 if __name__ == "__main__":
     cmd = ["py_lib.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
@@ -66,6 +101,9 @@ if __name__ == "__main__":
     x.NexusLibMainEntry()
     x.SlimSocket()
     x.SlimBind()
+    x.SlimConnect()
+    data = "hi ,i am here .Unu wir statas vi!"
+    x.SlimSend(data)
     while 1:
         time.sleep(1)
 
