@@ -7,6 +7,19 @@ from ctypes import *
 import ctypes
 import time, socket, struct
 
+class in_addr(Structure):
+ _fields_= [
+  ('s_addr', ctypes.c_uint),]
+
+class outStructAddr(Structure):
+ _fields_= [
+    ('sin_len', ctypes.c_char),
+    ('sa_family', ctypes.c_ushort),
+    ('sin_port', ctypes.c_ushort),
+    ('sin_addr_p', ctypes.POINTER(in_addr)),
+    ('sin_zero', ctypes.c_char*8),
+    ]
+
 class slim_socket():
     def __init__(self, argv, lib_path = "/home/lijie/test/lib_nexus/lib/libNexus_Engine_SDK.so"):
         self.argv = argv
@@ -22,6 +35,7 @@ class slim_socket():
         print "[slim_socket]\t%s\t%s " % (meg_doc , str(message))
 
     def NexusLibMainEntry(self):
+        """client use"""
         self.NexusLibMainEntry_WT = 10 #10 s
         num_numbers = len(self.argv)
         array_type = ctypes.c_char_p * num_numbers
@@ -29,6 +43,18 @@ class slim_socket():
         
         self.so.NexusLibMainEntry(ctypes.c_int(num_numbers), array_type(*self.argv))
         time.sleep(self.NexusLibMainEntry_WT)
+
+    def NexusAPPMainEntry(self):
+        """sever use """
+        self.NexusAPPMainEntry_WT = 10 #10s
+        num_numbers = len(self.argv)
+        array_type = ctypes.c_char_p * num_numbers
+        self.log("array_type is %s "% str(array_type))
+
+        #provision
+        self.so.NexusAPPMainEntry.argtypes = (ctypes.c_int, ctypes.POINTER(ctypes.c_char_p))
+        self.so.NexusAPPMainEntry(ctypes.c_int(num_numbers), array_type(*sys.argv))        
+        time.sleep(self.NexusAPPMainEntry_WT)
 
     def SlimSocket(self):
         self.SlimSocket_WT = 5 # 1 s
@@ -53,6 +79,37 @@ class slim_socket():
         time.sleep(self.SlimBind_WT)
         self.log(res, " SlimBind res is ")
         assert res > -1
+    
+    def SlimListen(self, listen_num = 1):
+        """serever use  """
+        self.SlimListen_WT = 1 # 1s
+        assert self.fd_
+        res = self.so.SlimListen(self.fd_, ctypes.c_int(listen_num))
+        time.sleep(self.SlimListen_WT)
+        self.log("listen res is %d" % res)
+        assert res > -1
+    
+    def SlimAccept(self):
+        """server accept """
+        self.SlimAccept_WT = 1 # 1s
+        assert self.fd_
+    
+        c_addr = outStructAddr()
+        c_i_addr_len = 0
+        self.so.SlimAccept.argtypes= [ctypes.c_int, ctypes.POINTER(outStructAddr), ctypes.POINTER(ctypes.c_int)]
+        self.newfd = self.so.SlimAccept(self.fd_, ctypes.byref(c_addr), ctypes.byref(ctypes.c_int(c_i_addr_len)))        
+        
+        log_use = "SlimAccept newfd is "+ str(self.newfd) + "\t c_addr"+ repr(c_addr) + "\t len is "+ str(c_i_addr_len)
+        self.log(log_use)
+        self.log("c_addr is ")
+        self.log(c_addr)
+        self.log("c_addr.sin_len is ")
+        self.log(c_addr.sin_len)
+        self.log("c_addr.sa_family is ")
+        self.log(c_addr.sa_family)
+        self.log("c_addr.sin_port is ")
+        self.log(c_addr.sin_port)
+        time.sleep(self.SlimAccept_WT)
 
     def SlimConnect(self, s_port = 3000, s_host_id_i = 2102 ):
         self.SlimConnect_WT = 1 # 1s
@@ -95,8 +152,26 @@ class slim_socket():
         self.log("[SlimSend] end send ...")
         return send_num
 
-if __name__ == "__main__":
-    cmd = ["py_lib.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
+    def SlimReceive(self):
+        """ get receive """
+        fd_ = self.newfd
+        self.so.SlimReceive.argtypes= [ctypes.c_int, ctypes.c_char_p , ctypes.c_int, ctypes.c_int]
+
+        
+        rcv_buf = c_char_p(" "*1000)
+        self.log("[SlimReceive]")
+        rec_num = self.so.SlimReceive(fd_, rcv_buf , 1000, 0) # next这里固定读取1000 ,没有做全都读取的处理
+        self.log("[SlimReceive]")
+        self.log("rcv_buf is %s" % rcv_buf.value)
+        self.log("rec_num is %d" % rec_num)
+
+        res = rcv_buf.value
+        return res[0:rec_num]
+        
+
+
+def test_client():
+    cmd = ["slimtest.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
     x = slim_socket(cmd)
     x.NexusLibMainEntry()
     x.SlimSocket()
@@ -107,3 +182,20 @@ if __name__ == "__main__":
     while 1:
         time.sleep(1)
 
+def test_server():
+    cmd = ["slimtest.py", '-cfg=alone_with_provision.cfg', "-host=1465202670"]
+    server_lib = "/home/lijie/test/lib_nexus/app_lib/lib/libAPP_Server_SDK.so"
+    x = slim_socket(cmd, server_lib)
+    x.NexusAPPMainEntry()
+    x.SlimSocket()
+    x.SlimBind(3000, 2102)
+    x.SlimListen()
+    x.SlimAccept()
+    while 1:
+        res_data = x.SlimReceive()
+        x.log("get data len is %d" % len(res_data) )
+        x.log("con is %s" % str(res_data))
+
+if __name__ == "__main__":
+    #test_client()
+    test_server()

@@ -1,4 +1,7 @@
 # -*- coding:utf8 -*-
+# 运行前添加如下命令 ，加载so库路径
+#   export LD_LIBRARY_PATH=lib/$export LD_LIBRARY_PATH
+# 
 import time
 from slimtest import slim_socket
 
