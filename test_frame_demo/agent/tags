@@ -11,6 +11,7 @@ __init__	pexpect_dev.py	/^    def __init__(self, host_id ):$/;"	m	class:sh_dev
 __init__	tc_use.py	/^    def __init__(self, con):$/;"	m	class:tc_stru
 __init__	tc_use.py	/^    def __init__(self, tc_stru):$/;"	m	class:testcase
 agent_c	agent.py	/^class agent_c():$/;"	c
+check_step	tc_use.py	/^    def check_step(self, step_name):$/;"	m	class:testcase
 dev_kill	pexpect_dev.py	/^    def dev_kill(self):$/;"	m	class:sh_dev
 dev_provision_check	pexpect_dev.py	/^    def dev_provision_check(self, start_num, num, res):$/;"	m	class:sh_dev
 dev_send_data	pexpect_dev.py	/^    def dev_send_data(self, send_num):$/;"	m	class:sh_dev
@@ -38,7 +39,9 @@ sh_dev	pexpect_dev.py	/^class sh_dev():$/;"	c
 step_doing	tc_use.py	/^    def step_doing(self, step_name):$/;"	m	class:testcase
 step_doing_all	tc_use.py	/^    def step_doing_all(self):$/;"	m	class:testcase
 step_download	tc_use.py	/^    def step_download(self, filename):$/;"	m	class:testcase
-step_stop	tc_use.py	/^    def step_stop(self):$/;"	m	class:testcase
+step_send_file	tc_use.py	/^    def step_send_file(self, filenames):$/;"	m	class:testcase
+step_start_with_db_so	tc_use.py	/^    def step_start_with_db_so(self, db_name):$/;"	m	class:testcase
+step_stop	tc_use.py	/^    def step_stop(self, noarg):$/;"	m	class:testcase
 step_ue_send	tc_use.py	/^    def step_ue_send(self, packet_num=10):$/;"	m	class:testcase
 step_ue_start	tc_use.py	/^    def step_ue_start(self, host_id=1):$/;"	m	class:testcase
 tc_run	manager_tc.py	/^    def tc_run(self):$/;"	m	class:manager_tc
