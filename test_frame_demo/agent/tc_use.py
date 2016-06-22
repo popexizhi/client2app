@@ -100,7 +100,7 @@ class testcase():
         assert filenames
         print "[next] step_send_file"
         filename = filenames[0] + ".log"
-        f = open(filename, "r")
+        f = open(filename, "rb")
         content = f.readlines()
         f.close()
         print "content is %s" % content

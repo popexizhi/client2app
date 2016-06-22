@@ -4,10 +4,12 @@
 import time
 from slimtest import slim_socket
 from g_db import g_db
+from rec_process import rec_p
 class slim_server():
     def __init__(self):
         self.socket = None
         self.g_db = g_db()
+        self.rec_file = rec_p()
 
     def start_server(self, db_num = 1465202670):
         """
@@ -34,9 +36,12 @@ class slim_server():
         self.socket.SlimAccept()
 
     def run(self):
+        self.rec_file.start()
         while 1:
             res_data = self.socket.SlimReceive()
             self.socket.log("get data is %s" % res_data)
+            self.rec_file.get_rec(res_data)
+            res_data = ""
 
 if __name__ == "__main__":
     s = slim_server()
