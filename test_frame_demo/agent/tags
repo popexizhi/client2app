@@ -5,23 +5,43 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
 __init__	agent.py	/^    def __init__(self):            $/;"	m	class:agent_c
-__init__	httper.py	/^    def __init__(self, url_base = "http:\/\/192.168.1.25\/testcase_use\/"):$/;"	m	class:httper
+__init__	httper.py	/^    def __init__(self, url_base = environment_map["httper"]["url"]):$/;"	m	class:httper
 __init__	manager_tc.py	/^    def __init__(self):$/;"	m	class:manager_tc
+__init__	pexpect_dev.py	/^    def __init__(self, host_id ):$/;"	m	class:sh_dev
 __init__	tc_use.py	/^    def __init__(self, con):$/;"	m	class:tc_stru
 __init__	tc_use.py	/^    def __init__(self, tc_stru):$/;"	m	class:testcase
 agent_c	agent.py	/^class agent_c():$/;"	c
+dev_kill	pexpect_dev.py	/^    def dev_kill(self):$/;"	m	class:sh_dev
+dev_provision_check	pexpect_dev.py	/^    def dev_provision_check(self, start_num, num, res):$/;"	m	class:sh_dev
+dev_send_data	pexpect_dev.py	/^    def dev_send_data(self, send_num):$/;"	m	class:sh_dev
+dev_start	pexpect_dev.py	/^    def dev_start(self):$/;"	m	class:sh_dev
 doing	agent.py	/^    def doing(self):$/;"	m	class:agent_c
+get_bfile	httper.py	/^    def get_bfile(self, f_name):$/;"	m	class:httper
+get_file	tc_use.py	/^    def get_file(self, filename):$/;"	m	class:testcase
 get_preconditions	tc_use.py	/^    def get_preconditions(self):$/;"	m	class:tc_stru
+get_step	tc_use.py	/^    def get_step(self):$/;"	m	class:tc_stru
+get_step	tc_use.py	/^    def get_step(self):$/;"	m	class:testcase
 get_tc	manager_tc.py	/^    def get_tc(self, tc_id):$/;"	m	class:manager_tc
 get_tc_list	manager_tc.py	/^    def get_tc_list(self, id_list):$/;"	m	class:manager_tc
-get_xml	httper.py	/^    def get_xml(self, f_id):$/;"	m	class:httper
+get_url	pexpect_dev.py	/^    def get_url(self, num):$/;"	m	class:sh_dev
+get_xml	httper.py	/^    def get_xml(self, f_tc_name):$/;"	m	class:httper
 httper	httper.py	/^class httper():$/;"	c
 init_pre	manager_tc.py	/^    def init_pre(self):$/;"	m	class:manager_tc
 init_pre	tc_use.py	/^    def init_pre(self):$/;"	m	class:testcase
+l2_provision	pexpect_dev.py	/^    def l2_provision(self):$/;"	m	class:sh_dev
 manager_tc	manager_tc.py	/^class manager_tc():$/;"	c
 run_tc	agent.py	/^    def run_tc(self):$/;"	m	class:agent_c
+send_provision	pexpect_dev.py	/^    def send_provision(self):$/;"	m	class:sh_dev
 set_tc	agent.py	/^    def set_tc(self, tc_list):$/;"	m	class:agent_c
 setup	agent.py	/^    def setup(self):$/;"	m	class:agent_c
+sh_dev	pexpect_dev.py	/^class sh_dev():$/;"	c
+step_doing	tc_use.py	/^    def step_doing(self, step_name):$/;"	m	class:testcase
+step_doing_all	tc_use.py	/^    def step_doing_all(self):$/;"	m	class:testcase
+step_download	tc_use.py	/^    def step_download(self, filename):$/;"	m	class:testcase
+step_stop	tc_use.py	/^    def step_stop(self):$/;"	m	class:testcase
+step_ue_send	tc_use.py	/^    def step_ue_send(self, packet_num=10):$/;"	m	class:testcase
+step_ue_start	tc_use.py	/^    def step_ue_start(self, host_id=1):$/;"	m	class:testcase
+tc_run	manager_tc.py	/^    def tc_run(self):$/;"	m	class:manager_tc
 tc_stru	tc_use.py	/^class tc_stru():$/;"	c
 teardown	agent.py	/^    def teardown(self):$/;"	m	class:agent_c
 test_manager	manager_tc.py	/^def test_manager():$/;"	f

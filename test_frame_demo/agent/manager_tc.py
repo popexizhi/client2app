@@ -3,13 +3,13 @@ import httper
 import re
 
 from tc_use import testcase, tc_stru
-
+from mapping import *
 
 class manager_tc():
     def __init__(self):
         self.tc_from = "http" #mysql
         
-        self.httper = httper.httper(url_base = "http://192.168.1.25/testcase_use/")
+        self.httper = httper.httper(url_base = environment_map["httper"]["url"])
         self.tc_f_list = []
         self.tc_con_list = {}
 
@@ -28,7 +28,7 @@ class manager_tc():
     def get_tc(self, tc_id):
         tc_con = self.httper.get_xml(tc_id)
 
-        tc_path = "testsuit/"
+        tc_path = environment_map["agent"]["tc_path"] 
         tc_file = tc_path + str(tc_id) + ".feature_xml"
         
         f = open(tc_file,"w")

@@ -1,5 +1,5 @@
 #-*- coding:utf8 -*-
-import re
+import re, os, sys
 import time
 import manager_tc #testcase 加载
 
@@ -51,6 +51,12 @@ class agent_c():
         self.tc_man.tc_run()
 
 if __name__ == "__main__":
+    tc_id_list = []
+    for i in sys.argv:
+        if i == "agent.py":
+            pass
+        else:
+            tc_id_list.append(i)
     a = agent_c()
-    a.set_tc([1466129033])
+    a.set_tc(tc_id_list)
     a.run_tc()

@@ -2,6 +2,7 @@
 import httper
 import re
 from pexpect_dev import sh_dev
+from mapping import *
 
 STEP_LIST = {
                 "step_ue_start": None, #step_ue_start,
@@ -12,7 +13,7 @@ STEP_LIST = {
 class testcase():
     def __init__(self, tc_stru):
         self.tc_stru = tc_stru
-        self.httper = httper.httper(url_base = "http://192.168.1.25/testcase_file_download/")
+        self.httper = httper.httper()
         STEP_LIST["step_ue_start"] = self.step_ue_start
         STEP_LIST["stop ue"] = self.step_stop
         STEP_LIST["send \d+ packages"] = self.step_ue_send
@@ -44,7 +45,8 @@ class testcase():
                 STEP_LIST[i]()
 
     def step_download(self, filename):
-        self.get_file(filename) # 后期修改为self.httper下载
+        #self.get_file(filename) # 后期修改为self.httper下载
+        self.httper.get_bfile(filename)
 
     def step_ue_start(self, host_id=1):
         self.sh_dev = sh_dev(host_id)
@@ -61,7 +63,7 @@ class testcase():
 
 
     def get_file(self, filename):
-        bk = "slim_ue/"
+        bk = environment_map["agent"]["tc_bk"]
         f = open(bk + filename, "rb")
         con = f.readlines()
         f.close()
