@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+<testcase name="L2_TCP_send_100_packages">
+    <summary>client 使用TCP 发送send_data.log文件内容</summary>
+    <preconditions>npl1465202670.db,nplServer1465202670.db,alone_integration.cfg,send_data.log</preconditions>
+    <execution_type>1</execution_type>
+    <steps>
+        <step>
+            <step_number>1</step_number>
+            <actions>start with alone_integration.cfg npl1465202670.db so</actions>
+            <expectedresults>start ok</expectedresults>
+            <execution_type>1</execution_type>
+        </step>
+        <step>
+            <step_number>2</step_number>
+            <actions>send send_data.log</actions>
+            <expectedresults>send pass</expectedresults>
+            <execution_type>1</execution_type>
+        </step>
+    </steps>
+    <custom_fields>
+        <custom_field>
+            <name>ue_1.cfg</name>
+            <value>jenkins_use_cfg</value>
+        </custom_field>
+    </custom_fields>
+</testcase>

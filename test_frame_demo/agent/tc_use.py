@@ -3,10 +3,10 @@ import httper
 import re
 from pexpect_dev import sh_dev
 from mapping import *
-
+from slim_client import slim_client
 STEP_LIST = {
                 "step_ue_start": None, #step_ue_start,
-                "start with (.*).db so": None, #step_start_so with host=.* 
+                "start with (.*).cfg (.*).db so": None, #step_start_so with host=.* 
                 "stop ue": None, #step_stop,
                 "send (\d+) packages": None, #step_ue_send,
                 "send (.*).log": None, #step_send_file,
@@ -16,8 +16,10 @@ class testcase():
     def __init__(self, tc_stru):
         self.tc_stru = tc_stru
         self.httper = httper.httper()
+        self.c_socket = slim_client()
+
         STEP_LIST["step_ue_start"] = self.step_ue_start
-        STEP_LIST["start with (.*).db so"] = self.step_start_so
+        STEP_LIST["start with (.*).cfg (.*).db so"] = self.step_start_so
         STEP_LIST["stop ue"] = self.step_stop
         STEP_LIST["send (\d+) packages"] = self.step_ue_send
         STEP_LIST["send (.*).log"] = self.step_send_file
@@ -77,15 +79,37 @@ class testcase():
                 print "STEP_LIST is %s , step con is %s, arg is %s" % (str(i), str(res), str(step_arg_li[1]))
                 STEP_LIST[i](step_arg_li[1])
 
-    def step_start_so(self, hostid):
+    def step_start_so(self, args_tup):
         #use hostid start so
-        print "[next] step_start_so"
+        # "start with (.*).cfg (.*).db so": None, #step_start_so with host=.* 
+        cfg, npl_hostid = args_tup[0]
+        self.cfg = cfg + ".cfg"
+        x = re.compile("npl(\d*)")
+        hostid = x.findall(npl_hostid)[0]
+        print "[next] step_start_so \t cfg = %s, hostid = %s" % (self.cfg , str(hostid))
+        self.c_socket.start_client(cfg = str(self.cfg) , db_num = int(hostid))
+        self.socket = self.c_socket 
 
     def step_send_file(self, filenames):
-        #1. read filenames con
-        #2. send con
-        assert filenames[0]
+        """ 
+        "send (.*).log": None, #step_send_file,
+        
+        1.open file,get content
+        2.send content for line
+        """
+        assert filenames
         print "[next] step_send_file"
+        filename = filenames[0] + ".log"
+        f = open(filename, "r")
+        content = f.readlines()
+        f.close()
+        print "content is %s" % content
+        # send data
+        assert self.socket 
+        for i in content:
+            print "[step_send_file] " * 2 + "send: %s" % i
+            self.socket.send_data(i)
+
 
     def step_download(self, filename):
         #self.get_file(filename) # 后期修改为self.httper下载
@@ -93,10 +117,9 @@ class testcase():
 
     def step_ue_start(self, host_id=1):
         self.sh_dev = sh_dev(host_id)
-        self.sh_dev.dev_start()
-    
-    def step_start_with_db_so(self, db_name):
-        print "step_start_with_db_so db_name is %s" % db_name
+        self.sh_dev.dev_start() 
+
+
 
     def step_ue_send(self, packet_num=10):
         assert self.sh_dev
@@ -157,9 +180,15 @@ class tc_stru():
 def test_tc_stru():
     con = """    
     <summary>clinet send 10 tcp packages</summary>
-    <preconditions>npl1.db,ue_1.cfg</preconditions>
+    <preconditions>npl1465202670.db,nplServer1465202670.db,alone_integration.cfg</preconditions>
     <execution_type>1</execution_type>
     <steps>
+        <step>
+            <step_number>3</step_number>
+            <actions>start with alone_integration.cfg npl1465202670.db so</actions>
+            <expectedresults>start ok</expectedresults>
+            <execution_type>1</execution_type>
+        </step>    
         <step>
             <step_number>1</step_number>
             <actions>send 10 packages</actions>
@@ -168,14 +197,8 @@ def test_tc_stru():
         </step>
         <step>
             <step_number>2</step_number>
-            <actions>stop ue</actions>
+            <actions>send send_data.log</actions>
             <expectedresults>stop ue</expectedresults>
-            <execution_type>1</execution_type>
-        </step>
-        <step>
-            <step_number>3</step_number>
-            <actions>start with npl1465202670.db so</actions>
-            <expectedresults>start ok</expectedresults>
             <execution_type>1</execution_type>
         </step>
     </steps>    
@@ -186,6 +209,7 @@ def test_tc_stru():
     tc = testcase(x)
     tc.init_pre()
     tc.get_step()
+    tc.step_doing_all()
 
 if __name__ == "__main__":
     test_tc_stru()

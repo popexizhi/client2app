@@ -43,7 +43,7 @@ class slim_client():
         assert self.socket
         
         self.socket.SlimSend(data)
-        self.socket.log(" send data is pass " * 20)
+        #self.socket.log(" send data is pass " * 20)
 
 if __name__ == "__main__":
     a = slim_client()
