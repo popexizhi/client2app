@@ -16,6 +16,7 @@ class rec_p(threading.Thread):
         self.rec = ""
         self.pre_f = 0
         self.lock = threading.Lock()
+        self.log_path = "sf//"
 
     def run(self):
         self.change_f = 0
@@ -32,7 +33,7 @@ class rec_p(threading.Thread):
     def savefile(self):
         self.change_f = 1
         old = self.rec[0:SAVEBUFF_LEN]
-        f = open("sf//res_%d.log" % self.pre_f, "wb")
+        f = open(self.log_path + "res_%d.log" % self.pre_f, "wb")
         f.write(old)
         f.close()
         self.pre_f = self.pre_f + 1
@@ -46,7 +47,7 @@ class rec_p(threading.Thread):
         self.save_rec()
 
     def save_rec(self):
-        f = open("sf//res_%d.log" % self.pre_f, "wb")
+        f = open(self.log_path + "res_%d.log" % self.pre_f, "wb")
         
         self.lock.acquire() 
         f.write(self.rec)

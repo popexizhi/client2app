@@ -1,13 +1,16 @@
 # -*- coding:utf8 -*-
 
 from tc_use import *
+from logMonitor import logMonitor
+from mapping import *
 
 class tc_check(testcase):
     def __init__(self, tc_stru):
 
         CHECK_LIST["ue (\d*) start ok"] = self.check_start_ue
         CHECK_LIST["appserver received (.*).log"] = self.check_recevied_log
-        testcase.__init__(self, tc_stru)        
+        testcase.__init__(self, tc_stru) 
+        self.logMonitor = logMonitor(environment_map["agent"]["log_path"])
     
     def init_pre(self):
         testcase.init_pre(self) 
@@ -55,6 +58,8 @@ class tc_check(testcase):
     
     def check_recevied_log(self, args):
         print "check_recevied_log"
+        pre_f = args[0] + ".log"
+        print self.logMonitor.check_file(pre_f)
 
 def test_tc_check():
     con = """

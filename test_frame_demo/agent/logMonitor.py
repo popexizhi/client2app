@@ -19,6 +19,7 @@ class logMonitor():
     def _diff_con(self, format_con_list):
         r = FALSE
         print format_con_list 
+        print "log path is %s" % self.rec_path 
         format_re = re.compile(format_con_list[0])
         for i in os.listdir(self.rec_path):
             if re.findall("^res_", i):

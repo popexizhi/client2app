@@ -12,6 +12,7 @@ environment_map = {
     "agent" :{
         "tc_path" : "testsuit/", #agent 端testcase下载存放位置
         "tc_bk" : "slim_uesfile/", #agent 端testcase中前置条件需要file的下载存储位置
+        "log_path" : "/home/lijie/test/lib_nexus/app_lib/sf/", #agent端tc_check的log内容存储位置
     },
                 
     }

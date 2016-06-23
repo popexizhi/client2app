@@ -4,25 +4,35 @@ import re
 
 from tc_use import testcase, tc_stru
 from mapping import *
+from tc_check import *
 
 class manager_tc():
-    def __init__(self):
+    def __init__(self, check_num = 0):
         self.tc_from = "http" #mysql
         
         self.httper = httper.httper(url_base = environment_map["httper"]["url"])
         self.tc_f_list = []
         self.tc_con_list = {}
+        self.is_check = check_num # 是否为check res使用
 
     def get_tc_list(self, id_list):
         assert type(id_list) == type([])
-        
+        if self.is_check > 0 :
+            tc_d = tc_check #检查res使用
+            print "** " * 20
+            print "start tc_check"
+        else:
+            tc_d = testcase #执行testcase使用
+            print "** " * 20
+            print "start testcase doing"
+
         #get testcase file
         for i in id_list:
             print "tc num is %s" % str(i)
             print "start get testcase con .. . . ."
             i_tc_f, i_tc_c = self.get_tc(i)
             self.tc_f_list.append(i_tc_f)         #get testcase file
-            i_tc = testcase(tc_stru(i_tc_c)) 
+            i_tc = tc_d(tc_stru(i_tc_c)) 
             self.tc_con_list[i_tc_f] = i_tc #get testcase strcut 
 
     def get_tc(self, tc_id):
@@ -45,9 +55,14 @@ class manager_tc():
 
     def tc_run(self):
         """ for all step run"""
-        for i in self.tc_con_list:
-            self.tc_con_list[i].get_step()
-            self.tc_con_list[i].step_doing_all()
+        if self.is_check > 0 :
+            for i in self.tc_con_list:
+                self.tc_con_list[i].get_step_expectedresults()
+                self.tc_con_list[i].step_check_doing_all()
+        else :
+            for i in self.tc_con_list:
+                self.tc_con_list[i].get_step()
+                self.tc_con_list[i].step_doing_all()
 
 def test_manager():
     a = manager_tc()
