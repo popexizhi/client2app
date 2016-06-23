@@ -11,7 +11,8 @@ STEP_LIST = {
                 "send (\d+) packages": None, #step_ue_send,
                 "send (.*).log": None, #step_send_file,
                 }
-
+CHECK_LIST = {
+                }
 class testcase():
     def __init__(self, tc_stru):
         self.tc_stru = tc_stru
@@ -46,7 +47,7 @@ class testcase():
 
         #return checkres
 
-    def check_step(self, step_name):
+    def check_step(self, step_name, list_use = STEP_LIST ):
         """
         检查step_name是否在 STEP_LIST 存在:
         1.不存在返回ERR_STEP_NO_INIT, null
@@ -54,7 +55,7 @@ class testcase():
         """
         checkres = "ERR_STEP_NO_INIT"
         args = []
-        for i in STEP_LIST:
+        for i in list_use:
             check_re = re.compile(i)
             res = check_re.findall(step_name)
             if len(res) > 0:
@@ -64,20 +65,30 @@ class testcase():
                 
         return checkres, args
 
-    def step_doing_all(self):
-        assert self.step_list
-        print "[step num is %d] start .." % len(self.step_list)
+    def step_doing_all(self, step_list = 1):
+        if 2 == step_list :
+            assert self.step_expectedresults_list
+            list_d = self.step_expectedresults_list
+        if 1 == step_list : 
+            assert self.step_list
+            list_d = self.step_list
+        
+        print "[step num is %d] start .." % len(list_d)
         print "**" * 50
-        for i in self.step_list:
-            self.step_doing(i)
+        for i in list_d:
+            self.step_doing(i, step_list)
 
-    def step_doing(self, step_arg_li):
-        for i in STEP_LIST:
+    def step_doing(self, step_arg_li, step_list = 1):
+        if 1 == step_list:
+            list_d = STEP_LIST
+        if 2 == step_list:
+            list_d = CHECK_LIST
+        for i in list_d:
             res = re.findall(i, step_arg_li[0])
             if len(res) > 0:
                 print "** " * 5
                 print "STEP_LIST is %s , step con is %s, arg is %s" % (str(i), str(res), str(step_arg_li[1]))
-                STEP_LIST[i](step_arg_li[1])
+                list_d[i](step_arg_li[1])
 
     def step_start_so(self, args_tup):
         #use hostid start so
@@ -152,6 +163,7 @@ class tc_stru():
 
           self.LAB_preconditions = "<preconditions>.*</preconditions>"
           self.LAB_step = "<actions>.*</actions>" # next 使用懒惰统计
+          self.LAB_step_expectedresults = "<expectedresults>.*</expectedresults>" # next 使用懒惰统计,增加对应的step验证
 
     def get_preconditions(self):
         res_preconditions = []
@@ -176,6 +188,17 @@ class tc_stru():
                 res_step.append(step_con)
         
         return res_step
+
+    def get_step_expectedresults(self):
+        res_expectedresults = []
+        for i in self.tc_con.split("\n"):
+            x = re.findall(self.LAB_step_expectedresults, i)
+            if len(x) > 0:
+                step_con = re.split("[><]", x[0])[2]
+                print step_con
+                res_expectedresults.append(step_con)
+        
+        return res_expectedresults
 
 def test_tc_stru():
     con = """    
@@ -205,6 +228,7 @@ def test_tc_stru():
     """
     x = tc_stru(con)
     #x.get_preconditions()
+    #x.get_step_expectedresults()
 
     tc = testcase(x)
     tc.init_pre()
