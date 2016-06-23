@@ -7,14 +7,14 @@
     <steps>
         <step>
             <step_number>1</step_number>
-            <actions>send send_data.log</actions>
-            <expectedresults>send pass</expectedresults>
+            <actions>start with alone_integration.cfg npl1465202670.db so</actions>
+            <expectedresults>ue 1465202670 start ok</expectedresults>
             <execution_type>1</execution_type>
         </step>
-     <step>
+        <step>
             <step_number>2</step_number>
-            <actions>stop ue</actions>
-            <expectedresults>stop ue</expectedresults>
+            <actions>send send_data.log</actions>
+            <expectedresults>appserver received send_data.log</expectedresults>
             <execution_type>1</execution_type>
         </step>
     </steps>

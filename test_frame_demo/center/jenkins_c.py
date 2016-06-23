@@ -4,6 +4,7 @@ import time
 
 JE_IP = 'http://192.168.1.23:8080'
 job_list = ['22test']
+res_job_list = ['99test']
 class jenkins_c():
     def __init__(self):
         self.jc = jenkins.Jenkins(JE_IP)

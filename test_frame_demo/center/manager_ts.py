@@ -1,7 +1,9 @@
 #-*- coding:utf8 -*-
 import re, time
 import os
-import jenkins_c
+from jenkins_c import *
+
+WAIT_TIME = 2 * 60 # 等待此时间无数据，存储剩余内容为文件 : 来源appserver的rec_process.py
 class manager_tc():
     def __init__(self, ts = "1.xml"):
         self.ts = ts
@@ -30,7 +32,18 @@ if __name__ == "__main__":
     tc_id = a.get_tc_num()
     print "tc_id is %s" % tc_id
     
-    j = jenkins_c.jenkins_c()
+    j = jenkins_c()
     job_id = j.build_job(tc_id)
     print "job_id is %s" % str(job_id)
     print "%s build is %s" % (job_id, j.wait_job_pass(job_id))
+
+    print "**-" * 10
+    for i in xrange(WAIT_TIME):
+        time.sleep(1)
+        print "waiting rec log , 剩余时间: %d " % (WAIT_TIME - i )
+
+    #使用appserver服务器的res_agent检查
+    #next修改为ELK的agent检查
+    job_id = j.build_job(tc_id, job_name = res_job_list[0]) 
+    print "job_id is %s" % str(job_id)
+    print "%s build is %s" % (job_id, j.wait_job_pass(job_id))    
