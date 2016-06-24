@@ -28,12 +28,16 @@ class manager_tc():
         
         return str(tc_id) + "_" + self.ts
 if __name__ == "__main__":
-    a = manager_tc("TCPsendfile.xml")
-    tc_id = a.get_tc_num()
-    print "tc_id is %s" % tc_id
+    #tc_name_list = "TCPsendfile.xml"
+    tc_name_list = "send_random_packate.xml,TCPsendfile.xml"
+    tc_id_list = ""
+    for i in tc_name_list.split(","):
+        a = manager_tc(i)
+        tc_id_list = tc_id_list +" "+ a.get_tc_num()
+        print "tc_id is %s" % i
     
     j = jenkins_c()
-    job_id = j.build_job(tc_id)
+    job_id = j.build_job(tc_id_list)
     print "job_id is %s" % str(job_id)
     print "%s build is %s" % (job_id, j.wait_job_pass(job_id))
 
@@ -44,6 +48,6 @@ if __name__ == "__main__":
 
     #使用appserver服务器的res_agent检查
     #next修改为ELK的agent检查
-    job_id = j.build_job(tc_id, job_name = res_job_list[0]) 
+    job_id = j.build_job(tc_id_list, job_name = res_job_list[0]) 
     print "job_id is %s" % str(job_id)
     print "%s build is %s" % (job_id, j.wait_job_pass(job_id))    

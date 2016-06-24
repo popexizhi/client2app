@@ -34,7 +34,7 @@ class jenkins_c():
             build_info = self.jc.get_job_info(job_name, job_id) #['lastCompletedBuild']['number'] #lastCompletedBuild
 
             build_info_last_id = build_info['lastCompletedBuild']['number']
-            #print "\t now build_info_last_id is %d " % build_info['lastCompletedBuild']['number']
+            print "\t now build_info_last_id is %d " % build_info['lastCompletedBuild']['number']
             if (str(build_info_last_id) == str(job_id) and (str("False") == str(build_info['lastCompletedBuild']["building"]))):
                 res = build_info['lastCompletedBuild']["result"]
                 return res

@@ -59,6 +59,7 @@ class manager_tc():
             for i in self.tc_con_list:
                 self.tc_con_list[i].get_step_expectedresults()
                 self.tc_con_list[i].step_check_doing_all()
+                time.sleep(environment_map["agent"]["TC_BLACK_TIME"]) #每个测试用例间的间隔时间
         else :
             for i in self.tc_con_list:
                 self.tc_con_list[i].get_step()
