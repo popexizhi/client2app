@@ -2,7 +2,7 @@
 # -*- coding:utf8 -*-
 #!/usr/bin/python
 
-import sys, os
+import sys, os, copy
 from ctypes import *
 import ctypes
 import time, socket, struct
@@ -32,8 +32,14 @@ class slim_socket():
         self.log("self.argv is %s" % str(self.argv))
     
     def log(self, message, meg_doc = ""):
-        print "*** " * 20
-        print "[slim_socket]\t%s\t%s " % (meg_doc , str(message))
+        sp = "*** " * 20
+        mes ="[slim_socket]\t%s\t%s " % (meg_doc , str(message))
+        print sp
+        print mes
+        f = open("slimlog.log", "a")
+        f.write(sp + "\n")
+        f.write(mes + "\n")
+        f.close()
 
     def NexusLibMainEntry(self):
         """client use"""
@@ -112,6 +118,8 @@ class slim_socket():
         self.log(c_addr.sin_port)
         time.sleep(self.SlimAccept_WT)
 
+        return self.newfd
+
     def SlimConnect(self, s_port = 3000, s_host_id_i = 2102 ):
         self.SlimConnect_WT = 1 # 1s
         self.s_port_i = s_port
@@ -138,7 +146,7 @@ class slim_socket():
         self.log("send_num is %d" % send_num)
        
         res = ""
-        if send_num < self.c_send_str_length_i:
+        if send_num < len(send_str):
             c_send_str_length_i = ctypes.c_int(len(send_str) - send_num)
             self.log("new send length is %s" % str(c_send_str_length_i))
 
@@ -153,9 +161,10 @@ class slim_socket():
         self.log("[SlimSend] end send ...")
         return send_num
 
-    def SlimReceive(self):
+    def SlimReceive(self, nfd, res_da):
         """ get receive """
-        fd_ = self.newfd
+        self.log("[SlimReceive]")
+        fd_ = nfd
         self.so.SlimReceive.argtypes= [ctypes.c_int, ctypes.c_char_p , ctypes.c_int, ctypes.c_int]
 
         
@@ -165,10 +174,16 @@ class slim_socket():
         self.log("[SlimReceive]")
         self.log("rcv_buf is %s" % rcv_buf.value)
         self.log("rec_num is %d" % rec_num)
-
+        #被动关闭处理
+        if 0 == rec_num:
+            self.so.SlimClose(fd_)
+            self.log("[SlimSocket %d is closed ]" % fd_)
+            return rec_num
         res = rcv_buf.value
-        return res[0:rec_num]
-        
+         
+        res_da = copy.deepcopy(res[0:rec_num])
+        self.log("res_da is %s" % res_da)
+        return rec_num
 
 
 def test_client():
