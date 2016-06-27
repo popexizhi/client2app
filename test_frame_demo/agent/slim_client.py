@@ -27,7 +27,7 @@ class slim_client():
 
         self.socket = slim_socket(cmd, lib_path="/home/slim/jenkins_test/jenkins_test/workspace/22test/lib/libNexus_Engine_SDK.so")
         self.socket.NexusLibMainEntry()
-        self.socket.SlimSocket()
+        self.fd_ = self.socket.SlimSocket()
         assert host_id
         self.socket.SlimBind(host_id_i = host_id)
         assert target_host_id
@@ -44,8 +44,13 @@ class slim_client():
         
         self.socket.SlimSend(data)
         #self.socket.log(" send data is pass " * 20)
-
+    
+    def close_socket(self):
+        assert self.fd_
+        self.socket.SlimClose(self.fd_)
+        
 if __name__ == "__main__":
     a = slim_client()
     a.start_client()
     a.send_data()
+    a.close_socket()
