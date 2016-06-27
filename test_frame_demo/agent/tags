@@ -4,49 +4,131 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
-__init__	agent.py	/^    def __init__(self):            $/;"	m	class:agent_c
+NexusAPPMainEntry	slimtest.py	/^    def NexusAPPMainEntry(self):$/;"	m	class:slim_socket
+NexusAPPMainEntry	slimtest_thread.py	/^    def NexusAPPMainEntry(self):$/;"	m	class:slim_socket
+NexusLibMainEntry	slimtest.py	/^    def NexusLibMainEntry(self):$/;"	m	class:slim_socket
+NexusLibMainEntry	slimtest_thread.py	/^    def NexusLibMainEntry(self):$/;"	m	class:slim_socket
+SlimAccept	slimtest.py	/^    def SlimAccept(self):$/;"	m	class:slim_socket
+SlimAccept	slimtest_thread.py	/^    def SlimAccept(self):$/;"	m	class:slim_socket
+SlimBind	slimtest.py	/^    def SlimBind(self , port_i = 9000, host_id_i = 2104 ):$/;"	m	class:slim_socket
+SlimBind	slimtest_thread.py	/^    def SlimBind(self , port_i = 9000, host_id_i = 2104 ):$/;"	m	class:slim_socket
+SlimClose	slimtest_thread.py	/^    def SlimClose(self):$/;"	m	class:slim_socket
+SlimConnect	slimtest.py	/^    def SlimConnect(self, s_port = 3000, s_host_id_i = 2102 ):$/;"	m	class:slim_socket
+SlimConnect	slimtest_thread.py	/^    def SlimConnect(self, s_port = 3000, s_host_id_i = 2102 ):$/;"	m	class:slim_socket
+SlimListen	slimtest.py	/^    def SlimListen(self, listen_num = 1):$/;"	m	class:slim_socket
+SlimListen	slimtest_thread.py	/^    def SlimListen(self, listen_num = 1):$/;"	m	class:slim_socket
+SlimReceive	slimtest.py	/^    def SlimReceive(self, nfd, res_da):$/;"	m	class:slim_socket
+SlimReceive	slimtest_thread.py	/^    def SlimReceive(self):$/;"	m	class:slim_socket
+SlimSend	slimtest.py	/^    def SlimSend(self, send_str):$/;"	m	class:slim_socket
+SlimSend	slimtest_thread.py	/^    def SlimSend(self, send_str):$/;"	m	class:slim_socket
+SlimSocket	slimtest.py	/^    def SlimSocket(self):$/;"	m	class:slim_socket
+SlimSocket	slimtest_thread.py	/^    def SlimSocket(self):$/;"	m	class:slim_socket
+__init__	agent.py	/^    def __init__(self, args = 0 ):            $/;"	m	class:agent_c
+__init__	g_db.py	/^    def __init__(self):$/;"	m	class:g_db
+__init__	g_db.py	/^    def __init__(self):$/;"	m	class:sqllite
 __init__	httper.py	/^    def __init__(self, url_base = environment_map["httper"]["url"]):$/;"	m	class:httper
-__init__	manager_tc.py	/^    def __init__(self):$/;"	m	class:manager_tc
+__init__	logMonitor.py	/^    def __init__(self, path = ".\/"):$/;"	m	class:logMonitor
+__init__	manager_tc.py	/^    def __init__(self, check_num = 0):$/;"	m	class:manager_tc
 __init__	pexpect_dev.py	/^    def __init__(self, host_id ):$/;"	m	class:sh_dev
+__init__	rec_process.py	/^    def __init__(self, fd_name, interval = 1):$/;"	m	class:rec_p
+__init__	slim_client.py	/^    def __init__(self):$/;"	m	class:slim_client
+__init__	slim_rec_farmer.py	/^    def __init__(self, fd, socket):$/;"	m	class:slim_rec_farmer
+__init__	slim_server.py	/^    def __init__(self):$/;"	m	class:slim_server
+__init__	slimtest.py	/^    def __init__(self, argv, lib_path = "\/home\/lijie\/test\/lib_nexus\/lib\/libNexus_Engine_SDK.so"):$/;"	m	class:slim_socket
+__init__	slimtest_thread.py	/^    def __init__(self, argv, lib_path = "\/home\/lijie\/test\/lib_nexus\/lib\/libNexus_Engine_SDK.so"):$/;"	m	class:slim_socket
+__init__	tc_check.py	/^    def __init__(self, tc_stru):$/;"	m	class:tc_check
 __init__	tc_use.py	/^    def __init__(self, con):$/;"	m	class:tc_stru
 __init__	tc_use.py	/^    def __init__(self, tc_stru):$/;"	m	class:testcase
+_diff_con	logMonitor.py	/^    def _diff_con(self, format_con_list):$/;"	m	class:logMonitor
 agent_c	agent.py	/^class agent_c():$/;"	c
-check_step	tc_use.py	/^    def check_step(self, step_name):$/;"	m	class:testcase
+check_file	logMonitor.py	/^    def check_file(self, pre_filename):$/;"	m	class:logMonitor
+check_recevied_log	tc_check.py	/^    def check_recevied_log(self, args):$/;"	m	class:tc_check
+check_start_ue	tc_check.py	/^    def check_start_ue(self, args):$/;"	m	class:tc_check
+check_step	tc_use.py	/^    def check_step(self, step_name, list_use = STEP_LIST ):$/;"	m	class:testcase
 dev_kill	pexpect_dev.py	/^    def dev_kill(self):$/;"	m	class:sh_dev
 dev_provision_check	pexpect_dev.py	/^    def dev_provision_check(self, start_num, num, res):$/;"	m	class:sh_dev
 dev_send_data	pexpect_dev.py	/^    def dev_send_data(self, send_num):$/;"	m	class:sh_dev
 dev_start	pexpect_dev.py	/^    def dev_start(self):$/;"	m	class:sh_dev
 doing	agent.py	/^    def doing(self):$/;"	m	class:agent_c
+g_db	g_db.py	/^class g_db():$/;"	c
 get_bfile	httper.py	/^    def get_bfile(self, f_name):$/;"	m	class:httper
 get_file	tc_use.py	/^    def get_file(self, filename):$/;"	m	class:testcase
+get_hostid	g_db.py	/^    def get_hostid(self, path):$/;"	m	class:g_db
 get_preconditions	tc_use.py	/^    def get_preconditions(self):$/;"	m	class:tc_stru
+get_rec	rec_process.py	/^    def get_rec(self, new_rec):$/;"	m	class:rec_p
 get_step	tc_use.py	/^    def get_step(self):$/;"	m	class:tc_stru
 get_step	tc_use.py	/^    def get_step(self):$/;"	m	class:testcase
+get_step_expectedresults	tc_check.py	/^    def get_step_expectedresults(self):$/;"	m	class:tc_check
+get_step_expectedresults	tc_use.py	/^    def get_step_expectedresults(self):$/;"	m	class:tc_stru
+get_target_hostid	g_db.py	/^    def get_target_hostid(self, path):$/;"	m	class:g_db
 get_tc	manager_tc.py	/^    def get_tc(self, tc_id):$/;"	m	class:manager_tc
 get_tc_list	manager_tc.py	/^    def get_tc_list(self, id_list):$/;"	m	class:manager_tc
 get_url	pexpect_dev.py	/^    def get_url(self, num):$/;"	m	class:sh_dev
 get_xml	httper.py	/^    def get_xml(self, f_tc_name):$/;"	m	class:httper
 httper	httper.py	/^class httper():$/;"	c
+in_addr	py_lib_so.py	/^class in_addr(Structure):$/;"	c
+in_addr	slimtest.py	/^class in_addr(Structure):$/;"	c
+in_addr	slimtest_thread.py	/^class in_addr(Structure):$/;"	c
 init_pre	manager_tc.py	/^    def init_pre(self):$/;"	m	class:manager_tc
+init_pre	tc_check.py	/^    def init_pre(self):$/;"	m	class:tc_check
 init_pre	tc_use.py	/^    def init_pre(self):$/;"	m	class:testcase
 l2_provision	pexpect_dev.py	/^    def l2_provision(self):$/;"	m	class:sh_dev
+log	slim_rec_farmer.py	/^    def log(self, mes):$/;"	m	class:slim_rec_farmer
+log	slimtest.py	/^    def log(self, message, meg_doc = ""):$/;"	m	class:slim_socket
+log	slimtest_thread.py	/^    def log(self, message, meg_doc = ""):$/;"	m	class:slim_socket
+logMonitor	logMonitor.py	/^class logMonitor():$/;"	c
 manager_tc	manager_tc.py	/^class manager_tc():$/;"	c
+outStructAddr	py_lib_so.py	/^class outStructAddr(Structure):$/;"	c
+outStructAddr	slimtest.py	/^class outStructAddr(Structure):$/;"	c
+outStructAddr	slimtest_thread.py	/^class outStructAddr(Structure):$/;"	c
+rec_p	rec_process.py	/^class rec_p(threading.Thread):$/;"	c
+run	rec_process.py	/^    def run(self):$/;"	m	class:rec_p
+run	slim_rec_farmer.py	/^    def run(self):$/;"	m	class:slim_rec_farmer
+run	slim_server.py	/^    def run(self):$/;"	m	class:slim_server
+run	slimtest_thread.py	/^    def run(self):$/;"	m	class:slim_socket
 run_tc	agent.py	/^    def run_tc(self):$/;"	m	class:agent_c
+save_rec	rec_process.py	/^    def save_rec(self):$/;"	m	class:rec_p
+save_receive	slim_rec_farmer.py	/^    def save_receive(self):$/;"	m	class:slim_rec_farmer
+savefile	rec_process.py	/^    def savefile(self):$/;"	m	class:rec_p
+select	g_db.py	/^    def select(self, sql):$/;"	m	class:sqllite
+select_ser_hostid	g_db.py	/^    def select_ser_hostid(self, db_path):$/;"	m	class:sqllite
+select_target_hostid	g_db.py	/^    def select_target_hostid(self, db_path):$/;"	m	class:sqllite
+select_ue_hostid	g_db.py	/^    def select_ue_hostid(self, db_path):$/;"	m	class:sqllite
+send_data	slim_client.py	/^    def send_data(self, data = "hi ,i am here .Unu wir statas vi!"):$/;"	m	class:slim_client
 send_provision	pexpect_dev.py	/^    def send_provision(self):$/;"	m	class:sh_dev
 set_tc	agent.py	/^    def set_tc(self, tc_list):$/;"	m	class:agent_c
 setup	agent.py	/^    def setup(self):$/;"	m	class:agent_c
 sh_dev	pexpect_dev.py	/^class sh_dev():$/;"	c
-step_doing	tc_use.py	/^    def step_doing(self, step_name):$/;"	m	class:testcase
-step_doing_all	tc_use.py	/^    def step_doing_all(self):$/;"	m	class:testcase
+slim_client	slim_client.py	/^class slim_client():$/;"	c
+slim_rec_farmer	slim_rec_farmer.py	/^class slim_rec_farmer(threading.Thread):$/;"	c
+slim_server	slim_server.py	/^class slim_server():$/;"	c
+slim_socket	slimtest.py	/^class slim_socket():$/;"	c
+slim_socket	slimtest_thread.py	/^class slim_socket(threading.Thread):$/;"	c
+sqllite	g_db.py	/^class sqllite():$/;"	c
+start_client	slim_client.py	/^    def start_client(self, cfg = "alone_integration.cfg", db_num = 1465202670):$/;"	m	class:slim_client
+start_server	slim_server.py	/^    def start_server(self, db_num = 1465202670):$/;"	m	class:slim_server
+step_check_doing	tc_check.py	/^    def step_check_doing(self, step_arg_li):$/;"	m	class:tc_check
+step_check_doing_all	tc_check.py	/^    def step_check_doing_all(self):$/;"	m	class:tc_check
+step_doing	tc_use.py	/^    def step_doing(self, step_arg_li, step_list = 1):$/;"	m	class:testcase
+step_doing_all	tc_use.py	/^    def step_doing_all(self, step_list = 1):$/;"	m	class:testcase
 step_download	tc_use.py	/^    def step_download(self, filename):$/;"	m	class:testcase
 step_send_file	tc_use.py	/^    def step_send_file(self, filenames):$/;"	m	class:testcase
-step_start_with_db_so	tc_use.py	/^    def step_start_with_db_so(self, db_name):$/;"	m	class:testcase
+step_start_so	tc_use.py	/^    def step_start_so(self, args_tup):$/;"	m	class:testcase
 step_stop	tc_use.py	/^    def step_stop(self, noarg):$/;"	m	class:testcase
 step_ue_send	tc_use.py	/^    def step_ue_send(self, packet_num=10):$/;"	m	class:testcase
 step_ue_start	tc_use.py	/^    def step_ue_start(self, host_id=1):$/;"	m	class:testcase
+stop	rec_process.py	/^    def stop(self):$/;"	m	class:rec_p
+stop	slim_rec_farmer.py	/^    def stop(self):$/;"	m	class:slim_rec_farmer
+stop	slimtest_thread.py	/^    def stop(self):$/;"	m	class:slim_socket
+tc_check	tc_check.py	/^class tc_check(testcase):$/;"	c
 tc_run	manager_tc.py	/^    def tc_run(self):$/;"	m	class:manager_tc
 tc_stru	tc_use.py	/^class tc_stru():$/;"	c
 teardown	agent.py	/^    def teardown(self):$/;"	m	class:agent_c
+test_client	slimtest.py	/^def test_client():$/;"	f
+test_client	slimtest_thread.py	/^def test_client(hostid):$/;"	f
 test_manager	manager_tc.py	/^def test_manager():$/;"	f
+test_server	slimtest.py	/^def test_server():$/;"	f
+test_server	slimtest_thread.py	/^def test_server():$/;"	f
+test_tc_check	tc_check.py	/^def test_tc_check():$/;"	f
 test_tc_stru	tc_use.py	/^def test_tc_stru():$/;"	f
 testcase	tc_use.py	/^class testcase():$/;"	c

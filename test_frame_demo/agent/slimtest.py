@@ -161,7 +161,7 @@ class slim_socket():
         self.log("[SlimSend] end send ...")
         return send_num
 
-    def SlimReceive(self, nfd, res_da):
+    def SlimReceive(self, nfd):
         """ get receive """
         self.log("[SlimReceive]")
         fd_ = nfd
@@ -179,11 +179,11 @@ class slim_socket():
             self.so.SlimClose(fd_)
             self.log("[SlimSocket %d is closed ]" % fd_)
             return rec_num
-        res = rcv_buf.value
+        res = copy.deepcopy(rcv_buf.value)
          
-        res_da = copy.deepcopy(res[0:rec_num])
-        self.log("res_da is %s" % res_da)
-        return rec_num
+        #res_da = copy.deepcopy(res[0:rec_num])
+        self.log("res is %s" % res)
+        return rec_num, res
 
 
 def test_client():

@@ -26,17 +26,18 @@ class slim_rec_farmer(threading.Thread):
 
     def save_receive(self):
         self.log("[run_receive] " * 5)
-        rec_s = ""
         while not self.thread_stop:
-            res = self.socket.SlimReceive(self.fd, rec_s)
-            if 0 == res: #SocketClose
+            rec_num, res = self.socket.SlimReceive(self.fd)
+            if 0 == rec_num: #SocketClose
                 #关闭res_process
                 self.rec_p.stop()
                 self.log("[save_receive stop] fd is %d " % self.fd)
                 break
             else:
                 #save rec_s
-                self.rec_p.get_rec(rec_s)
+                self.log("[slim_rec_farmer] res is %s" % res)
+                self.rec_p.get_rec(res)
+                
 
     def stop(self):
         self.thread_stop = True 
