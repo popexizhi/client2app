@@ -8,13 +8,14 @@ TestSlimTcp::TestSlimTcp(int ue_id, char * appserveraddr, bool is_server, int si
   ue_id_ = ue_id ;
   sin_port_ = sin_port ;
   is_server_ = is_server;
-  
+  test_data_ = "";
+
   if(!inet_pton(AF_INET, appserveraddr, &server_sin_.sin_addr)){
     ; 
   }
   else{
-      server_sin_.sin_family = AF_INET;
-      server_sin_.sin_port = ntohs(3000); //server port 3000
+    server_sin_.sin_family = AF_INET;
+    server_sin_.sin_port = ntohs(3000); //server port 3000
   }
 
 
@@ -78,13 +79,47 @@ std::string TestSlimTcp::GetTestFileCon(){
 
   //2.读取测试数据文件内容
   res_con = GetTestDataFile();
+  GetTestCase(); //从配置数据中识别测试内容
+
   return res_con;
+}
+void TestSlimTcp::GetTestCase(){
+  assert("" != test_data_); //存在测试数据
+  
 }
 
 bool TestSlimTcp::GetTestDataFile(){
     //读取测试数据文件内容
     //当前目录下test_random_packets.td.csv
-    char *file_name="test_random_packets.td.csv";
+    bool res = false;
+    std::string file_name="test_random_packets.td.csv";
+    char * file_con;
+    FILE * pf;
+    long lsize;
+    long read_size;
+    
+    pf = fopen(file_name.c_str(), "r");
+    if(NULL == pf) {
+      Log("open file is err");
+      return res; 
+    }
+    
+    fseek(pf, 0, SEEK_END);
+    lsize = ftell(pf);
+    rewind(pf);
+    file_con = (char *)malloc(sizeof(char)*lsize);
+    read_size = fread(file_con, 1, lsize, pf);
+    if(read_size != lsize){
+        Log("Reading file error");
+        return res;
+    }
+
+    fclose(pf);
+    test_data_ = *file_con;
+    free(file_con);
+    //Log(test_data_);
+
+    return true;
 }
 
 

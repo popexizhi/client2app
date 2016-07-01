@@ -2,6 +2,7 @@
 #include <string>
 #include <arpa/inet.h> /*struct sockaddr_in*/
 #include <stdlib.h>  /*system*/
+#include <cassert> /*assert*/
 
 class TestSlimTcp {
   public:
@@ -9,12 +10,12 @@ class TestSlimTcp {
     ~TestSlimTcp();
 
     bool RandomPackets(); //测试包长随机波动
-
     bool InitSocket();
 
     void Log(std::string log_con); 
     std::string GetTestFileCon(); //获得测试文件的内容
     bool GetTestDataFile(); //读取测试数据文件内容
+    void GetTestCase(); //从配置数据中识别测试内容
   protected:
 
   private:
@@ -23,5 +24,6 @@ class TestSlimTcp {
     int socket_ ;
     bool is_server_ ;
     struct sockaddr_in sin_;
-    struct sockaddr_in server_sin_;    
+    struct sockaddr_in server_sin_;
+    std::string test_data_ ;
 };
