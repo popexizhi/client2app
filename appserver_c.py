@@ -49,6 +49,7 @@ def start_app(std, app_Mon):
 
 if __name__ == "__main__":
     std = int(sys.argv[1])
-    start_app(std)
+    app_provision_res = app_provision_res()
+    start_app(std, app_provision)
     #app_provision(2)
 
