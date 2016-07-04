@@ -36,7 +36,7 @@ class filewriter():
             self._change_cfg(str(i), str(newcfgs[t]))
             t = t + 1
         file_name_pre = (("app_%s" % newcfgs[0]) if 1 == app else ("dev_%s" % newcfgs[1]))
-        self.__save_newfile(file_name_pre)
+        return self.__save_newfile(file_name_pre)
 
 
     def _change_cfg(self, cfg_lab, newcfg):
@@ -55,10 +55,12 @@ class filewriter():
         cfg_data = ""
         for i in self.cfg_data:
             cfg_data = cfg_data + i
-
-        f = open("cfg//"+ pre + "_alone.cfg", "w")
+        f_name = "cfg//"+ pre + "_alone.cfg"
+        f = open(f_name, "w")
         f.write(cfg_data)
         f.close()
+        
+        return f_name
 
 if __name__ == "__main__":
     a = filewriter("alone_app.cfg")

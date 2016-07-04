@@ -8,8 +8,8 @@ from shell_con import sh_control
 import thread, time
 
 class test_dev_p():
-    def __init__(self):
-        self.eap_ip = "192.168.1.43"
+    def __init__(self, eap_ip = "192.168.1.43"):
+        self.eap_ip = eap_ip
         self.eap_http = httper(self.eap_ip)
    
     def add_dev_lic(self, applications_name):
@@ -23,7 +23,7 @@ class test_dev_p():
         return x.mon_provision()
     
     def get_dev_pin(self, num):
-        x = db_mod()
+        x = db_mod(db_name = "nexus_eapII" , ip = "192.168.1.44", user = "admin", pd = "password")
         new_dev_pin = x.get_pin(num)
         assert new_dev_pin #db一定有返回
         cfg_w = filewriter("alone_dev.cfg")
@@ -31,7 +31,7 @@ class test_dev_p():
          
 
 def dev_provision(num):
-    a = test_dev_p()
+    a = test_dev_p(eap_ip = "192.168.1.42")
     applications_name = [num]
     print "add_dev_lic res is ..."
     print a.add_dev_lic(applications_name)

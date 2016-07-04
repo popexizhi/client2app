@@ -35,11 +35,12 @@ class httper():
         return json.loads(get_data)
 
 if __name__ == "__main__":
-    a = httper()
+    a = httper("192.168.1.55")
     name = "xd"
     res = a.add_appserver_lic(name)
     print res
     assert res["result"] == 0 # 判断返回为成功
-    print a.register_app_server(32, name, res["key"], res["serial"])
+    #print a.register_app_server(32, name, res["key"], res["serial"])
     #print a.add_dev_lic([2])
-
+    #url_id  = 
+    #print a.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
