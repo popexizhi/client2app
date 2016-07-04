@@ -221,6 +221,7 @@ bool TestSlimUdp::SendFile(std::string file_path){
             }
         }
     }
+    fclose(fp);
     delete [] cstr;
     return res;
 }

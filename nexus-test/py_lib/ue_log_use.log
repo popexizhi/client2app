@@ -1,10 +1,14 @@
 OnEventDeviceStatusIndication: status(1:OTAP_Authenticating)
 OnEventDeviceStatusIndication: status(2:L1_Connecting)
 OnEventDeviceStatusIndication: status(3:L1_Connected) L1 ok
-
 OnEventDeviceStatusIndication: status(5:EAP_Authenticating)
 OnEventDeviceStatusIndication: status(6:L2_Connecting)
 OnEventDeviceStatusIndication: status(8:Completed) L2 ok
 
 [INFO:slim_socket_agent.cc(891)] SlimSocketAgent::SocketManagerRegister start, host_id=1108, work mode = 0, socket_manager=0x313a000 host_id
+.* host_id\=%{WORD:host_id}
 
+grokdebug:
+
+[VERBOSE1:(0)] [2016-06-22-10-16-40-924:746][device_app_demo.cc(114)][debug:debug] [INNER] OnEventDeviceStatusIndication: status(1:OTAP_Authenticating)
+\[%{WORD}\] OnEventDeviceStatusIndication: status\(\d:%{WORD:ue_stat}\)

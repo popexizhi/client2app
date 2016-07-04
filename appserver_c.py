@@ -24,7 +24,7 @@ def app_provision(num, app_Mon):
     #3.post id+key+serial /api/admin/register_app_server
     print "** " * 20
     print "3.post id+key+serial /api/admin/register_app_server"
-    http_x = httper()
+    http_x = httper("192.168.1.42")
     res_add_app_key = http_x.add_appserver_lic(num)
     assert 0 == res_add_app_key["result"] #要求添加结果一定为成功，否则退出后续流程
     print http_x.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
@@ -49,6 +49,7 @@ def start_app(std, app_Mon):
 
 if __name__ == "__main__":
     std = int(sys.argv[1])
-    start_app(std)
+    app_provision_res = app_provision_res()
+    start_app(std, app_provision)
     #app_provision(2)
 
