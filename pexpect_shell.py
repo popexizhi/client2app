@@ -15,13 +15,17 @@ class sh_pex():
         get_char_1 = "App Server Provision Params Read"
         get_char_2 = "App Server Added on EAP, please register on EAP"
         send_c = "a"
-        check_url = "Requesting URL https://192.168.1.43:443/api/admin/sync-appserver/\d+"
+        check_url = "Requesting URL https://192.168.1.42:443/api/admin/sync-appserver/\d+"
         x = pexpect.spawn(app_sta_shell)
+        self.log("wait %s" % get_char_1)
         x.expect(get_char_1) #getchar before
         x.sendline(send_c) #send_char
+
+        self.log("wait %s" % get_char_2)
         x.expect(get_char_2) #getchar before
         x.sendline(send_c) #send_char
         #url check
+        self.log("wait %s" % check_url)        
         x.expect(check_url) #getchar before
 #        print "*** " * 20
 #        print x.after
@@ -32,6 +36,11 @@ class sh_pex():
         self.pexpect = x #将shell控制权交给类变量
         return app_id[0]
     
+    def log(self, message):
+        print "[log_pexpect] sta "+ "*** " * 20
+        print message
+        print "[log_pexpect] end "+ "*** " * 20
+
     def send_provision(self):
         """appserver provision,监控 appserver log的provision结果"""
         assert self.pexpect
@@ -49,4 +58,4 @@ class sh_pex():
 
 if __name__=="__main__":
     a = sh_pex()
-    print a.get_url()
+    print a.get_url(1467606399)

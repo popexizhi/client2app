@@ -19,7 +19,7 @@ def doing_test(num):
 
 if __name__ == "__main__":
     num  = int(time.time())#int(sys.argv[1])
-    use_num = 101 # 100
+    use_num = 1 # 100
     #前置条件，注册app 的lic
     get_app_lic(use_num ,std = num)
     

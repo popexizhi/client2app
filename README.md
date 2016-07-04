@@ -26,3 +26,4 @@ appserver_c.py与dev_c.py可以同时启动，无启动顺序要求
 依赖:
 numpy, 
 pexpect,
+MySQLdb,

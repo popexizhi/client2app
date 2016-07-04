@@ -26,7 +26,9 @@ class httper():
 
     def _send_data(self, url, data):
         req = urllib2.Request(url, data, {'Content-Type': 'application/json'}) #添加发送头
-
+        print "[httper] "+"*** " * 20
+        print "url is %s; data is %s" % (url, data) 
+        print "[httper] "+"*** " * 20
         f = urllib2.urlopen(req)
         get_data = f.read()
         f.close()
