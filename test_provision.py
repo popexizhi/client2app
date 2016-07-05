@@ -6,6 +6,7 @@ from shell_con import sh_control
 from test_report import logMon_check
 from provision_test import *
 from app_lock import app_provision_res # app_provision use
+from db_check import db_check # save db use
 def doing_test(num):
     #app start
     wait_time = 5 #等待完成间隔
@@ -42,8 +43,11 @@ def provision(devnum = 1):
     print "*** " * 50
     print "dev provision , DEV NUM is %d" % devnum
     start_dev(devnum, time_host)
-         
+    
+    #3.save db
+    ck = db_check()
+    ck.db_save()
 
 if __name__ == "__main__":
-    provision()
+    provision(1)
 
