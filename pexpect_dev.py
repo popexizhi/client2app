@@ -5,9 +5,8 @@ import re, copy
 from httper import httper
 
 class sh_dev():
-    def __init__(self, objlog ):
+    def __init__(self ):
         self.pexpect = None
-        self.objlog = objlog
 
     def dev_check(self, start_num, num, res):
         """
@@ -64,9 +63,10 @@ class sh_dev():
     def send_provision(self):
         """appserver provision,监控 appserver log的provision结果"""
         assert self.pexpect
-        appserver_provision = "App Server Provision finished"
+        #appserver_provision = "App Server Provision finished"
+        appserver_provision = "secretL1ConnectionHostID host="
         print "wait .. .." + appserver_provision
-        self.pexpect.expect(appserver_provision)
+        self.pexpect.expect(appserver_provision, timeout= 5 * 60)
         print self.pexpect.after
        
     def l2_provision(self):

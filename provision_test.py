@@ -4,8 +4,8 @@ from cfg_writer import filewriter
 import sys
 
 class test_p():
-    def __init__(self, std = 3000, test_num = 100):
-        self.eap_ip = "192.168.1.43"
+    def __init__(self, std = 3000, test_num = 100, eap_ip = "192.168.1.42"):
+        self.eap_ip = eap_ip
         self.eap_http = httper(self.eap_ip)
         self.std = int(std) # appserver申请时的id补偿
         self.test_num = int(test_num) #appserver的默认个数
@@ -38,7 +38,7 @@ class test_p():
 def get_app_lic(num= 100, std = 3000 ):
     test_num = num
     a = test_p(std, test_num)
-    #a.add_appserver_lic(test_num)
+    a.add_appserver_lic(test_num)
     return a.get_new_appserver_cfgs()
 
 if __name__ == "__main__":

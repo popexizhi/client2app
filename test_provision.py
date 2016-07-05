@@ -36,8 +36,9 @@ def provision(devnum = 1):
     start_app(time_host, app_Mon)
     
     #2.dev provision
-    while 0 == app_Mon.get_provision_status:
-        print "\t\twait appserver provision ok ..."
+    while 0 == app_Mon.get_provision_status():
+        time.sleep(5)
+        print "\t\t[waiting] .. appserver provision .."
     print "*** " * 50
     print "dev provision , DEV NUM is %d" % devnum
     start_dev(devnum, time_host)

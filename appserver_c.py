@@ -31,6 +31,9 @@ def app_provision(num, app_Mon):
     print "log is " + "$$ " * 20
     a.send_provision()
     app_Mon.set_provision_pass()
+    while 1:
+        print "appserver_wait ... --- "
+        time.sleep(1)
     #4.wait log 打印 request url id
     a.l2_provision()
 

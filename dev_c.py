@@ -18,7 +18,7 @@ class test_dev_p():
         
         self.eap_http = httper(self.eap_ip, self.space_provision_s)
         self.sh_control = sh_control()
-        self.sh_dev = sh_dev(self)
+        self.sh_dev = sh_dev()
 
         self.dev_lic_list_num = dev_num
         self.dev_lic_list_start = int(time.time()) #使用当前时间作为申请的dev_lic起点
