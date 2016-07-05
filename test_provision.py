@@ -40,8 +40,7 @@ def provision(devnum = 1):
         print "\t\twait appserver provision ok ..."
     print "*** " * 50
     print "dev provision , DEV NUM is %d" % devnum
-    for i in xrange(devnum):
-        dev_provision(time_host)
+    start_dev(devnum, time_host)
          
 
 if __name__ == "__main__":

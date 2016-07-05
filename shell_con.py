@@ -11,9 +11,13 @@ class sh_control():
         self.appserver_cmd = './app_server.sh %d' % num
         self._com(self.appserver_cmd)
 
-    def dev_provision(self, num):
+    def dev_provision(self, start , num):
         #self.dev_cmd = './slim_engine_test -cfg="cfg/dev_%d_alone.cfg" -db -provision -host="dev%d"  ' % (num, num)
         self.dev_cmd = './slim_engine_test.sh %d' % num
+        self._com(self.dev_cmd)
+    
+    def dev_data(self, host_id):
+        self.dev_cmd = './slim_engine_test_data.sh %d' % host_id
         self._com(self.dev_cmd)
 
     def kill_all(self):
@@ -32,6 +36,10 @@ class sh_control():
         self.back_up = './appbackup.sh %s' % num
         self._com(self.back_up)
 
+    def back_use_cp(self):
+        self.back_up = './use_back.sh'
+        self._com(self.back_up)
+
     def _com(self, cmd):
         getchar = "a"
         print cmd
@@ -40,11 +48,17 @@ class sh_control():
         stdout, stderr = self.app_log_b.communicate(getchar)
     
 if __name__=="__main__" :
+    std = int(sys.argv[1])
+    #test_provision(std)
+    a = sh_control()
+    a.dev_data(std)
+
+def test_provision(std):
     for i in xrange(1):
     #    thread.start_new_thread(app_provision,(i+1011, ))
     #    print "start ....%d" % i+1011
     #    time.sleep(1)
-        std = int(sys.argv[1])
+    #    std = int(sys.argv[1])
         a = sh_control()
         a.app_provision(i+std)
         a.dev_provision(i+std)

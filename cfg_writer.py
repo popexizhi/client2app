@@ -19,14 +19,14 @@ class filewriter():
             self.cfg_data.append(i)
              
 
-    def savenewfile(self, newcfgs = ["app3", "1", "2", "3"], app = 1 ):
+    def savenewfile(self, newcfgs = ["app3", "1", "2", "3"], app = 1 , names = [0, 0]):
         chang_cfg_list = self.chang_cfg_list_app if 1 == app else self.chang_cfg_list_dev
         
         t = 0
         for i in chang_cfg_list:
             self._change_cfg(str(i), str(newcfgs[t]))
             t = t + 1
-        file_name_pre = (("app_%s" % newcfgs[0]) if 1 == app else ("dev_%s" % newcfgs[1]))
+        file_name_pre = (("app_%s" % newcfgs[0]) if 1 == app else ("dev_%d%d" % (names[0], names[1]) ))
         self.__save_newfile(file_name_pre)
         
     def savenewfilex(self, newcfgs = ["app3"], app = 1 ):
@@ -59,7 +59,6 @@ class filewriter():
         f = open(f_name, "w")
         f.write(cfg_data)
         f.close()
-        
         return f_name
 
 if __name__ == "__main__":
