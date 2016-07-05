@@ -123,7 +123,8 @@ def start_dev(num, app_id):
         for j in end_list:
             if 0 == j[0]:
                 print "%d is no L2" % j[1]
-        time.sleep(5)
+        	time.sleep(5)
+    
     s =  sh_control() 
     s.back_use_cp()
 if __name__ == "__main__":

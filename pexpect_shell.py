@@ -44,8 +44,7 @@ class sh_pex():
     def send_provision(self):
         """appserver provision,监控 appserver log的provision结果"""
         assert self.pexpect
-        #appserver_provision = "App Server Provision finished"
-        appserver_provision = "secretL1ConnectionHostID host="
+        appserver_provision = "secretL1ConnectionHostID"
         print "wait .. .." + appserver_provision
         self.pexpect.expect(appserver_provision, timeout=5 * 60)
         print self.pexpect.after
@@ -54,7 +53,7 @@ class sh_pex():
         """dev provision """
         assert self.pexpect
         dev_provision = "rcv data:" #通过L2 数据开始传入作为成功的条件
-        self.pexpect.expect(dev_provision)
+        self.pexpect.expect(dev_provision, timeout=5 * 60)
         print self.pexpect.after
 
 if __name__=="__main__":

@@ -31,7 +31,7 @@ class sh_dev():
         for i in status_list:
             print " ** " * 10
             print "\n check num is %s" % i
-            sh_dev.expect(i)
+            sh_dev.expect(i, timeout= 5* 60)
             
             print "** " * 30
             print sh_dev.after
@@ -60,14 +60,6 @@ class sh_dev():
         self.pexpect = x #将shell控制权交给类变量
         return app_id[0]
     
-    def send_provision(self):
-        """appserver provision,监控 appserver log的provision结果"""
-        assert self.pexpect
-        #appserver_provision = "App Server Provision finished"
-        appserver_provision = "secretL1ConnectionHostID host="
-        print "wait .. .." + appserver_provision
-        self.pexpect.expect(appserver_provision, timeout= 5 * 60)
-        print self.pexpect.after
        
     def l2_provision(self):
         """dev provision """
