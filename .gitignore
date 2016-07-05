@@ -1,0 +1,10 @@
+#python
+*.pyc
+
+#db
+*.db
+
+#vim
+*.swp
+
+#git
