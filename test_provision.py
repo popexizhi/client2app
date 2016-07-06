@@ -48,8 +48,9 @@ def provision(devnum = 1):
 
     #3.save db
     ck = db_check()
-    ck.db_save(".//", "back_up//")
+    ck.db_save(".//", "back_up//%s//" % str(time_host))
 
 if __name__ == "__main__":
-    provision(2)
+    for i in xrange(10):
+        provision(10)
 

@@ -31,7 +31,8 @@ class db_check():
         return res
 
     def backdb(self, d_pa, t_pa):
-        cmd = "cp %s %s" % (str(d_pa), str(t_pa))
+        #cmd = "cp %s %s" % (str(d_pa), str(t_pa))
+        cmd = "mv %s %s" % (str(d_pa), str(t_pa))
         os.system(cmd)
 
 
