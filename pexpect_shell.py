@@ -3,6 +3,7 @@
 import pexpect,time
 import re
 from httper import httper
+from pex_log import pexLog
 
 class sh_pex():
     def __init__(self):
@@ -16,21 +17,19 @@ class sh_pex():
         get_char_2 = "App Server Added on EAP, please register on EAP"
         send_c = "a"
         check_url = "Requesting URL https://192.168.1.42:443/api/admin/sync-appserver/\d+"
-        x = pexpect.spawn(app_sta_shell)
+        x_pexpect = pexpect.spawn(app_sta_shell)
+        x = pexLog("app_server.log.txt")
         self.log("wait %s" % get_char_1)
         x.expect(get_char_1, timeout = 5*60) #getchar before
-        x.sendline(send_c) #send_char
+        x_pexpect.sendline(send_c) #send_char
 
         self.log("wait %s" % get_char_2)
         x.expect(get_char_2, timeout = 5*60) #getchar before
-        x.sendline(send_c) #send_char
+        x_pexpect.sendline(send_c) #send_char
         #url check
         self.log("wait %s" % check_url)        
         x.expect(check_url, timeout = 5*60) #getchar before
-#        print "*** " * 20
-#        print x.after
-#        print "*** " * 20
-        app_id = re.findall(r"\d+$",x.after)
+        app_id = re.findall(r"\d+$",x.after[0])
         print app_id[0]
         #x.interact() # 把sh的连接交给用户控制
         self.pexpect = x #将shell控制权交给类变量
