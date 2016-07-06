@@ -43,11 +43,13 @@ def provision(devnum = 1):
     print "*** " * 50
     print "dev provision , DEV NUM is %d" % devnum
     start_dev(devnum, time_host)
-    
+    app_Mon.set_dev_provision_pass()# stop app use
+
+
     #3.save db
     ck = db_check()
-    ck.db_save()
+    ck.db_save(".//", "back_up//")
 
 if __name__ == "__main__":
-    provision(1)
+    provision(2)
 

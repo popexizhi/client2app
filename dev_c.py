@@ -46,13 +46,13 @@ class test_dev_p():
         self.log_f( "xxx " * 20)
         self.log_f("[format_mail] %s" % format_mail)
         self.log_f("[dev_pins] %s" % str(dev_pins))
-        #for i in dev_pins:
-        #    print "i is " + str(i)
-        if re.search(format_mail, dev_pins[0]):
-           dev_use_list.append(dev_pins)
-        else:
-           print "dev_pin is %s,\n dev_pin is not include %s" % (str(dev_pin), str(format_mail))
-           assert 0 == 1 #err  
+        for i in dev_pins:
+            print "i is " + str(i)
+            if re.search(format_mail, i[0]):
+                dev_use_list.append(i)
+            else:
+                print "dev_pin is %s,\n dev_pin is not include %s" % (str(i), str(format_mail))
+                assert 0 == 1 #err  
 
         return dev_use_list
 
@@ -61,7 +61,7 @@ class test_dev_p():
         x = db_mod(db_name = "nexus_eapII" , ip = "192.168.1.44", user = "admin", pd = "password")
         new_dev_pins = x.get_pin(num)
         assert new_dev_pins #db一定有返回
-
+        
         new_dev_pins_use = self.get_use_dev_lics(new_dev_pins)
         self.log_f( "*** " * 20)
         self.log_f( "get pins from db is " + str(len(new_dev_pins_use)))
@@ -102,7 +102,8 @@ def start_dev(num, app_id):
     for i in xrange(1):
         res = dev_provision(app_id, num)
         print "start dev....%d" % int(i + num)
-
+        print "res is %s" % str(res)
+    
     END = 0
     L2_PASS = "Completed"
     while END< num:

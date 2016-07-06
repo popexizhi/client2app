@@ -33,7 +33,10 @@ def app_provision(num, app_Mon):
     app_Mon.set_provision_pass()
     #4.wait log 打印 request url id
     a.l2_provision()
-
+    while 0 == app_Mon.dev_provision_pass():
+        print "*** " * 20
+        print "wait .. dev_provision " 
+        time.sleep(5)
 def start_app(std, app_Mon):
     for i in xrange(1):
         try:

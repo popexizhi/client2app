@@ -75,4 +75,4 @@ class db_check():
 
 if __name__=="__main__":
     a = db_check()
-    a.db_save()
+    a.db_save(".//", "back_up//")

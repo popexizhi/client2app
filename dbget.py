@@ -7,15 +7,21 @@ class db_mod():
 
     def get_pin(self, num = 1016):
         sql = 'SELECT email, application_id, pin, pinhash from portal_host_pin where application_id = %d;' % num
-        return self.select(sql)
+        res = self.select(sql)
+        self.log("select res is %s (SQL is %s)" % (str(res), str(sql))) 
+        return res
 
     def select(self, sql):        
         res = self.cursor.execute(sql)
         # Fetch a single row using fetchone() method.
-        data = self.cursor.fetchone()
+        #data = self.cursor.fetchone()
+        data = self.cursor.fetchall()
         # disconnect from server
         self.db.close()
         return data
+    def log(self, message):
+        print "*** " * 20
+        print "[db_mod] %s" % message
 
 if __name__ == "__main__":
     x = db_mod()

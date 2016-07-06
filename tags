@@ -12,6 +12,7 @@ OutputRedirector	HTMLTestRunnerx.py	/^class OutputRedirector(object):$/;"	c
 STATUS	HTMLTestRunnerx.py	/^    STATUS = {$/;"	v	class:Template_mixin
 Template_mixin	HTMLTestRunnerx.py	/^class Template_mixin(object):$/;"	c
 TestResult	HTMLTestRunnerx.py	/^TestResult = unittest.TestResult$/;"	v
+Test_db_check	db_check_test.py	/^class Test_db_check(unittest.TestCase):$/;"	c
 _TestResult	HTMLTestRunnerx.py	/^class _TestResult(TestResult):$/;"	c
 __author__	HTMLTestRunnerx.py	/^__author__ = "Wai Yip Tung"$/;"	v
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, fp):$/;"	m	class:OutputRedirector
@@ -20,6 +21,7 @@ __init__	HTMLTestRunnerx.py	/^    def __init__(self, title = "test suit is here"
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, verbosity=1,res_test="def is ok"):$/;"	m	class:_TestResult
 __init__	app_lock.py	/^    def __init__(self, id_name="test"):$/;"	m	class:app_provision_res
 __init__	cfg_writer.py	/^    def __init__(self, filename = "alone_app.cfg"):$/;"	m	class:filewriter
+__init__	db_check.py	/^    def __init__(self):$/;"	m	class:db_check
 __init__	dbget.py	/^    def __init__(self, db_name = "nexus_eap" , ip = "192.168.1.44", user = "slim", pd = "password"):$/;"	m	class:db_mod
 __init__	dbget_insert.py	/^    def __init__(self, db_name = "history_testdate" , ip = "192.168.1.44", user = "test_root", pd = "password"):$/;"	m	class:db_mod
 __init__	dev_c.py	/^    def __init__(self, dev_num = 10, eap_ip = "192.168.1.42"):$/;"	m	class:test_dev_p
@@ -55,6 +57,7 @@ _statistics	dbget_insert.py	/^    def _statistics(self, filename_length):$/;"	m	
 _std_use_time	dbget_insert.py	/^    def _std_use_time(self, filename, filelength, use_time):$/;"	m	class:db_mod
 a	HTMLTestRunnerx.py	/^    a=HTMLTestRunner_ex()$/;"	v
 a	cfg_writer.py	/^    a = filewriter("alone_app.cfg")$/;"	v	class:filewriter
+a	db_check.py	/^    a = db_check()$/;"	v
 a	httper.py	/^    a = httper()$/;"	v	class:httper
 a	pexpect_dev.py	/^    a = sh_pex()$/;"	v	class:sh_dev
 a	pexpect_shell.py	/^    a = sh_pex()$/;"	v	class:sh_pex
@@ -75,15 +78,19 @@ app_provision_res	app_lock.py	/^class app_provision_res():$/;"	c
 back_up	shell_con.py	/^    def back_up(self, num):$/;"	m	class:sh_control
 back_up_app	shell_con.py	/^    def back_up_app(self, num):$/;"	m	class:sh_control
 back_use_cp	shell_con.py	/^    def back_use_cp(self):$/;"	m	class:sh_control
+backdb	db_check.py	/^    def backdb(self, d_pa, t_pa):$/;"	m	class:db_check
 complete_output	HTMLTestRunnerx.py	/^    def complete_output(self):$/;"	m	class:_TestResult
 count	dev_c.py	/^        count = num \/ ev_num$/;"	v
+db_check	db_check.py	/^class db_check():$/;"	c
 db_mod	dbget.py	/^class db_mod():$/;"	c
 db_mod	dbget_insert.py	/^class db_mod():$/;"	c
+db_save	db_check.py	/^    def db_save(self, dir_p=".\/\/", t_pa = "back_db\/\/"):$/;"	m	class:db_check
 des	HTMLTestRunnerx.py	/^    des = "修改测试结果描述"$/;"	v
 dev_check	pexpect_dev.py	/^    def dev_check(self, start_num, num, res):$/;"	m	class:sh_dev
 dev_data	shell_con.py	/^    def dev_data(self, host_id):$/;"	m	class:sh_control
 dev_provision	dev_c.py	/^def dev_provision(app_id, num):$/;"	f
 dev_provision	shell_con.py	/^    def dev_provision(self, start , num):$/;"	m	class:sh_control
+dev_provision_pass	app_lock.py	/^    def dev_provision_pass(self):$/;"	m	class:app_provision_res
 doing_test	test_provision.py	/^def doing_test(num):$/;"	f
 doing_test	tester.py	/^def doing_test(num):$/;"	f
 ev_num	dev_c.py	/^    ev_num = 50$/;"	v
@@ -103,9 +110,11 @@ g_savefile	HTMLTestRunnerx.py	/^    def g_savefile(self,filename="xxx.html"):$/;
 generateReport	HTMLTestRunnerx.py	/^    def generateReport(self, test, result):$/;"	m	class:HTMLTestRunner
 getReportAttributes	HTMLTestRunnerx.py	/^    def getReportAttributes(self, result=0):$/;"	m	class:HTMLTestRunner
 getReportAttributes_x	HTMLTestRunnerx.py	/^    def getReportAttributes_x(self, result=0):$/;"	m	class:HTMLTestRunner
+get_all_db	db_check.py	/^    def get_all_db(self, pa="."):$/;"	m	class:db_check
 get_app_lic	provision_test.py	/^def get_app_lic(num= 100, std = 3000 ):$/;"	f
 get_dev_pin	dev_c.py	/^    def get_dev_pin(self, num):$/;"	m	class:test_dev_p
 get_dir_files	test_report.py	/^    def get_dir_files(self, dir_p):$/;"	m	class:logMon_check
+get_host_id	db_check.py	/^    def get_host_id(self, sql, db_p):$/;"	m	class:db_check
 get_l2_data	test_report.py	/^    def get_l2_data(self, inputfile):$/;"	m	class:logMon_check
 get_last_line	logMoner.py	/^    def get_last_line(self, inputfile) :$/;"	m	class:logMon
 get_new_appserver_cfgs	provision_test.py	/^    def get_new_appserver_cfgs(self):$/;"	m	class:test_p
@@ -122,6 +131,7 @@ kill_all	shell_con.py	/^    def kill_all(self):$/;"	m	class:sh_control
 kill_dev	shell_con.py	/^    def kill_dev(self):$/;"	m	class:sh_control
 l2_provision	pexpect_dev.py	/^    def l2_provision(self):$/;"	m	class:sh_dev
 l2_provision	pexpect_shell.py	/^    def l2_provision(self):$/;"	m	class:sh_pex
+log	db_check.py	/^    def log(self, message):$/;"	m	class:db_check
 log	pexpect_shell.py	/^    def log(self, message):$/;"	m	class:sh_pex
 logMon	logMoner.py	/^class logMon():$/;"	c
 logMon_check	test_report.py	/^class logMon_check():$/;"	c
@@ -140,12 +150,15 @@ res	tester.py	/^        res = doing_test(app_id)        $/;"	v
 res_l2	test_report.py	/^    def res_l2(self, app_log = "app_server.log.txt"):$/;"	m	class:logMon_check
 res_process	test_report.py	/^    def res_process(self, dir_p, backup_dir):$/;"	m	class:logMon_check
 run	HTMLTestRunnerx.py	/^    def run(self, test):$/;"	m	class:HTMLTestRunner
+save_app_db	db_check.py	/^    def save_app_db(self, db_p, target_p):$/;"	m	class:db_check
 save_res	test_report.py	/^    def save_res(self):        $/;"	m	class:logMon_check
+save_ue_db	db_check.py	/^    def save_ue_db(self, db_p, target_p):$/;"	m	class:db_check
 savenewfile	cfg_writer.py	/^    def savenewfile(self, newcfgs = ["app3", "1", "2", "3"], app = 1 , names = [0, 0]):$/;"	m	class:filewriter
 savenewfilex	cfg_writer.py	/^    def savenewfilex(self, newcfgs = ["app3"], app = 1 ):$/;"	m	class:filewriter
 select	dbget.py	/^    def select(self, sql):        $/;"	m	class:db_mod
 select	dbget_insert.py	/^    def select(self, sql):        $/;"	m	class:db_mod
 send_provision	pexpect_shell.py	/^    def send_provision(self):$/;"	m	class:sh_pex
+set_dev_provision_pass	app_lock.py	/^    def set_dev_provision_pass(self):$/;"	m	class:app_provision_res
 set_provision_pass	app_lock.py	/^    def set_provision_pass(self):$/;"	m	class:app_provision_res
 set_report	HTMLTestRunnerx.py	/^    def set_report(self, title, desc):$/;"	m	class:HTMLTestRunner_ex
 sh_control	shell_con.py	/^class sh_control():$/;"	c
@@ -164,11 +177,15 @@ std_list	logMoner.py	/^    def std_list(self):$/;"	m	class:logMon
 stderr_redirector	HTMLTestRunnerx.py	/^stderr_redirector = OutputRedirector(sys.stderr)$/;"	v
 stdout_redirector	HTMLTestRunnerx.py	/^stdout_redirector = OutputRedirector(sys.stdout)$/;"	v
 stopTest	HTMLTestRunnerx.py	/^    def stopTest(self, test):$/;"	m	class:_TestResult
+test_db_save	db_check_test.py	/^    def test_db_save(self):$/;"	m	class:Test_db_check
 test_dev_p	dev_c.py	/^class test_dev_p():$/;"	c
+test_get_all_db	db_check_test.py	/^    def test_get_all_db(self):$/;"	m	class:Test_db_check
 test_get_datatime	logMoner_test.py	/^    def test_get_datatime(self):$/;"	m	class:logMonerTestCase
 test_num	provision_test.py	/^    test_num = 500$/;"	v
 test_p	provision_test.py	/^class test_p():$/;"	c
 test_provision	shell_con.py	/^def test_provision(std):$/;"	f
+test_save_app_db	db_check_test.py	/^    def test_save_app_db(self):    $/;"	m	class:Test_db_check
+test_save_ue_db	db_check_test.py	/^    def test_save_ue_db(self):    $/;"	m	class:Test_db_check
 testcase	HTMLTestRunnerx.py	/^    testcase="testcase"$/;"	v
 testsuit	HTMLTestRunnerx.py	/^    testsuit="testx"$/;"	v
 testsuit_name	tester.py	/^    testsuit_name = "test_%s" % str(num) #测试名称，报告和备份是使用$/;"	v
