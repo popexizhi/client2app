@@ -18,15 +18,15 @@ class sh_pex():
         check_url = "Requesting URL https://192.168.1.42:443/api/admin/sync-appserver/\d+"
         x = pexpect.spawn(app_sta_shell)
         self.log("wait %s" % get_char_1)
-        x.expect(get_char_1) #getchar before
+        x.expect(get_char_1, timeout = 5*60) #getchar before
         x.sendline(send_c) #send_char
 
         self.log("wait %s" % get_char_2)
-        x.expect(get_char_2) #getchar before
+        x.expect(get_char_2, timeout = 5*60) #getchar before
         x.sendline(send_c) #send_char
         #url check
         self.log("wait %s" % check_url)        
-        x.expect(check_url) #getchar before
+        x.expect(check_url, timeout = 5*60) #getchar before
 #        print "*** " * 20
 #        print x.after
 #        print "*** " * 20

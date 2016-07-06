@@ -132,6 +132,7 @@ kill_dev	shell_con.py	/^    def kill_dev(self):$/;"	m	class:sh_control
 l2_provision	pexpect_dev.py	/^    def l2_provision(self):$/;"	m	class:sh_dev
 l2_provision	pexpect_shell.py	/^    def l2_provision(self):$/;"	m	class:sh_pex
 log	db_check.py	/^    def log(self, message):$/;"	m	class:db_check
+log	dbget.py	/^    def log(self, message):$/;"	m	class:db_mod
 log	pexpect_shell.py	/^    def log(self, message):$/;"	m	class:sh_pex
 logMon	logMoner.py	/^class logMon():$/;"	c
 logMon_check	test_report.py	/^class logMon_check():$/;"	c
@@ -194,7 +195,7 @@ update_statistics	logMoner.py	/^    def update_statistics(self):$/;"	m	class:log
 use_num	tester.py	/^    use_num = 1 # 100$/;"	v
 write	HTMLTestRunnerx.py	/^    def write(self, s):$/;"	m	class:OutputRedirector
 writelines	HTMLTestRunnerx.py	/^    def writelines(self, lines):$/;"	m	class:OutputRedirector
-x	dbget.py	/^    x = db_mod()$/;"	v	class:db_mod
+x	dbget.py	/^    x = db_mod()$/;"	v
 x	dbget_insert.py	/^    x = db_mod()$/;"	v	class:db_mod
 x	logMoner.py	/^    x = logMon()$/;"	v	class:logMon
 x	test_report.py	/^    x = logMon_check()$/;"	v	class:logMon_check
