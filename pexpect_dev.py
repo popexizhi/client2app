@@ -3,6 +3,7 @@
 import pexpect,time
 import re, copy
 from httper import httper
+from pex_log import pexLog
 
 class sh_dev():
     def __init__(self ):

@@ -8,7 +8,8 @@ from pex_log import pexLog
 class sh_pex():
     def __init__(self):
         self.pexpect = None
-        
+        self.x_pex = None
+
     def get_url(self, num):
         #app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""
         #app_sta_shell = """./app_server -cfg="alone_%d_app.cfg" -db -server_provision"""
@@ -33,6 +34,7 @@ class sh_pex():
         print app_id[0]
         #x.interact() # 把sh的连接交给用户控制
         self.pexpect = x #将shell控制权交给类变量
+        self.x_pex = x_pexpect
         return app_id[0]
     
     def log(self, message):
