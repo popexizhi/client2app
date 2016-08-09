@@ -1,0 +1,46 @@
+sort -n -k2 -r lizard.txt >sort_lizard.txt
+-----
+ -n 数字方式
+ -r 倒序
+ -k 指定列名称
+ -t 间隔符
+
+add:http://roclinux.cn/?p=1350
+-------------------------------------------------------------------------------
+cat test_lizard_file.log |cut -d\| -f 1|xargs lizard>test_lizard_file_ana.log
+cut 
+ -d 分隔符
+ -f 设置要取的域 1, 2-5
+
+add:http://www.cnblogs.com/dong008259/archive/2011/12/09/2282679.html
+-------------------------------------------------------------------------------
+git log --stat -10 |grep "|" >test_lizard_file.log
+显示指定提交个数(10)的修改文件的list
+add:https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2
+
+----------------------------------------------------------
+lizard (https://github.com/terryyin/lizard)
+-C CCN, --CCN CCN     Threshold for cyclomatic complexity number warning.
+                      The default value is 15. Functions with CCN bigger
+                      than it will generate warning
+-L LENGTH, --length LENGTH
+                      Threshold for maximum function length warning. The
+                      default value is 1000. Functions length bigger than it
+                      will generate warning
+lizard -C10 -L50
+-------------------------------------------------------------
+vim 脚本
+%s/\[\|\('\]\)\|\(u'\)//g
+%s/', /\r/g
+sort
+g/^\(.*\)$\n\1/d
+update
+quit
+
+vim 脚本在shell中运行 vim -S log.vim filepath
+
+lizard脚本结果过滤
+1,/!!!/-1d
+/Total nloc/,$d
+update
+quit
