@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.SequenceDiagram</type>
+    <coordinates>
+      <x>80</x>
+      <y>120</y>
+      <w>770</w>
+      <h>650</h>
+    </coordinates>
+    <panel_attributes>title: testcase_run
+_agent_c~id1_|_manager_tc~id2_|_httper~ng|_tc_use~tc|_tc_stru~id4_
+id1-&gt;&gt;&gt;id2:id1,id2:1.set_tc(tc_list)
+id2-&gt;&gt;&gt;ng:id1,id2:1.2.get_tc_list(id_list)
+
+id3-&gt;&gt;&gt;id1:id1,id3
+
+iframe{:init_pre
+id1-&gt;&gt;&gt;id2:id1,id2:2.init_pre()
+id2-&gt;&gt;&gt;tc:id2,tc:2.1 init_pre()
+tc-&gt;&gt;&gt;id4:tc,id4:2.2 get_preconditions()
+id1.&gt;id3:id1,id3:async return Msg
+tc-&gt;&gt;&gt;ng:tc,ng:2.3step_download()*n
+iframe}
+
+iframe{:run_testcase
+id1-&gt;id1:id1:ide1.self.run_tc()
+id1-&gt;id2:id1,id2:2.1tc_run()
+id2-&gt;&gt;&gt;tc:id2,tc:2.3.get_step()
+tc-&gt;&gt;&gt;id4:tc,id3:2.3.1 tc_stru.get_step()
+id2-&gt;&gt;&gt;tc:id2,tc:2.4step_doing_all()
+tc-&gt;&gt;&gt;tc:tc,tc:2.4.n self.step_doing()
+
+iframe}</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

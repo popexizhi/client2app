@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.SequenceDiagram</type>
+    <coordinates>
+      <x>80</x>
+      <y>120</y>
+      <w>610</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>title: center_
+manager_tc~id1_|jenkins_c~id2_|[test_linke]~id3_|[ELK]~id4_
+id1-&gt;&gt;&gt;id1:id1,id1:1.get_list(&amp;tc_list)
+
+
+iframe{:for(tc_list))
+id1-&gt;&gt;&gt;id3:id1,id3:2.manager_tc_(tc_name)
+iframe}
+
+iframe{:run_testcase
+id1-&gt;id1:id1:id1:3 [计算使用要使用的设备]
+id1-&gt;id2:id1,id2:3.1.tc_run(tc_xml)
+id1-&gt;id4:id1,id4:3.2 [check_res(tc_xml)]
+id1-&gt;id3:id1,id3:3.3 [res_ana/send_mail]
+
+iframe}</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
