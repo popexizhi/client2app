@@ -7,7 +7,10 @@ class httper():
     def __init__(self, http_ip = "192.168.1.55", space_s = 0):
         self.http_ip = http_ip
         self.space_http_s = space_s #每个请求的间隔时间，防止服务器请求太过频繁
-    
+    def login(self, username="lijie@senlime.com", passwd="password"):
+        res=None
+        return res
+
     def register_app_server(self, url_id, name, key, serial):
         "post id+key+serial /api/admin/register_app_server"
         self.add_licenses = "http://"+ self.http_ip +":18080/api/admin/register_app_server"
