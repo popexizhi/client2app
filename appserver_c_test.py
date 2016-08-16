@@ -20,7 +20,7 @@ class TestAppserver_C(unittest.TestCase):
     def test_wait_get_url(self):
         db_name = "testdata\\nplServer1_wait.db"
         x = appserver_c(db_name)        
-        p_d = "/api/eap/appservers/3/activation"
+        p_d = 3
         s1 = threading.Thread(target=self._chang_db, args=(db_name,)) 
         s1.start()
         time.sleep(3)
@@ -62,5 +62,10 @@ class TestAppserver_C(unittest.TestCase):
             c.execute(insert_sql)
             conn.commit()
         conn.close()
+    def test_app_provision(self):
+        """test app provision all """
+        x = appserver_c(db_name="testdata\\nplServer1.db")       
+        x.app_provision(num=str(time.time()), app_Mon =1)
+
 if __name__=="__main__":
     unittest.main()
