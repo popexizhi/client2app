@@ -64,9 +64,7 @@ class appserver_c():
         assert 0 == res_add_app_key["result"] #要求添加结果一定为成功，否则退出后续流程
         res = self.httper.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
         self.log(res)
-
-        assert 0 == 1
-        next
+        time.sleep(50)
         app_Mon.set_provision_pass()
         while 1:
             print "appserver_wait ... --- "

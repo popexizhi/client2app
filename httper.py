@@ -29,7 +29,7 @@ class httper():
         assert self.token #无token无法add
         url_register = "/api/eap/appservers/%d/activation" % url_id
         self.add_licenses = "http://"+ self.http_ip + url_register
-        value = {"app_server_id":url_id,"license":{"customer_name":name, "license_key":key, "serial":serial},"activation_type":"single","cluster_info":{"cluster_type":"join","custer_id":"","cluster_name":"","cluster_desc":""},"single_info":{"name":"xxx","description":"xxx"},"dbconfig":{"type":"mysql","hostname":"","port":"3306","username":"","password":""}}
+        value = {"app_server_id":url_id,"license":{"customer_name":name, "license_key":key, "serial":serial},"activation_type":"single","cluster_info":{"cluster_type":"join","custer_id":"","cluster_name":"","cluster_desc":""},"single_info":{"name":url_id,"description":url_id},"dbconfig":{"type":"mysql","hostname":"","port":"3306","username":"","password":""}}
 
         data = json.dumps(value)
         return self._send_data(self.add_licenses, data, self.token)

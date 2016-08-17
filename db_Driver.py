@@ -10,6 +10,7 @@ class sqlite_Driver():
 
     def select(self, sql):
         """retunr [(), ()...] for all data """
+        self.log(self.path)
         conn = sqlite3.connect(self.path)
         res = []
         self.log("select sql is %s" % str(sql))

@@ -64,7 +64,7 @@ class TestAppserver_C(unittest.TestCase):
         conn.close()
     def test_app_provision(self):
         """test app provision all """
-        x = appserver_c(db_name="testdata//nplServer1.db")       
+        x = appserver_c(db_name="nplServer1.db")       
         x.app_provision(num=str(time.time()), app_Mon =1)
 
 if __name__=="__main__":
