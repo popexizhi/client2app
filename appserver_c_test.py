@@ -12,13 +12,13 @@ class TestAppserver_C(unittest.TestCase):
         p_d = 0
         self.assertEqual(p_d, res)
     def test_get_url(self):
-        x = appserver_c(db_name="testdata\\nplServer1.db")
+        x = appserver_c(db_name="testdata//nplServer1.db")
         res = x.get_url()
         p_d = "/api/eap/appservers/3/activation"
         self.assertEqual(p_d, res)
 
     def test_wait_get_url(self):
-        db_name = "testdata\\nplServer1_wait.db"
+        db_name = "testdata//nplServer1_wait.db"
         x = appserver_c(db_name)        
         p_d = 3
         s1 = threading.Thread(target=self._chang_db, args=(db_name,)) 
@@ -28,7 +28,7 @@ class TestAppserver_C(unittest.TestCase):
         self.assertEqual(p_d, res)
     
     def test_timeout_get_url(self):
-        db_name = "testdata\\nplServer1_timeout.db"
+        db_name = "testdata//nplServer1_timeout.db"
         x = appserver_c(db_name)        
         p_d = "timeout err"
         s1 = threading.Thread(target=self._chang_db, args=(db_name, "no_insert",)) 
@@ -64,7 +64,7 @@ class TestAppserver_C(unittest.TestCase):
         conn.close()
     def test_app_provision(self):
         """test app provision all """
-        x = appserver_c(db_name="testdata\\nplServer1.db")       
+        x = appserver_c(db_name="testdata//nplServer1.db")       
         x.app_provision(num=str(time.time()), app_Mon =1)
 
 if __name__=="__main__":
