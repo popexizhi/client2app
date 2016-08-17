@@ -65,7 +65,7 @@ class appserver_c():
         return provision_stat
 
 
-    def app_provision(self, num, app_Mon):
+    def app_provision(self, num, app_Mon, npls_thrift_port = 10022):
         """
         1.change app cfg start appserver
         2.wait appdb server_id
@@ -75,7 +75,7 @@ class appserver_c():
         #0.前置条件准备
         self.sh_con.remove_all_db()
         #1.change app cfg start appserver
-        assert self.start_provision() != None
+        assert self.start_provision(port = npls_thrift_port) != None
         #2.wait appdb server_id
         url_id = self.get_url()
         assert url_id #检查返回的id一定存在
@@ -116,12 +116,13 @@ def start_app(std, app_Mon):
     #    a.app_provision(i+std)
 
 if __name__ == "__main__":
+    
     #std = int(sys.argv[1])
     #app_provision_res = app_provision_res()
     #start_app(std, app_provision)
     #app_provision(2)
-
-    x = appserver_c(db_name="nplServer1.db")
-    x.app_provision(num=str(time.time()), app_Mon =1)
+    for i in xrange(10):
+        x = appserver_c(db_name="nplServer1.db")
+        x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= i+10030)
 
 

@@ -40,9 +40,11 @@ class sh_control():
         #self.back_up = './appbackup.sh %s' % num
         com_list = ["mkdir dbback//%s" % str(num), "cp *.db dbback//%s//" % str(num), "ls -all dbback//%s" % str(num) ]
         self._list_com(com_list)
+    
     def _list_com(self, com_list):
         for i in com_list:
             self._com(i)
+    
     def remove_all_db(self):
         com_list = ["rm *.db", "ls -all |grep db"]
         self._list_com(com_list)
