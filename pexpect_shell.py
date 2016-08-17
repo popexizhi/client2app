@@ -7,7 +7,26 @@ from httper import httper
 class sh_pex():
     def __init__(self):
         self.pexpect = None
+    
+    def start_appserver(self, path="app_server", cfg="alone_app.cfg"):
+        """start appserver """
+        self.app = path
+        self.cfg = cfg
+        self.args_app = ["-db", "-server_provision"]
+        args_list = self.get_args(self.args_app)
+        command_app = './%s -cfg="%s" %s' % (self.app, self.cfg, str(args_list))
+        self.log(command_app)
         
+        self.pexpect = pexpect.spawn(command_app)
+        return self.pexpect
+    def get_args(self, args_list):
+        assert args_list
+        res = ""
+        for i in args_list:
+            res = res + " %s" % i
+
+        return res
+
     def get_url(self, num):
         #app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""
         #app_sta_shell = """./app_server -cfg="alone_%d_app.cfg" -db -server_provision"""
