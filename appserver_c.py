@@ -20,7 +20,7 @@ class appserver_c():
         print "~" * 20
         print message
 
-    def start_provision(self, cfg_path="alone_app.cfg", port=10017):
+    def start_provision(self, cfg_path="alone_app.cfg", port=10018):
         """change cfg start appserver provision """
         self.filewriter = filewriter(cfg_path)
         self.cfg_path = self.filewriter.change_thrift_port(port)
@@ -87,9 +87,13 @@ class appserver_c():
         app_start = self.wait_provision()
         self.log("appserver provision is %s" % app_start)
         assert APPSERVERDB["Actived"]  == app_start
-        while 1:
-            print "appserver_wait ... --- "
-            time.sleep(1)
+        
+        #save db
+        host_id = self.db.get_app_host_id()
+        self.log("appserver hostid is %s" % str(host_id))
+        #while 1:
+        #    print "appserver_wait ... --- "
+        #    time.sleep(1)
         #4.wait log 打印 request url id
         #a.l2_provision()
 
