@@ -10,6 +10,12 @@ class filewriter():
         self.chang_cfg_list_dev = ["dev_prov_email_addr", "dev_prov_application_id", "dev_prov_pincode", "dev_prov_pinhash"]
         self.__readfile()
 
+    def change_thrift_port(self, new_port):
+        self.thrift_port = ["npls_thrift_port"]
+        self._change_cfg(self.thrift_port[0], str(new_port))
+        res = self.__save_newfile(str(new_port))
+        
+        return res
 
     def __readfile(self):
         f = open(self.cfgfile)

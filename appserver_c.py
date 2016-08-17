@@ -3,6 +3,7 @@ import sys
 from db_Driver import sqlite_Driver
 from pexpect_shell import sh_pex
 from httper import httper
+from cfg_writer import filewriter
 import thread
 import time
 class appserver_c():
@@ -12,16 +13,20 @@ class appserver_c():
         self.wait_time = 3 * 60 #appserver provision 超时时间
         self.httper = httper(eap_provision_server) 
         self.pex_app = sh_pex()
+        self.filewriter = None
 
     def log(self, message):
         print "~" * 20
         print message
 
-    def start_provision(self, cfg_path="alone_app.cfg"):
+    def start_provision(self, cfg_path="alone_app.cfg", port=10012):
         """change cfg start appserver provision """
+        self.filewriter = filewriter(cfg_path)
+        self.cfg_path = self.filewriter.change_thrift_port(port)
+        assert self.cfg_path
         args_list = ["-db", "-server_provision"]
         app_path = "app_server"
-        self.pex_app.start_appserver(path=app_path ,cfg=cfg_path, args= args_list)
+        self.pex_app.start_appserver(path=app_path ,cfg=self.cfg_path, args= args_list)
 
         return self.pex_app
     def get_url(self):
