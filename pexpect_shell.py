@@ -8,11 +8,11 @@ class sh_pex():
     def __init__(self):
         self.pexpect = None
     
-    def start_appserver(self, path="app_server", cfg="alone_app.cfg"):
+    def start_appserver(self, path="app_server", cfg="alone_app.cfg", args = ["-db", "-server_provision"]):
         """start appserver """
         self.app = path
         self.cfg = cfg
-        self.args_app = ["-db", "-server_provision"]
+        self.args_app = args
         args_list = self.get_args(self.args_app)
         command_app = './%s -cfg="%s" %s' % (self.app, self.cfg, str(args_list))
         self.log(command_app)

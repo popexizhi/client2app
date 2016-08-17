@@ -1,6 +1,7 @@
 #-*- coding:utf8 -*-
 import sys
 from db_Driver import sqlite_Driver
+from pexpect_shell import sh_pex
 from httper import httper
 import thread
 import time
@@ -10,14 +11,19 @@ class appserver_c():
         self.cfg = cfg
         self.wait_time = 3 * 60 #appserver provision 超时时间
         self.httper = httper(eap_provision_server) 
+        self.pex_app = sh_pex()
 
     def log(self, message):
         print "~" * 20
         print message
 
-    def start_provision(self):
+    def start_provision(self, cfg_path="alone_app.cfg"):
         """change cfg start appserver provision """
-        pass
+        args_list = ["-db", "-server_provision"]
+        app_path = "app_server"
+        self.pex_app.start_appserver(path=app_path ,cfg=cfg_path, args= args_list)
+
+        return self.pex_app
     def get_url(self):
         wait_time = self.wait_time
         assert self.db
@@ -47,7 +53,7 @@ class appserver_c():
         4.wait log 打印 Please Add User Pin...
         """
         #1.change app cfg start appserver
-        self.start_provision()
+        assert self.start_provision() != None
         #2.wait appdb server_id
         url_id = self.get_url()
         assert url_id #检查返回的id一定存在

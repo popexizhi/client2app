@@ -9,12 +9,12 @@ class TestAppserver_C(unittest.TestCase):
     def test_start_provision(self):
         x = appserver_c()
         res = x.start_provision()
-        p_d = 0
-        self.assertEqual(p_d, res)
+        p_d = None
+        self.assertNotEqual(p_d, res)
     def test_get_url(self):
         x = appserver_c(db_name="testdata//nplServer1.db")
         res = x.get_url()
-        p_d = "/api/eap/appservers/3/activation"
+        p_d = 3
         self.assertEqual(p_d, res)
 
     def test_wait_get_url(self):
