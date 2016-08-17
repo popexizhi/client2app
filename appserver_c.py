@@ -3,6 +3,7 @@ import sys
 from db_Driver import sqlite_Driver
 from pexpect_shell import sh_pex
 from httper import httper
+from shell_con import sh_control #back_up_app_db
 from cfg_writer import filewriter
 import thread
 import time
@@ -15,12 +16,13 @@ class appserver_c():
         self.httper = httper(eap_provision_server) 
         self.pex_app = sh_pex()
         self.filewriter = None
+        self.sh_con = sh_control()
 
     def log(self, message):
         print "~" * 20
         print message
 
-    def start_provision(self, cfg_path="alone_app.cfg", port=10018):
+    def start_provision(self, cfg_path="alone_app.cfg", port=10021):
         """change cfg start appserver provision """
         self.filewriter = filewriter(cfg_path)
         self.cfg_path = self.filewriter.change_thrift_port(port)
@@ -70,6 +72,8 @@ class appserver_c():
         3.post id+key+serial /api/eap/appservers/<server_id>/activation
         4.wait log 打印 Please Add User Pin...
         """
+        #0.前置条件准备
+        self.sh_con.remove_all_db()
         #1.change app cfg start appserver
         assert self.start_provision() != None
         #2.wait appdb server_id
@@ -91,6 +95,7 @@ class appserver_c():
         #save db
         host_id = self.db.get_app_host_id()
         self.log("appserver hostid is %s" % str(host_id))
+        self.sh_con.back_up_app_db(host_id)
         #while 1:
         #    print "appserver_wait ... --- "
         #    time.sleep(1)

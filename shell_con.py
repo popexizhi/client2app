@@ -6,6 +6,10 @@ class sh_control():
     def __init__(self):
         pass
 
+    def log(self, message):
+        print "*" * 20
+        print message
+
     def app_provision(self, num):
         #self.appserver_cmd = './app_server -cfg="cfg/app_%d_alone.cfg" -db -server_provision -host="%d" ' % (num, num)
         self.appserver_cmd = './app_server.sh %d' % num
@@ -32,9 +36,17 @@ class sh_control():
         self.back_up = './backall.sh %s' % num
         self._com(self.back_up)
 
-    def back_up_app(self, num):
-        self.back_up = './appbackup.sh %s' % num
-        self._com(self.back_up)
+    def back_up_app_db(self, num):
+        #self.back_up = './appbackup.sh %s' % num
+        com_list = ["mkdir dbback//%s" % str(num), "cp *.db dbback//%s//" % str(num), "ls -all dbback//%s" % str(num) ]
+        self._list_com(com_list)
+    def _list_com(self, com_list):
+        for i in com_list:
+            self._com(i)
+    def remove_all_db(self):
+        com_list = ["rm *.db", "ls -all |grep db"]
+        self._list_com(com_list)
+
 
     def back_use_cp(self):
         self.back_up = './use_back.sh'
@@ -42,7 +54,7 @@ class sh_control():
 
     def _com(self, cmd):
         getchar = "a"
-        print cmd
+        self.log(cmd)
         self.app_log_b = subprocess.Popen([cmd], shell=True,  stdout = subprocess.PIPE, stdin = subprocess.PIPE)
         # Send the data and get the output
         stdout, stderr = self.app_log_b.communicate(getchar)
