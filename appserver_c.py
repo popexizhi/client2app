@@ -6,6 +6,7 @@ from httper import httper
 from cfg_writer import filewriter
 import thread
 import time
+APPSERVERDB = {"Actived":"Actived", "Waiting_active": "Waiting_active" }
 class appserver_c():
     def __init__(self, db_name="nplServer1.db", cfg="alone_app.cfg", eap_provision_server="192.168.1.43:18080"):
         self.db = sqlite_Driver(db_name)
@@ -19,7 +20,7 @@ class appserver_c():
         print "~" * 20
         print message
 
-    def start_provision(self, cfg_path="alone_app.cfg", port=10012):
+    def start_provision(self, cfg_path="alone_app.cfg", port=10017):
         """change cfg start appserver provision """
         self.filewriter = filewriter(cfg_path)
         self.cfg_path = self.filewriter.change_thrift_port(port)
@@ -49,6 +50,18 @@ class appserver_c():
 
         self.log(res)
         return server_id    
+    def wait_provision(self):
+        assert self.db
+        wait_time = self.wait_time
+        provision_stat = self.db.get_prov_status()
+        use_time = 0 
+        while provision_stat != APPSERVERDB["Actived"] and use_time < wait_time:
+            time.sleep(5)
+            use_time = use_time + 5
+            provision_stat = self.db.get_prov_status()
+       
+        return provision_stat
+
 
     def app_provision(self, num, app_Mon):
         """
@@ -69,13 +82,16 @@ class appserver_c():
         assert 0 == res_add_app_key["result"] #要求添加结果一定为成功，否则退出后续流程
         res = self.httper.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
         self.log(res)
-        time.sleep(50)
-        app_Mon.set_provision_pass()
+        assert 0 == res["result"]
+        
+        app_start = self.wait_provision()
+        self.log("appserver provision is %s" % app_start)
+        assert APPSERVERDB["Actived"]  == app_start
         while 1:
             print "appserver_wait ... --- "
             time.sleep(1)
         #4.wait log 打印 request url id
-        a.l2_provision()
+        #a.l2_provision()
 
 def start_app(std, app_Mon):
     for i in xrange(1):
@@ -91,8 +107,12 @@ def start_app(std, app_Mon):
     #    a.app_provision(i+std)
 
 if __name__ == "__main__":
-    std = int(sys.argv[1])
-    app_provision_res = app_provision_res()
-    start_app(std, app_provision)
+    #std = int(sys.argv[1])
+    #app_provision_res = app_provision_res()
+    #start_app(std, app_provision)
     #app_provision(2)
+
+    x = appserver_c(db_name="nplServer1.db")
+    x.app_provision(num=str(time.time()), app_Mon =1)
+
 

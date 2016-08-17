@@ -16,6 +16,13 @@ class TestAppserver_C(unittest.TestCase):
         res = x.get_url()
         p_d = 3
         self.assertEqual(p_d, res)
+    
+    def test_appserver_provision(self):
+        db_name = "testdata//nplServerPro.db"
+        x = appserver_c(db_name)
+        x.get_url() #get db
+        res = x.wait_provision()
+        self.assertEqual(res, "Actived")
 
     def test_wait_get_url(self):
         db_name = "testdata//nplServer1_wait.db"
@@ -62,7 +69,7 @@ class TestAppserver_C(unittest.TestCase):
             c.execute(insert_sql)
             conn.commit()
         conn.close()
-    def test_app_provision(self):
+    def x_test_app_provision(self):
         """test app provision all """
         x = appserver_c(db_name="nplServer1.db")       
         x.app_provision(num=str(time.time()), app_Mon =1)
