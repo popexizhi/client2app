@@ -91,6 +91,8 @@ SlimSocket	test_frame_demo/agent/slimtest.py	/^    def SlimSocket(self):$/;"	m	c
 Template_mixin	HTMLTestRunnerx.py	/^class Template_mixin(object):$/;"	c
 TestAppserver_C	appserver_c_test.py	/^class TestAppserver_C(unittest.TestCase):$/;"	c
 TestCfg_writer	cfg_writer_test.py	/^class TestCfg_writer(unittest.TestCase):$/;"	c
+TestDb_mod	dbget_test.py	/^class TestDb_mod(unittest.TestCase):$/;"	c
+TestDev_c	dev_c_test.py	/^class TestDev_c(unittest.TestCase):$/;"	c
 TestGitHook	py_web/githook_web_test.py	/^class TestGitHook(unittest.TestCase):$/;"	c
 TestHttper	httper_test.py	/^class TestHttper(unittest.TestCase):$/;"	c
 TestResult	HTMLTestRunnerx.py	/^TestResult = unittest.TestResult$/;"	v
@@ -105,6 +107,7 @@ WAIT_TIME	test_frame_demo/agent/rec_process.py	/^WAIT_TIME = 2 * 60 # 等待此�
 WAIT_TIME	test_frame_demo/center/manager_ts.py	/^WAIT_TIME = 2 * 60 # 等待此时间无数据，存储剩余内容为文件 : 来源appserver的rec_process.py$/;"	v
 _TestResult	HTMLTestRunnerx.py	/^class _TestResult(TestResult):$/;"	c
 __author__	HTMLTestRunnerx.py	/^__author__ = "Wai Yip Tung"$/;"	v
+__del__	dbget.py	/^    def __del__(self):$/;"	m	class:db_mod	file:
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, fp):$/;"	m	class:OutputRedirector
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None):$/;"	m	class:HTMLTestRunner
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, title = "test suit is here", desc = "test description is here"):$/;"	m	class:HTMLTestRunner_ex
@@ -115,7 +118,7 @@ __init__	cfg_writer.py	/^    def __init__(self, filename = "alone_app.cfg"):$/;"
 __init__	db_Driver.py	/^    def __init__(self, dbpath):$/;"	m	class:sqlite_Driver
 __init__	dbget.py	/^    def __init__(self, db_name = "nexus_eap" , ip = "192.168.1.44", user = "slim", pd = "password"):$/;"	m	class:db_mod
 __init__	dbget_insert.py	/^    def __init__(self, db_name = "history_testdate" , ip = "192.168.1.44", user = "test_root", pd = "password"):$/;"	m	class:db_mod
-__init__	dev_c.py	/^    def __init__(self, dev_num = 10, eap_ip = "192.168.1.42"):$/;"	m	class:test_dev_p
+__init__	dev_c.py	/^    def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080"):$/;"	m	class:dev_c
 __init__	httper.py	/^    def __init__(self, http_ip = "192.168.1.55", space_s = 0):$/;"	m	class:httper
 __init__	logMoner.py	/^    def __init__(self):$/;"	m	class:logMon
 __init__	nexus-test/integration/random_packets_testdata.py	/^    def __init__(self, num = 1000, kind="random", filename="test_random_packets.td.csv"):$/;"	m	class:testdata
@@ -218,14 +221,15 @@ addSuccess	HTMLTestRunnerx.py	/^    def addSuccess(self, test):$/;"	m	class:_Tes
 add_appserver_lic	httper.py	/^    def add_appserver_lic(self, name):$/;"	m	class:httper
 add_appserver_lic	provision_test.py	/^    def add_appserver_lic(self, tot = 10):$/;"	m	class:test_p
 add_appserver_lic	provision_ue_use/httper.py	/^    def add_appserver_lic(self, name):$/;"	m	class:httper
-add_dev_lic	dev_c.py	/^    def add_dev_lic(self, applications_name):$/;"	m	class:test_dev_p
-add_dev_lic	httper.py	/^    def add_dev_lic(self, applications_name, email = "testdev@senlime.com"):$/;"	m	class:httper
+add_dev_lic	dev_c.py	/^    def add_dev_lic(self, user_email):$/;"	m	class:dev_c
+add_dev_lic	httper.py	/^    def add_dev_lic(self, user_id, applications_name = "com.senlime.nexus.app.browser"):$/;"	m	class:httper
 add_dev_lic	provision_ue_use/dev_c.py	/^    def add_dev_lic(self, applications_name):$/;"	m	class:test_dev_p
 add_dev_lic	provision_ue_use/httper.py	/^    def add_dev_lic(self, applications_name, email = "testdev@senlime.com"):$/;"	m	class:httper
 add_devs	httper.py	/^    def add_devs(self, application_ids =[3], dev_num = 100, dev_start = 0):$/;"	m	class:httper
 add_devs	provision_ue_use/httper.py	/^    def add_devs(self, application_ids =[3], dev_num = 100, dev_start = 0):$/;"	m	class:httper
 add_message	py_web/flask_t.py	/^def add_message(uuid):$/;"	f
 add_message	py_web/githook_web.py	/^def add_message(uuid):$/;"	f
+add_user	httper.py	/^    def add_user(self, user_mail):$/;"	m	class:httper
 agent_c	test_frame_demo/agent/agent.py	/^class agent_c():$/;"	c
 app	py_web/flask_t.py	/^app = Flask(__name__)$/;"	v
 app	py_web/githook_web.py	/^app = Flask(__name__)$/;"	v
@@ -261,6 +265,7 @@ c_i_fd	nexus-test/py_lib/py_lib_so.py	/^    c_i_fd = ctypes.c_int(server_fd)$/;"
 c_i_fd	test_frame_demo/agent/py_lib_so.py	/^    c_i_fd = ctypes.c_int(server_fd)$/;"	v
 change_tc	test_frame_demo/center/manager_ts.py	/^    def change_tc(self):$/;"	m	class:manager_tc
 change_thrift_port	cfg_writer.py	/^    def change_thrift_port(self, new_port):$/;"	m	class:filewriter
+change_user_appserver	dbget.py	/^    def change_user_appserver(self, user_mail, appserver_id):$/;"	m	class:db_mod
 check_file	test_frame_demo/agent/logMonitor.py	/^    def check_file(self, pre_filename):$/;"	m	class:logMonitor
 check_host_id	provision_ue_use/logMoner.py	/^    def check_host_id(self):$/;"	m	class:logMon
 check_recevied_log	test_frame_demo/agent/tc_check.py	/^    def check_recevied_log(self, args):$/;"	m	class:tc_check
@@ -286,6 +291,7 @@ db_mod	dbget.py	/^class db_mod():$/;"	c
 db_mod	dbget_insert.py	/^class db_mod():$/;"	c
 db_mod	provision_ue_use/dbget.py	/^class db_mod():$/;"	c
 des	HTMLTestRunnerx.py	/^    des = "修改测试结果描述"$/;"	v
+dev_c	dev_c.py	/^class dev_c():$/;"	c
 dev_check	pexpect_dev.py	/^    def dev_check(self, start_num, num, res):$/;"	m	class:sh_dev
 dev_check	provision_ue_use/pexpect_dev.py	/^    def dev_check(self, start_num, num, res):$/;"	m	class:sh_dev
 dev_data	provision_ue_use/shell_con.py	/^    def dev_data(self, host_id):$/;"	m	class:sh_control
@@ -347,8 +353,9 @@ get_app_lic	provision_test.py	/^def get_app_lic(num= 100, std = 3000 ):$/;"	f
 get_args	pexpect_shell.py	/^    def get_args(self, args_list):$/;"	m	class:sh_pex
 get_bfile	test_frame_demo/agent/httper.py	/^    def get_bfile(self, f_name):$/;"	m	class:httper
 get_branch	py_web/githook_web.py	/^    def get_branch(self):$/;"	m	class:json_git
-get_dev_pin	dev_c.py	/^    def get_dev_pin(self, num):$/;"	m	class:test_dev_p
+get_dev_pin	dev_c.py	/^    def get_dev_pin(self, num):$/;"	m	class:dev_c
 get_dev_pin	provision_ue_use/dev_c.py	/^    def get_dev_pin(self, num):$/;"	m	class:test_dev_p
+get_dev_user_id	dbget.py	/^    def get_dev_user_id(self, user_mail):$/;"	m	class:db_mod
 get_dir_files	test_report.py	/^    def get_dir_files(self, dir_p):$/;"	m	class:logMon_check
 get_file	test_frame_demo/agent/tc_use.py	/^    def get_file(self, filename):$/;"	m	class:testcase
 get_files	py_web/githook_web.py	/^    def get_files(self):$/;"	m	class:json_git
@@ -386,7 +393,7 @@ get_url	pexpect_dev.py	/^    def get_url(self, num):$/;"	m	class:sh_dev
 get_url	pexpect_shell.py	/^    def get_url(self, num):$/;"	m	class:sh_pex
 get_url	provision_ue_use/pexpect_dev.py	/^    def get_url(self, num):$/;"	m	class:sh_dev
 get_url	test_frame_demo/agent/pexpect_dev.py	/^    def get_url(self, num):$/;"	m	class:sh_dev
-get_use_dev_lics	dev_c.py	/^    def get_use_dev_lics(self, dev_pins):$/;"	m	class:test_dev_p
+get_use_dev_lics	dev_c.py	/^    def get_use_dev_lics(self, dev_pins):$/;"	m	class:dev_c
 get_use_dev_lics	provision_ue_use/dev_c.py	/^    def get_use_dev_lics(self, dev_pins):$/;"	m	class:test_dev_p
 get_xml	test_frame_demo/agent/httper.py	/^    def get_xml(self, f_tc_name):$/;"	m	class:httper
 httper	httper.py	/^class httper():$/;"	c
@@ -433,6 +440,7 @@ listen_res	test_frame_demo/agent/py_lib_so.py	/^    listen_res = so.SlimListen(c
 log	appserver_c.py	/^    def log(self, message):$/;"	m	class:appserver_c
 log	db_Driver.py	/^    def log(self, message):$/;"	m	class:sqlite_Driver
 log	dbget.py	/^    def log(self, message):$/;"	m	class:db_mod
+log	dev_c.py	/^    def log(self, message):$/;"	m	class:dev_c
 log	httper.py	/^    def log(self, message):$/;"	m	class:httper
 log	nexus-test/py_lib/slimtest.py	/^    def log(self, message, meg_doc = ""):$/;"	m	class:slim_socket
 log	pexpect_shell.py	/^    def log(self, message):$/;"	m	class:sh_pex
@@ -444,7 +452,7 @@ logMon	provision_ue_use/logMoner.py	/^class logMon():$/;"	c
 logMon_check	test_report.py	/^class logMon_check():$/;"	c
 logMonerTestCase	logMoner_test.py	/^class logMonerTestCase(unittest.TestCase):$/;"	c
 logMonitor	test_frame_demo/agent/logMonitor.py	/^class logMonitor():$/;"	c
-log_f	dev_c.py	/^    def log_f(self, message):$/;"	m	class:test_dev_p
+log_f	dev_c.py	/^    def log_f(self, message):$/;"	m	class:dev_c
 log_f	provision_ue_use/dev_c.py	/^    def log_f(self, message):$/;"	m	class:test_dev_p
 logdirs	provision_ue_use/logMoner.py	/^    def logdirs(self):$/;"	m	class:dirlog
 login	httper.py	/^    def login(self, username="lijie@senlime.com", passwd="password"):$/;"	m	class:httper
@@ -520,7 +528,7 @@ savenewfile	provision_ue_use/cfg_writer.py	/^    def savenewfile(self, newcfgs =
 savenewfilex	cfg_writer.py	/^    def savenewfilex(self, newcfgs = ["app3"], app = 1 ):$/;"	m	class:filewriter
 savenewfilex	provision_ue_use/cfg_writer.py	/^    def savenewfilex(self, newcfgs = ["app3"], app = 1 ):$/;"	m	class:filewriter
 select	db_Driver.py	/^    def select(self, sql):$/;"	m	class:sqlite_Driver
-select	dbget.py	/^    def select(self, sql):        $/;"	m	class:db_mod
+select	dbget.py	/^    def select(self, sql):$/;"	m	class:db_mod
 select	dbget_insert.py	/^    def select(self, sql):        $/;"	m	class:db_mod
 select	nexus-test/py_lib/g_db.py	/^    def select(self, sql):$/;"	m	class:sqllite
 select	provision_ue_use/dbget.py	/^    def select(self, sql):        $/;"	m	class:db_mod
@@ -594,7 +602,7 @@ start_app	appserver_c.py	/^def start_app(std, app_Mon):$/;"	f
 start_appserver	pexpect_shell.py	/^    def start_appserver(self, path="app_server", cfg="alone_app.cfg", args = ["-db", "-server_provision"]):$/;"	m	class:sh_pex
 start_client	nexus-test/py_lib/slim_client.py	/^    def start_client(self, db_num = 1465202670):$/;"	m	class:slim_client
 start_client	test_frame_demo/agent/slim_client.py	/^    def start_client(self, cfg = "alone_integration.cfg", db_num = 1465202670):$/;"	m	class:slim_client
-start_dev	dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:test_dev_p
+start_dev	dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:dev_c
 start_dev	dev_c.py	/^def start_dev(num, app_id):$/;"	f
 start_dev	provision_ue_use/dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:test_dev_p
 start_dev	provision_ue_use/dev_c.py	/^def start_dev(num):$/;"	f
@@ -630,19 +638,23 @@ tc_run	test_frame_demo/agent/manager_tc.py	/^    def tc_run(self):$/;"	m	class:m
 tc_stru	test_frame_demo/agent/tc_use.py	/^class tc_stru():$/;"	c
 teardown	test_frame_demo/agent/agent.py	/^    def teardown(self):$/;"	m	class:agent_c
 test_add_appserver_lic	httper_test.py	/^    def test_add_appserver_lic(self):$/;"	m	class:TestHttper
+test_add_dev_lic	dev_c_test.py	/^    def test_add_dev_lic(self):$/;"	m	class:TestDev_c
+test_add_dev_lic	httper_test.py	/^    def test_add_dev_lic(self):$/;"	m	class:TestHttper
+test_add_user	httper_test.py	/^    def test_add_user(self):$/;"	m	class:TestHttper
 test_appserver_provision	appserver_c_test.py	/^    def test_appserver_provision(self):$/;"	m	class:TestAppserver_C
 test_c	nexus-test/integration/test_c.cc	/^test_c::test_c(){}$/;"	f	class:test_c
 test_c	nexus-test/integration/test_c.h	/^class test_c {$/;"	c
 test_change_thrift_port	cfg_writer_test.py	/^    def test_change_thrift_port(self):$/;"	m	class:TestCfg_writer
+test_change_user_appserver	dbget_test.py	/^    def test_change_user_appserver(self):$/;"	m	class:TestDb_mod
 test_client	nexus-test/py_lib/slimtest.py	/^def test_client():$/;"	f
 test_client	test_frame_demo/agent/slimtest.py	/^def test_client():$/;"	f
 test_data_	nexus-test/integration/test_slim_tcp.h	/^    std::string test_data_ ;$/;"	m	class:TestSlimTcp
-test_dev_p	dev_c.py	/^class test_dev_p():$/;"	c
 test_dev_p	provision_ue_use/dev_c.py	/^class test_dev_p():$/;"	c
 test_get_app_host_id	db_Driver_test.py	/^    def test_get_app_host_id(self):$/;"	m	class:TestSqlite_Driver
 test_get_args	pexpect_shell_test.py	/^    def test_get_args(self):$/;"	m	class:TestSh_pex
 test_get_branch	py_web/githook_web_test.py	/^    def test_get_branch(self):$/;"	m	class:TestGitHook
 test_get_datatime	logMoner_test.py	/^    def test_get_datatime(self):$/;"	m	class:logMonerTestCase
+test_get_dev_user_id	dbget_test.py	/^    def test_get_dev_user_id(self):$/;"	m	class:TestDb_mod
 test_get_files	py_web/githook_web_test.py	/^    def test_get_files(self):$/;"	m	class:TestGitHook
 test_get_prov_status	db_Driver_test.py	/^    def test_get_prov_status(self):$/;"	m	class:TestSqlite_Driver
 test_get_server_id	db_Driver_test.py	/^    def test_get_server_id(self):$/;"	m	class:TestSqlite_Driver
