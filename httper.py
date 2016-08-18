@@ -50,11 +50,16 @@ class httper():
         data = json.dumps({"customer_name": name,"product_name":"app_server"})
         return self._send_data(self.add_licenses, data)
     
-    def add_dev_lic(self, applications_name, email = "testdev@senlime.com"):
-        self.add_dev_licenses = "http://"+ self.http_ip +"/api/admin/pin"
-        data = json.dumps({"email": email,"applications":applications_name})
+    def add_dev_lic(self, user_id, applications_name = "com.senlime.nexus.app.browser"):
+        """/api/eap/users/2/accesskey?application_id=com.senlime.nexus.app.browser """
+        if None == self.token:
+            self.login() 
+        assert self.token #无token无法add
+        add_dev_api = "/api/eap/users/%s/accesskey?application_id=%s" % (str(user_id), str(applications_name))
+        self.add_dev_licenses = "http://"+ self.http_ip + add_dev_api 
+        data = json.dumps({"user_id":user_id,"application_id":applications_name})
         
-        return self._send_data(self.add_dev_licenses, data)
+        return self._send_data(self.add_dev_licenses, data, self.token)
 
     def _send_data(self, url, data, token=None):
         self.log("url is %s" % url)

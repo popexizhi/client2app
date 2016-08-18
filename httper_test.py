@@ -33,6 +33,12 @@ class TestHttper(unittest.TestCase):
         pre_res = 0
         self.assertEqual(pre_res, res["result"])
 
+    def test_add_dev_lic(self):
+        """eap /api/eap/users/%d/accesskey?application_id=com.senlime.nexus.app.browser  接口测试"""
+        x = httper("192.168.1.43:18080")
+        res = x.add_dev_lic(2)
+        pre_res = 0
+        self.assertEqual(pre_res, res["result"])
 
 if __name__=="__main__":
     unittest.main()
