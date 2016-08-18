@@ -44,9 +44,14 @@ class db_mod():
         res = self.select(res_sql)
         assert 1 == len(res) #业务逻辑要求dev只有一个appserver
         return res[0]
-
+    def get_dev_user_id(self, user_mail):
+        """通过user_mail获得dev的user_id """
+        sql = 'select id from eap_user where email="%s"' % user_mail
+        res = self.select(sql)
+        assert 1 == len(res) #业务逻辑要求dev只有一个user_id
+        return res[0]
         
-        return res
+        
     def update(self, u_sql):
         self.log(u_sql)
         res = self.cursor.execute(u_sql)
