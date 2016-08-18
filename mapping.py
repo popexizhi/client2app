@@ -6,6 +6,14 @@ EAP_Pro_mapping = {
     "eap_api": {
         "appserver_activation" : "/api/eap/appservers/%d/activation", #app server provision的post请求接口
     },
+    "DB":{
+        "EAP":{
+            "db_name":"nexus_eap",
+            "ip" : "192.168.1.44",
+            "user" : "slim",
+            "passwd": "password",
+        },
+    },
 } 
 
 # ---------------------appserver---------------------

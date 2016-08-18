@@ -5,6 +5,7 @@ from pexpect_shell import sh_pex
 from httper import httper
 from shell_con import sh_control
 from cfg_writer import filewriter
+from dbget import db_mod
 from mapping import *
 import thread
 import time
@@ -63,7 +64,14 @@ class appserver_c():
             provision_stat = self.db.get_prov_status()
        
         return provision_stat
-
+    def setup(self):
+        """前置条件准备
+        1.update eap db中的provision成功的ip
+        2.rm 本地db
+        """
+        self.db_eap = db_mod(db_name = EAP_Pro_mapping["DB"]["EAP"]["db_name"] , ip = EAP_Pro_mapping["DB"]["EAP"]["ip"], user = EAP_Pro_mapping["DB"]["EAP"]["user"], pd = EAP_Pro_mapping["DB"]["EAP"]["passwd"])
+        self.db_eap.update_app_ip()
+        self.sh_con.remove_all_db()
 
     def app_provision(self, num, app_Mon, npls_thrift_port = 10022):
         """
@@ -73,7 +81,7 @@ class appserver_c():
         4.wait log 打印 Please Add User Pin...
         """
         #0.前置条件准备
-        self.sh_con.remove_all_db()
+        self.setup()
         #1.change app cfg start appserver
         assert self.start_provision(port = npls_thrift_port) != None
         #2.wait appdb server_id
@@ -122,7 +130,7 @@ if __name__ == "__main__":
     #start_app(std, app_provision)
     #app_provision(2)
     
-    for i in xrange(10):
+    for i in xrange(3):
         x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
         x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
 
