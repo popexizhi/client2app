@@ -3,13 +3,13 @@ import sys
 from db_Driver import sqlite_Driver
 from pexpect_shell import sh_pex
 from httper import httper
-from shell_con import sh_control #back_up_app_db
+from shell_con import sh_control
 from cfg_writer import filewriter
+from mapping import *
 import thread
 import time
-APPSERVERDB = {"Actived":"Actived", "Waiting_active": "Waiting_active" }
 class appserver_c():
-    def __init__(self, db_name="nplServer1.db", cfg="alone_app.cfg", eap_provision_server="192.168.1.43:18080"):
+    def __init__(self, db_name=app_mapping["db_name"], cfg=app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"]):
         self.db = sqlite_Driver(db_name)
         self.cfg = cfg
         self.wait_time = 3 * 60 #appserver provision 超时时间
@@ -22,7 +22,7 @@ class appserver_c():
         print "~" * 20
         print message
 
-    def start_provision(self, cfg_path="alone_app.cfg", port=10021):
+    def start_provision(self, cfg_path=app_mapping["cfg"], port=10021):
         """change cfg start appserver provision """
         self.filewriter = filewriter(cfg_path)
         self.cfg_path = self.filewriter.change_thrift_port(port)
@@ -36,7 +36,7 @@ class appserver_c():
         wait_time = self.wait_time
         assert self.db
         server_id = self.db.get_server_id()
-        res = "/api/eap/appservers/%d/activation"
+        res = EAP_Pro_mapping["eap_api"]["appserver_activation"]
         use_time = 0
         while None == server_id and use_time < wait_time:
             time.sleep(5)
@@ -121,8 +121,9 @@ if __name__ == "__main__":
     #app_provision_res = app_provision_res()
     #start_app(std, app_provision)
     #app_provision(2)
+    
     for i in xrange(10):
-        x = appserver_c(db_name="nplServer1.db")
-        x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= i+10030)
+        x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
+        x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
 
 
