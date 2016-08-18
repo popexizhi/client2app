@@ -7,8 +7,8 @@ import thread, time
 from shell_con import sh_control
 from pexpect_dev import sh_dev
 
-class test_dev_p():
-    def __init__(self, dev_num = 10, eap_ip = "192.168.1.42"):
+class dev_c():
+    def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080"):
         self.eap_ip = eap_ip
         self.log_file = "dev_file.log"
         #操作间隔时间设置，防止操作太过频繁对服务的压力过大
@@ -16,7 +16,8 @@ class test_dev_p():
         self.space_provision_s = 0.1 #dev provision 的请求间隔
 
         
-        self.eap_http = httper(self.eap_ip, self.space_provision_s)
+        self.httper = httper(self.eap_ip, self.space_provision_s)
+        self.db = db_mod()
         self.sh_control = sh_control()
         self.sh_dev = sh_dev()
 
@@ -29,11 +30,23 @@ class test_dev_p():
         f = open(self.log_file,"a")
         f.write(str(message) + str("\n"))
         f.close()
+    def log(self, message):
+        print "*" * 20
+        print message
 
-    def add_dev_lic(self, applications_name):
-        #self._mon_app_log() #app provision修改后，不再使用此流程
-        add_res = self.eap_http.add_devs(applications_name, self.dev_lic_list_num, self.dev_lic_list_start)
-        return add_res
+    def add_dev_lic(self, user_email):
+        """ 
+        1. 从db中获得user_email的user_id
+        2.通过此user_id 使用post增加对应的dev lic
+        """
+        assert self.httper
+        assert self.db
+        #1
+        user_id = self.db.get_dev_user_id(user_email)
+        #2
+        assert user_id
+        return self.httper.add_dev_lic(user_id)
+
     
     def get_use_dev_lics(self, dev_pins):
         """
@@ -86,7 +99,7 @@ class test_dev_p():
         
 
 def dev_provision(app_id, num):
-    a = test_dev_p(num)
+    a = dev_c(num)
     applications_name = [app_id]
     a.log_f( "add_dev_lic res is ...")
     dev_lic_http_res = a.add_dev_lic(applications_name)
