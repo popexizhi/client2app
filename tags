@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-APPSERVERDB	appserver_c.py	/^APPSERVERDB = {"Actived":"Actived", "Waiting_active": "Waiting_active" }$/;"	v
+APPSERVERDB	mapping.py	/^APPSERVERDB = {"Actived":"Actived", "Waiting_active": "Waiting_active" }# app db中provision状态定义$/;"	v
 AppServerCbParam	nexus-test/test_common.cc	/^}AppServerCbParam;$/;"	t	typeref:struct:__anon1	file:
 AppServerCbParam	nexus-test/test_common_intergration.cc	/^}AppServerCbParam;$/;"	t	typeref:struct:__anon2	file:
 AppServerL1ConnectionEvtNotify	nexus-test/test_common.cc	/^void AppServerL1ConnectionEvtNotify(unsigned int  ue_id ,CONNECTION_NOTIFY_TYPE evt,bool success , int errCode , void * cb_param)$/;"	f
@@ -15,6 +15,7 @@ CHECK_LIST	test_frame_demo/agent/tc_use.py	/^CHECK_LIST = {$/;"	v
 CheckFile	nexus-test/integration/test_slim_udp.cc	/^bool TestSlimUdp::CheckFile(std::string *snd_sbuf){$/;"	f	class:TestSlimUdp
 DEFAULT_DESCRIPTION	HTMLTestRunnerx.py	/^    DEFAULT_DESCRIPTION = ''$/;"	v	class:Template_mixin
 DEFAULT_TITLE	HTMLTestRunnerx.py	/^    DEFAULT_TITLE = 'Unit Test Report'$/;"	v	class:Template_mixin
+EAP_Pro_mapping	mapping.py	/^EAP_Pro_mapping = {$/;"	v
 ERR	test_frame_demo/agent/logMonitor.py	/^ERR = "" #?查找结果不完整需要返回吗?$/;"	v
 FALSE	test_frame_demo/agent/logMonitor.py	/^FALSE = "null"$/;"	v
 FileBodyRecv	nexus-test/integration/test_slim_udp.cc	/^bool TestSlimUdp::FileBodyRecv(std::string file_head, std::string dir_path){$/;"	f	class:TestSlimUdp
@@ -109,7 +110,7 @@ __init__	HTMLTestRunnerx.py	/^    def __init__(self, stream=sys.stdout, verbosit
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, title = "test suit is here", desc = "test description is here"):$/;"	m	class:HTMLTestRunner_ex
 __init__	HTMLTestRunnerx.py	/^    def __init__(self, verbosity=1,res_test="def is ok"):$/;"	m	class:_TestResult
 __init__	app_lock.py	/^    def __init__(self, id_name="test"):$/;"	m	class:app_provision_res
-__init__	appserver_c.py	/^    def __init__(self, db_name="nplServer1.db", cfg="alone_app.cfg", eap_provision_server="192.168.1.43:18080"):$/;"	m	class:appserver_c
+__init__	appserver_c.py	/^    def __init__(self, db_name=app_mapping["db_name"], cfg=app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"]):$/;"	m	class:appserver_c
 __init__	cfg_writer.py	/^    def __init__(self, filename = "alone_app.cfg"):$/;"	m	class:filewriter
 __init__	db_Driver.py	/^    def __init__(self, dbpath):$/;"	m	class:sqlite_Driver
 __init__	dbget.py	/^    def __init__(self, db_name = "nexus_eap" , ip = "192.168.1.44", user = "slim", pd = "password"):$/;"	m	class:db_mod
@@ -186,6 +187,7 @@ _generate_report_test	HTMLTestRunnerx.py	/^    def _generate_report_test(self, r
 _generate_stylesheet	HTMLTestRunnerx.py	/^    def _generate_stylesheet(self):$/;"	m	class:HTMLTestRunner
 _get_datatime	logMoner.py	/^    def _get_datatime(self, str_i):$/;"	m	class:logMon
 _get_res_list	logMoner.py	/^    def _get_res_list(self, inputfile):$/;"	m	class:logMon
+_list_com	shell_con.py	/^    def _list_com(self, com_list):$/;"	m	class:sh_control
 _rearch_end_time	logMoner.py	/^    def _rearch_end_time(self):$/;"	m	class:logMon
 _rearch_kind	logMoner.py	/^    def _rearch_kind(self):$/;"	m	class:logMon
 _save_res_list	logMoner.py	/^    def _save_res_list(self):$/;"	m	class:logMon
@@ -231,7 +233,8 @@ app_connected_result	nexus-test/test_common.cc	/^    int *app_connected_result;$
 app_connected_result	nexus-test/test_common_intergration.cc	/^    int *app_connected_result;$/;"	m	struct:__anon2	file:
 app_id	dev_c.py	/^    app_id = 3$/;"	v
 app_id	tester.py	/^        app_id = i + num$/;"	v
-app_provision	appserver_c.py	/^    def app_provision(self, num, app_Mon):$/;"	m	class:appserver_c
+app_mapping	mapping.py	/^app_mapping = {$/;"	v
+app_provision	appserver_c.py	/^    def app_provision(self, num, app_Mon, npls_thrift_port = 10022):$/;"	m	class:appserver_c
 app_provision	provision_ue_use/shell_con.py	/^    def app_provision(self, num):$/;"	m	class:sh_control
 app_provision	shell_con.py	/^    def app_provision(self, num):$/;"	m	class:sh_control
 app_provision_res	app_lock.py	/^class app_provision_res():$/;"	c
@@ -243,7 +246,7 @@ array_type	test_frame_demo/agent/py_lib_so.py	/^    array_type = ctypes.c_char_p
 back_up	provision_ue_use/shell_con.py	/^    def back_up(self, num):$/;"	m	class:sh_control
 back_up	shell_con.py	/^    def back_up(self, num):$/;"	m	class:sh_control
 back_up_app	provision_ue_use/shell_con.py	/^    def back_up_app(self, num):$/;"	m	class:sh_control
-back_up_app	shell_con.py	/^    def back_up_app(self, num):$/;"	m	class:sh_control
+back_up_app_db	shell_con.py	/^    def back_up_app_db(self, num):$/;"	m	class:sh_control
 back_use_cp	provision_ue_use/shell_con.py	/^    def back_use_cp(self):$/;"	m	class:sh_control
 back_use_cp	shell_con.py	/^    def back_use_cp(self):$/;"	m	class:sh_control
 build_info	test_frame_demo/center/work_jobs.py	/^build_info = server.get_job_info(job_name, last_build_number)$/;"	v
@@ -429,9 +432,11 @@ listen_res	nexus-test/py_lib/py_lib_so.py	/^    listen_res = so.SlimListen(c_i_f
 listen_res	test_frame_demo/agent/py_lib_so.py	/^    listen_res = so.SlimListen(c_i_fd, ctypes.c_int(1))$/;"	v
 log	appserver_c.py	/^    def log(self, message):$/;"	m	class:appserver_c
 log	db_Driver.py	/^    def log(self, message):$/;"	m	class:sqlite_Driver
+log	dbget.py	/^    def log(self, message):$/;"	m	class:db_mod
 log	httper.py	/^    def log(self, message):$/;"	m	class:httper
 log	nexus-test/py_lib/slimtest.py	/^    def log(self, message, meg_doc = ""):$/;"	m	class:slim_socket
 log	pexpect_shell.py	/^    def log(self, message):$/;"	m	class:sh_pex
+log	shell_con.py	/^    def log(self, message):$/;"	m	class:sh_control
 log	test_frame_demo/agent/slim_rec_farmer.py	/^    def log(self, mes):$/;"	m	class:slim_rec_farmer
 log	test_frame_demo/agent/slimtest.py	/^    def log(self, message, meg_doc = ""):$/;"	m	class:slim_socket
 logMon	logMoner.py	/^class logMon():$/;"	c
@@ -484,6 +489,7 @@ rec_num	test_frame_demo/agent/py_lib_so.py	/^        rec_num = so.SlimReceive(ne
 rec_p	test_frame_demo/agent/rec_process.py	/^class rec_p(threading.Thread):$/;"	c
 register_app_server	httper.py	/^    def register_app_server(self, url_id, name, key, serial):$/;"	m	class:httper
 register_app_server	provision_ue_use/httper.py	/^    def register_app_server(self, url_id, name, key, serial):$/;"	m	class:httper
+remove_all_db	shell_con.py	/^    def remove_all_db(self):$/;"	m	class:sh_control
 rep_writer	tester.py	/^    rep_writer = logMon_check()$/;"	v
 res	dev_c.py	/^        res = num % ev_num$/;"	v
 res	nexus-test/py_lib/py_lib_so.py	/^    res = so.SlimBind(c_i_fd, sockaddr_in , 16)#16 is long for sockaddr_in $/;"	v
@@ -554,6 +560,7 @@ set_log	nexus-test/integration/test_c.cc	/^void test_c::set_log() {$/;"	f	class:
 set_provision_pass	app_lock.py	/^    def set_provision_pass(self):$/;"	m	class:app_provision_res
 set_report	HTMLTestRunnerx.py	/^    def set_report(self, title, desc):$/;"	m	class:HTMLTestRunner_ex
 set_tc	test_frame_demo/agent/agent.py	/^    def set_tc(self, tc_list):$/;"	m	class:agent_c
+setup	appserver_c.py	/^    def setup(self):$/;"	m	class:appserver_c
 setup	test_frame_demo/agent/agent.py	/^    def setup(self):$/;"	m	class:agent_c
 sh_control	provision_ue_use/shell_con.py	/^class sh_control():$/;"	c
 sh_control	shell_con.py	/^class sh_control():$/;"	c
@@ -591,7 +598,7 @@ start_dev	dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:test_dev_p
 start_dev	dev_c.py	/^def start_dev(num, app_id):$/;"	f
 start_dev	provision_ue_use/dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:test_dev_p
 start_dev	provision_ue_use/dev_c.py	/^def start_dev(num):$/;"	f
-start_provision	appserver_c.py	/^    def start_provision(self, cfg_path="alone_app.cfg", port=10017):$/;"	m	class:appserver_c
+start_provision	appserver_c.py	/^    def start_provision(self, cfg_path=app_mapping["cfg"], port=10021):$/;"	m	class:appserver_c
 start_server	nexus-test/py_lib/slim_server.py	/^    def start_server(self, db_num = 1465202670):$/;"	m	class:slim_server
 start_server	test_frame_demo/agent/slim_server.py	/^    def start_server(self, db_num = 1465202670):$/;"	m	class:slim_server
 statistics_update	logMoner.py	/^    def statistics_update(self):$/;"	m	class:logMon
@@ -669,6 +676,8 @@ ue_id_	nexus-test/integration/test_slim_tcp.h	/^    int ue_id_ ;$/;"	m	class:Tes
 ue_id_	nexus-test/integration/test_slim_udp.h	/^    int ue_id_;$/;"	m	class:TestSlimUdp
 ue_path	nexus-test/py_lib/g_db.py	/^    ue_path = "test_db\\\\npl1465202670.db"$/;"	v
 ue_path	test_frame_demo/agent/g_db.py	/^    ue_path = "test_db\\\\npl1465202670.db"$/;"	v
+update	dbget.py	/^    def update(self, u_sql):$/;"	m	class:db_mod
+update_app_ip	dbget.py	/^    def update_app_ip(self):$/;"	m	class:db_mod
 update_statistics	logMoner.py	/^    def update_statistics(self):$/;"	m	class:logMon
 use_num	tester.py	/^    use_num = 1 # 100$/;"	v
 wait_job_pass	py_web/job_c.py	/^    def wait_job_pass(self, job_id, job_name = job_list[0], timeout = 60 * 2):$/;"	m	class:jenkins_c

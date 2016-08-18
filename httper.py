@@ -21,6 +21,17 @@ class httper():
         assert 0 == res["result"]
         self.token = res["data"]["token"]
         return res
+    def add_user(self, user_mail):
+        """post api/eap/users """
+        if None == self.token:
+            self.login() 
+        assert self.token #无token无法add
+        res = {}
+        self.add_user = "http://"+ self.http_ip +"/api/eap/users"
+        value = {"name":user_mail,"email":user_mail,"mobile":"","policy_set":1,"app_group":[1]}
+        data = json.dumps(value)
+        res = self._send_data(self.add_user, data, self.token)
+        return res
 
     def register_app_server(self, url_id, name, key, serial):
         """post id+key+serial /api/eap/appservers/<server_id>/activation"""

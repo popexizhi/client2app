@@ -25,7 +25,13 @@ class TestHttper(unittest.TestCase):
         assert res["key"]
         assert res["serial"]
         
-        
+            
+    def test_add_user(self):
+        """eap /api/eap/users  接口测试"""
+        x = httper("192.168.1.43:18080")
+        res = x.add_user(user_mail = str(time.time()))
+        pre_res = 0
+        self.assertEqual(pre_res, res["result"])
 
 
 if __name__=="__main__":
