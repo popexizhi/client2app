@@ -8,7 +8,7 @@ from shell_con import sh_control
 from pexpect_dev import sh_dev
 
 class dev_c():
-    def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080"):
+    def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080", dev_mod = "alone_dev.cfg"):
         self.eap_ip = eap_ip
         self.log_file = "dev_file.log"
         #操作间隔时间设置，防止操作太过频繁对服务的压力过大
@@ -18,6 +18,7 @@ class dev_c():
         
         self.httper = httper(self.eap_ip, self.space_provision_s)
         self.db = db_mod()
+        self.cfg = filewriter(dev_mod)
         self.sh_control = sh_control()
         self.sh_dev = sh_dev()
 
@@ -84,26 +85,20 @@ class dev_c():
         return dev_use_list
 
 
-    def get_dev_pin(self, num):
-        x = db_mod(db_name = "nexus_eapII" , ip = "192.168.1.44", user = "admin", pd = "password")
-        new_dev_pins = x.get_pin(num)
-        assert new_dev_pins #db一定有返回
-
-        new_dev_pins_use = self.get_use_dev_lics(new_dev_pins)
-        self.log_f( "*** " * 20)
-        self.log_f( "get pins from db is " + str(len(new_dev_pins_use)))
-        j = 0
-        for i in new_dev_pins_use:
-            self.log_f( "*** " * 20)
-            self.log_f( "[start dev] %d_%d" % (self.dev_lic_list_start, j) )
-            self.log_f( "[new_dev_pins_use] %s " % str(i) )
-            cfg_w = filewriter("alone_dev.cfg")
-            cfg_w.savenewfile(i, app = 0, names = [self.dev_lic_list_start, j])
-
-            self.start_dev(j)
-
-            time.sleep(self.space_provision_s)
-            j = j + 1
+    def change_dev_cfg(self, user_email):
+        """
+        1.从eap_db 中获得dev可用pincode
+        2.修改dev cfg
+        return dev配置文件名称
+        """
+        #1
+        assert self.db
+        pincode = self.db.get_dev_pin(user_email)[0]
+        self.log("get dev pin code is %s" % pincode)
+        #2
+        assert self.cfg
+        dev_file = self.cfg.change_dev_pincode(user_email, pincode)
+        return dev_file
 
     def start_dev(self, num_id):
         #启动client

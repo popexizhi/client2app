@@ -1,5 +1,8 @@
 #-*-coding:utf8-*-
-import re
+import sys,re
+
+reload(sys)  
+sys.setdefaultencoding('utf8')
 
 class filewriter():
     def __init__(self, filename = "alone_app.cfg"):
@@ -72,6 +75,7 @@ class filewriter():
     def __save_newfile(self, pre):
         cfg_data = ""
         for i in self.cfg_data:
+            #print i
             cfg_data = cfg_data + i
         f_name = "cfg//"+ pre + "_alone.cfg"
         f = open(f_name, "w")
