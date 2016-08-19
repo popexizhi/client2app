@@ -10,12 +10,24 @@ class filewriter():
         self.chang_cfg_list_dev = ["dev_prov_email_addr", "dev_prov_application_id", "dev_prov_pincode", "dev_prov_pinhash"]
         self.__readfile()
 
+    def log(self, message):
+        print "*"*20
+        print message
+
     def change_thrift_port(self, new_port):
         self.thrift_port = ["npls_thrift_port"]
         self._change_cfg(self.thrift_port[0], str(new_port))
-        res = self.__save_newfile(str(new_port))
+        res = self.__save_newfile("app_%s" % str(new_port))
         
         return res
+    def change_dev_pincode(self, user_email , new_pincode):
+        self.pincode_list = ["dev_prov_email_addr", "dev_prov_pincode"]
+        self._change_cfg(self.pincode_list[0], user_email)
+        self._change_cfg(self.pincode_list[1], new_pincode)
+        res = self.__save_newfile("dev_%s_%s" % (str(user_email), str(new_pincode)))
+
+        return res
+
 
     def __readfile(self):
         f = open(self.cfgfile)
@@ -46,14 +58,14 @@ class filewriter():
 
 
     def _change_cfg(self, cfg_lab, newcfg):
-        u_re = cfg_lab + " =.*\n"
+        u_re = "#?%s ? =.*\n" % str(cfg_lab) #注释和空格处理
         link = re.compile(u_re)
         new_link = cfg_lab + " = " + newcfg + "\n"
         j = 0
         for i in self.cfg_data:
-            if re.match(cfg_lab, i):
+            if re.match("#?%s" % str(cfg_lab), i): #注释的处理
                 x = re.sub(link, new_link, i)
-                print x
+                self.log(x)
                 self.cfg_data[j] = x
             j = j + 1        
 
@@ -65,6 +77,7 @@ class filewriter():
         f = open(f_name, "w")
         f.write(cfg_data)
         f.close()
+        self.cfg_data = []
         return f_name
 
 if __name__ == "__main__":
