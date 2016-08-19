@@ -9,6 +9,13 @@ class TestDev_c(unittest.TestCase):
         x = dev_c()
         res = x.add_dev_lic("1lijie@senlime.com")
         self.assertEqual(res["result"], 0)
+    
+    def test_add_user(self):
+        """测试增加user """
+        x = dev_c()
+        server_id = 28
+        res = x.add_user("%s@senlime.com" % str(time.time()), server_id)
+        self.assertTrue(res)
 
 if __name__ == "__main__":
     unittest.main()

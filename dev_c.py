@@ -47,7 +47,21 @@ class dev_c():
         assert user_id
         return self.httper.add_dev_lic(user_id)
 
-    
+    def add_user(self, user_email, server_id):
+        """
+        1.通过post 请求添加 user_email
+        2.修改步骤1用户为指定的appserver
+        """
+        # 1
+        assert self.httper
+        res = self.httper.add_user(user_email)
+        assert 0 == res["result"] #如果添加不成功无法进行后续修改操作
+        # 2
+        assert self.db
+        res_server_id = self.db.change_user_appserver(user_email, server_id)
+        return server_id == res_server_id #如果修改成功返回为True, 否则为失败
+
+
     def get_use_dev_lics(self, dev_pins):
         """
         从dev_pins的list中筛选self.dev_lic_list_num个self.dev_lic_list_start开始的值
