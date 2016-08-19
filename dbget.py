@@ -12,8 +12,8 @@ class db_mod():
         print "*" * 20
         print message
 
-    def get_pin(self, num = 1016):
-        sql = 'SELECT email, application_id, pin, pinhash from portal_host_pin where application_id = %d;' % num
+    def get_dev_pin(self, user_mail):
+        sql = 'SELECT pincode from eap_access_key where user_id = (select id from eap_user where email="%s") and status = "UNPROVISION";' % user_mail
         return self.select(sql)
 
     def select(self, sql):

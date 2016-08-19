@@ -17,5 +17,12 @@ class TestDb_mod(unittest.TestCase):
         res = x.get_dev_user_id("10lijie@senlime.com")
         self.assertEqual(res, 2)
 
+    def test_get_dev_pin(self):
+        """testdata 10lijie@senlime.com  在44库存储完成  """
+        x = db_mod()
+        res = x.get_dev_pin("10lijie@senlime.com")
+        print res
+        self.assertEqual(len(res), 1)
+
 if __name__=="__main__":
     unittest.main()
