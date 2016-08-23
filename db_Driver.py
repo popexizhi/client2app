@@ -45,13 +45,13 @@ class sqlite_Driver():
 
     def get_dev_host_id(self):
         """
-        return select host_id from host_info; 
+        return select host_id,L2_target_host_id  from host_info;
         [for dev db]
         """
-        sql = "select host_id from host_info;"
+        sql = "select host_id,L2_target_host_id  from host_info;"
         res = self.select(sql)
         assert 1 == len(res)
-        return res[0][0]
+        return res[0]
 
     def get_app_host_id(self):
         """

@@ -21,7 +21,7 @@ class TestSqlite_Driver(unittest.TestCase):
     
     def test_get_server_id(self):
         """测试 host_id 使用 npl1.db """
-        dev_host_id = 100350
+        dev_host_id = (100350, 100220)
         x = sqlite_Driver("testdata//npl1.db")
         res = x.get_dev_host_id()
         self.assertEqual(dev_host_id, res)
