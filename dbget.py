@@ -13,7 +13,7 @@ class db_mod():
         print message
 
     def get_dev_pin(self, user_mail):
-        sql = 'SELECT pincode from eap_access_key where user_id = (select id from eap_user where email="%s") and status = "UNPROVISION";' % user_mail
+        sql = 'SELECT pincode from eap_access_key where user_id = (select id from eap_user where email="%s") and status = "UNPROVISION" ORDER BY id desc;' % user_mail
         return self.select(sql)
 
     def select(self, sql):

@@ -4,6 +4,17 @@ import time
 import unittest
 
 class TestDb_mod(unittest.TestCase):
+
+    def test_get_dev_pin_for_last(self):
+        """testdata 为在44库预先存储完成i,
+            bug fix:adduser后系统默认生成一个pincode，修改server_id后使用接口生成的为第二个dev_code,测试get_dev_code为最后一个添加内容
+        """
+        x = db_mod()
+        email_two_code = "1471933191"
+        res = x.get_dev_pin(email_two_code)[0]
+        print res
+        self.assertEqual(str(res), "72a1baa67b7e")
+    
     def test_change_user_appserver(self):
         """testdata 为在44库预先存储完成 """
         x = db_mod()
