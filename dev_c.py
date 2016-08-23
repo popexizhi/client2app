@@ -6,6 +6,8 @@ from cfg_writer import filewriter
 import thread, time
 from shell_con import sh_control
 from pexpect_shell import sh_pex
+from db_Driver import sqlite_Driver
+
 
 class dev_c():
     def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080", dev_mod = "alone_dev.cfg"):
@@ -26,7 +28,7 @@ class dev_c():
         self.dev_lic_list_start = int(time.time()) #使用当前时间作为申请的dev_lic起点
 
         self.res_list = {} #记录provision 结果使用 pexpect_dev使用
-        #self.
+        self.sqldb_path = "npl1.db"
     def log_f(self, message):
         f = open(self.log_file,"a")
         f.write(str(message) + str("\n"))
@@ -115,6 +117,24 @@ class dev_c():
         dev_log_flag = "OnEventDeviceStatusIndication: status\(18:Completed\)"
         self.pex_dev.wait_dev_provision(5000, dev_log_flag )
 
+    def save_dev_db(self, dev_db_name = "npl1.db", server_id = 29):
+        """
+        1.从db库中获得dev host_id
+        2.保存db到 server_id//nplhost_id.db
+        """
+        #1.
+        assert self.sqldb_path
+        sqldb = sqlite_Driver(self.sqldb_path)
+        dev_host, appserver_host = sqldb.get_dev_host_id()
+        self.log("dev_host_id is %s; appserver_host is %s" % (str(dev_host), str(appserver_host)))
+        assert dev_host
+        assert appserver_host
+        #2.
+        assert self.sh_control
+        
+        self.sh_control.back_up_dev_db(appserver_host, dev_host)
+        
+
     def dev_provision(self, user_name = int(time.time()), server_id = 29):
         """
         dev provision 流程如下:
@@ -139,10 +159,12 @@ class dev_c():
 
         #[6]
 
-        #7
+        #7, 8
         pex_dev = self.start_dev(cfg_path)
 
-        return pex_dev 
+        #9
+        res = self.save_dev_db("npl1.db", server_id)
+        #return res
 
 def start_dev(num, app_id):
     app_provision_wait_time = 0
@@ -176,9 +198,12 @@ def start_dev(num, app_id):
     s.back_use_cp()
 if __name__ == "__main__":
     num = int(sys.argv[1])
-    x = dev_c()
+    #x = dev_c()
     server_id = 29
     for i in xrange(num):
         print "*" * 20
+        x = dev_c()
         x.dev_provision(str(time.time()), server_id)
+        print "*" * 20
+        time.sleep(5)
 
