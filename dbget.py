@@ -2,11 +2,19 @@
 import MySQLdb
 class db_mod():
     def __init__(self, db_name = "nexus_eap" , ip = "192.168.1.44", user = "slim", pd = "password"):
-        self.db = MySQLdb.connect(ip ,user, pd, db_name, port=3306, charset="utf8")
-        self.cursor = self.db.cursor()       
+        self.ip = ip
+        self.user = user
+        self.pd = pd
+        self.db_name = db_name
+        self.port = 3306
+        self.charset = "utf8"
 
-    def __del__(self):
-        self.db.close()
+        #self.db = MySQLdb.connect(ip ,user, pd, db_name, port=3306, charset="utf8")
+        #self.db = MySQLdb.connect(self.ip ,self.user, self.pd, self.db_name, port=self.port3306, charset=self.charset"utf8")
+        #self.cursor = self.db.cursor()       
+
+#    def __del__(self):
+#        self.db.close()
 
     def log(self, message):
         print "*" * 20
@@ -14,21 +22,35 @@ class db_mod():
 
     def get_dev_pin(self, user_mail):
         sql = 'SELECT pincode from eap_access_key where user_id = (select id from eap_user where email="%s") and status = "UNPROVISION" ORDER BY id desc;' % user_mail
-        return self.select(sql)
+        sql_debug = 'SELECT pincode from eap_access_key where user_id = (select id from eap_user where email="%s") and status = "UNPROVISION";' % user_mail
+        return self.select(sql, sql_debug)
 
-    def select(self, sql):
+    def select(self, sql, sql_debug = None):
+        self.db = MySQLdb.connect(self.ip ,self.user, self.pd, self.db_name, port=self.port, charset=self.charset)
+        self.cursor = self.db.cursor()       
         self.log(sql)
-        res = self.cursor.execute(sql)
         # Fetch a single row using fetchone() method.
+
+        #debug doing
+        if (None != sql_debug):
+            self.log("[debug for sql] sql is %s" % str(sql_debug))
+            res = self.cursor.execute(sql_debug)
+            num = self.cursor.fetchall()
+            self.log("[debug for sql ]num is %d; \n\t\t all is %s " % (len(num),str(num)))
+            #assert len(self.cursor.fetchall()) > 1
+            # disconnect from server
+        res = self.cursor.execute(sql)
         data = self.cursor.fetchone()
-        # disconnect from server
+        self.db.close()
         return data
     def update_app_ip(self):
         """change eap db 中激活状态app 的ip 防止注册端口冲突临时使用 """
         host_ip = "192.168.1.25"
         update_sql = 'UPDATE  eap_app_server  set host_ip = "0.0.0.1" where app_server_status != "LOADING" and host_ip ="%s" ;' % host_ip
         #self.log(update_sql)
+        #self.cursor = self.db.cursor()
         self.update(update_sql)
+        
     def change_user_appserver(self, user_mail, appserver_id):
         """change the devs of user_mail to  appserver_id 
            app_user_app_servers 修改
@@ -54,8 +76,11 @@ class db_mod():
         
     def update(self, u_sql):
         self.log(u_sql)
+        self.db = MySQLdb.connect(self.ip ,self.user, self.pd, self.db_name, port=self.port, charset=self.charset)
+        self.cursor = self.db.cursor()
         res = self.cursor.execute(u_sql)
         self.db.commit()
+        self.db.close()
         return res
 
 if __name__ == "__main__":

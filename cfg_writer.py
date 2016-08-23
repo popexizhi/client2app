@@ -63,7 +63,7 @@ class filewriter():
     def _change_cfg(self, cfg_lab, newcfg):
         u_re = "#?%s ? =.*\n" % str(cfg_lab) #注释和空格处理
         link = re.compile(u_re)
-        new_link = cfg_lab + " = " + newcfg + "\n"
+        new_link = str(cfg_lab) + " = " + str(newcfg) + "\n"
         j = 0
         for i in self.cfg_data:
             if re.match("#?%s" % str(cfg_lab), i): #注释的处理

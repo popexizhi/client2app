@@ -5,7 +5,7 @@ from dbget import db_mod
 from cfg_writer import filewriter
 import thread, time
 from shell_con import sh_control
-from pexpect_dev import sh_dev
+from pexpect_shell import sh_pex
 
 class dev_c():
     def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080", dev_mod = "alone_dev.cfg"):
@@ -20,7 +20,7 @@ class dev_c():
         self.db = db_mod()
         self.cfg = filewriter(dev_mod)
         self.sh_control = sh_control()
-        self.sh_dev = sh_dev()
+        self.pex_dev = sh_pex()
 
         self.dev_lic_list_num = dev_num
         self.dev_lic_list_start = int(time.time()) #使用当前时间作为申请的dev_lic起点
@@ -93,6 +93,9 @@ class dev_c():
         """
         #1
         assert self.db
+        #pincode = self.db.get_dev_pin(user_email)[0]
+        #self.log("get dev pin code is %s" % pincode)
+        #time.sleep(30)
         pincode = self.db.get_dev_pin(user_email)[0]
         self.log("get dev pin code is %s" % pincode)
         #2
@@ -100,23 +103,46 @@ class dev_c():
         dev_file = self.cfg.change_dev_pincode(user_email, pincode)
         return dev_file
 
-    def start_dev(self, num_id):
-        #启动client
-        #thread.start_new_thread(self.sh_control.dev_provision,(self.dev_lic_list_start , num_id, ))
-        self.res_list[num_id] = {}
-        thread.start_new_thread(self.sh_dev.dev_check,(self.dev_lic_list_start , num_id, self.res_list[num_id]))
-        
+    def start_dev(self, cfg_dev):
+        """
+            1.start dev
+            2.wait dev provision is ok
+        """
+        assert self.pex_dev
+        #1
+        self.pex_dev.start_dev(cfg = cfg_dev)
+        #2
+        dev_log_flag = "OnEventDeviceStatusIndication: status\(18:Completed\)"
+        self.pex_dev.wait_dev_provision(5000, dev_log_flag )
 
-def dev_provision(app_id, num):
-    a = dev_c(num)
-    applications_name = [app_id]
-    a.log_f( "add_dev_lic res is ...")
-    dev_lic_http_res = a.add_dev_lic(applications_name)
-    a.log_f( dev_lic_http_res)
-    a.get_dev_pin(app_id) # num
-    a.log_f( "dev_cfg is ok ....")
+    def dev_provision(self, user_name = int(time.time()), server_id = 29):
+        """
+        dev provision 流程如下:
+        1./api/eap/users post 添加新用户
+        2.修改nexus_eap库中eap_user_app_servers 保持1中的user为预期的appserver
+        3./api/eap/users/%user_id/accesskey?application_id=com.senlime.nexus.app.browser 生成新的dev license
+        4.从nexus_eap.eap_access_key中获得3添加的license
+        5.修改dev的cfg文件
+        [6.启动对应的appserver] 
+        7.开始dev的provision start_dev()
+        8.监控dev本地db和log 等待provision 成功
+        9.保存dev db
+        """
+        # 1, 2
+        assert self.add_user(user_name, server_id) #如果添加不成功无法后续操作
 
-    return a.res_list
+        # 3
+        assert 0 == self.add_dev_lic(user_name)["result"] 
+
+        # 4,5
+        cfg_path = self.change_dev_cfg(user_name)
+
+        #[6]
+
+        #7
+        pex_dev = self.start_dev(cfg_path)
+
+        return pex_dev 
 
 def start_dev(num, app_id):
     app_provision_wait_time = 0

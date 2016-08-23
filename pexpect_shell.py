@@ -26,6 +26,27 @@ class sh_pex():
             res = res + " %s" % i
 
         return res
+    
+    def start_dev(self, path="slim_engine_test", cfg="alone_dev.cfg", args= ["-db", "-provision"]):
+        """
+            start dev 
+        """
+        self.dev = path
+        self.cfg_dev = cfg
+        self.args_dev = args
+        args_list = self.get_args(self.args_dev)
+        command_dev = './%s -cfg="%s" %s' % (self.dev, self.cfg_dev, str(args_list))
+        self.log(command_dev)
+        self.pexpect = pexpect.spawn(command_dev)
+        #self.pexpect.expect("dpaadfjksjfkjd", timeout = 900000) #getchar before
+        #self.pexpect.expect("dpaadfjksjfkjd", timeout = 900000) #getchar before
+        return self.pexpect
+    
+    def wait_dev_provision(self, timeout = 90000, dev_log_flag = "OnEventDeviceStatusAnswer: status_query_id:10, status(18:Completed)"):
+        assert self.pexpect
+        self.pexpect.expect(dev_log_flag, timeout) #getchar before
+        return self.pexpect
+        
 
     def get_url(self, num):
         #app_sta_shell = """./app_server -cfg="alone_with_provision.cfg" -db -server_provision"""

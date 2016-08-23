@@ -301,7 +301,7 @@ dev_check	provision_ue_use/pexpect_dev.py	/^    def dev_check(self, start_num, n
 dev_data	provision_ue_use/shell_con.py	/^    def dev_data(self, host_id):$/;"	m	class:sh_control
 dev_data	shell_con.py	/^    def dev_data(self, host_id):$/;"	m	class:sh_control
 dev_kill	test_frame_demo/agent/pexpect_dev.py	/^    def dev_kill(self):$/;"	m	class:sh_dev
-dev_provision	dev_c.py	/^def dev_provision(app_id, num):$/;"	f
+dev_provision	dev_c.py	/^    def dev_provision(self, user_name = int(time.time())):$/;"	m	class:dev_c
 dev_provision	provision_ue_use/dev_c.py	/^def dev_provision(app_id, num):$/;"	f
 dev_provision	provision_ue_use/shell_con.py	/^    def dev_provision(self, start , num):$/;"	m	class:sh_control
 dev_provision	shell_con.py	/^    def dev_provision(self, start , num):$/;"	m	class:sh_control
@@ -606,8 +606,9 @@ start_app	appserver_c.py	/^def start_app(std, app_Mon):$/;"	f
 start_appserver	pexpect_shell.py	/^    def start_appserver(self, path="app_server", cfg="alone_app.cfg", args = ["-db", "-server_provision"]):$/;"	m	class:sh_pex
 start_client	nexus-test/py_lib/slim_client.py	/^    def start_client(self, db_num = 1465202670):$/;"	m	class:slim_client
 start_client	test_frame_demo/agent/slim_client.py	/^    def start_client(self, cfg = "alone_integration.cfg", db_num = 1465202670):$/;"	m	class:slim_client
-start_dev	dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:dev_c
+start_dev	dev_c.py	/^    def start_dev(self, cfg_dev):$/;"	m	class:dev_c
 start_dev	dev_c.py	/^def start_dev(num, app_id):$/;"	f
+start_dev	pexpect_shell.py	/^    def start_dev(self, path="slim_engine_test", cfg="alone_dev.cfg", args= ["-db", "-provision"]):$/;"	m	class:sh_pex
 start_dev	provision_ue_use/dev_c.py	/^    def start_dev(self, num_id):$/;"	m	class:test_dev_p
 start_dev	provision_ue_use/dev_c.py	/^def start_dev(num):$/;"	f
 start_provision	appserver_c.py	/^    def start_provision(self, cfg_path=app_mapping["cfg"], port=10021):$/;"	m	class:appserver_c
@@ -680,6 +681,8 @@ test_select	db_Driver_test.py	/^    def test_select(self):$/;"	m	class:TestSqlit
 test_server	nexus-test/py_lib/slimtest.py	/^def test_server():$/;"	f
 test_server	test_frame_demo/agent/slimtest.py	/^def test_server():$/;"	f
 test_start_appserver	pexpect_shell_test.py	/^    def test_start_appserver(self):$/;"	m	class:TestSh_pex
+test_start_dev	dev_c_test.py	/^    def test_start_dev(self):$/;"	m	class:TestDev_c
+test_start_dev	pexpect_shell_test.py	/^    def test_start_dev(self):$/;"	m	class:TestSh_pex
 test_start_provision	appserver_c_test.py	/^    def test_start_provision(self):$/;"	m	class:TestAppserver_C
 test_tc_check	test_frame_demo/agent/tc_check.py	/^def test_tc_check():$/;"	f
 test_tc_stru	test_frame_demo/agent/tc_use.py	/^def test_tc_stru():$/;"	f

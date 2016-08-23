@@ -4,6 +4,16 @@ import time
 import unittest
 
 class TestDev_c(unittest.TestCase):
+    def test_dev_provision(self):
+        """ 
+        测试dev provision 流程
+        """
+        x = dev_c()
+        user_mail = "%s" % str(int(time.time()))
+        server_id = 29
+        res = x.dev_provision(user_mail, server_id)
+        assert res
+
     def test_change_dev_cfg(self):
         """测试生成新的dev cfg """
         x = dev_c()
@@ -27,6 +37,11 @@ class TestDev_c(unittest.TestCase):
         server_id = 28
         res = x.add_user("%s@senlime.com" % str(time.time()), server_id)
         self.assertTrue(res)
+    def test_start_dev(self):
+        """测试启动devprovision """
+        x = dev_c()
+        res = x.start_dev("alone_dev.cfg")
+        self.assertNotEqual(res, None)
 
 if __name__ == "__main__":
     unittest.main()
