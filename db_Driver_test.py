@@ -19,6 +19,13 @@ class TestSqlite_Driver(unittest.TestCase):
         res = x.get_server_id()
         self.assertEqual(p_server_id, res)
     
+    def test_get_server_id(self):
+        """测试 host_id 使用 npl1.db """
+        dev_host_id = 100350
+        x = sqlite_Driver("testdata//npl1.db")
+        res = x.get_dev_host_id()
+        self.assertEqual(dev_host_id, res)
+
     def test_get_prov_status(self):
         """测试 prov_status 使用 nplServer1.db """
         p_status = "Waiting_active"

@@ -176,21 +176,9 @@ def start_dev(num, app_id):
     s.back_use_cp()
 if __name__ == "__main__":
     num = int(sys.argv[1])
-    ev_num = 50
-    app_id = 3
-    if num > ev_num:
-        count = num / ev_num
-        res = num % ev_num
-        print "count %d \t res %d" % (count, res)
-        for i in xrange(count):
-            start_dev(ev_num, app_id)
-            print "### " * 100
-            print "now is %d ok" % ((i+1)*ev_num)
-            time.sleep(5)
-        start_dev(res, app_id)
-        
-        print "### " * 100
-        print "now is %d ok , please wc -l db$ " % num
-    else:
-        start_dev(num, app_id)
+    x = dev_c()
+    server_id = 29
+    for i in xrange(num):
+        print "*" * 20
+        x.dev_provision(str(time.time()), server_id)
 

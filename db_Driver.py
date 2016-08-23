@@ -43,6 +43,16 @@ class sqlite_Driver():
             status = None
         return status
 
+    def get_dev_host_id(self):
+        """
+        return select host_id from host_info; 
+        [for dev db]
+        """
+        sql = "select host_id from host_info;"
+        res = self.select(sql)
+        assert 1 == len(res)
+        return res[0][0]
+
     def get_app_host_id(self):
         """
         return select host_id from table_L1_info;
