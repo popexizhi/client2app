@@ -1,43 +1,44 @@
 # -*- coding:utf8 -*-
 from appserver_c import *
 from dev_c import *
+from mapping import *
 import sys, time
 from shell_con import sh_control
 from test_report import logMon_check
 from provision_test import *
 from app_lock import app_provision_res # app_provision use
-def doing_test(num):
+import threading
+def doing_test(app_num, dev_num):
     #app start
-    wait_time = 5 #等待完成间隔
-    app_Mon = app_provision_res(num)
-    start_app(num, app_Mon)
-    time.sleep( wait_time )
-    res = start_dev(num, app_Mon)
-    if -1 == res:
-        return res
+    x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
+    x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+int(app_num))
+    server_id = x.get_appserver_id()
+    dev_p = threading.Thread(target=provision_dev, args = (dev_num, server_id, ))
+    dev_p.start()
+    x.wait_dev_provision(dev_num)
+    
 
+def provision_dev(dev_num, server_id):
+    for i in xrange(dev_num):
+        log("start dev is %d" % i)
+        x = dev_c()
+        x.dev_provision(str(time.time()), server_id)
+        log("stop dev is %d" % i)
+        time.sleep(dev_mapping["space_provision_s"])
+        
+def log(message):
+    f = open("tester.log","aw")
+    f.write("[%s] %s\n" % (str(time.time()), message))
+    f.close()
+
+    print "**-- " * 50
+    print message
 
 if __name__ == "__main__":
-    num  = int(time.time())#int(sys.argv[1])
-    use_num = 1 # 100
-    #前置条件，注册app 的lic
-    get_app_lic(use_num ,std = num)
-    
-    #测试过程
-    x = sh_control()
-    for i in xrange(use_num): 
-        app_id = i + num
-        res = doing_test(app_id)        
-        if -1 == res:
-            print "err for app provision" * 20
-            break
-        print "start kill dev %d " % app_id
-        x.kill_dev()
-        print "** " * 200
-        time.sleep(5)
-    #结果处理
-    rep_writer = logMon_check()
-    testsuit_name = "test_%s" % str(num) #测试名称，报告和备份是使用
-    rep_writer.res_process("log", testsuit_name)
-    rep_writer.save_res() #保存L1测试报告
-    x.back_up(testsuit_name)
+    app_num = int(sys.argv[1])
+    dev_num = int(sys.argv[2])
+    log("Provision start [app_num:%d] [dev_num:%d]" % (app_num, dev_num))
+    for i in xrange(app_num):
+        log("start app server num is %d" % i)
+        doing_test(i, dev_num)
+        log("app server num{%d} is pass" % i)

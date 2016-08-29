@@ -78,7 +78,6 @@ class appserver_c():
         1.change app cfg start appserver
         2.wait appdb server_id
         3.post id+key+serial /api/eap/appservers/<server_id>/activation
-        4.wait log 打印 Please Add User Pin...
         """
         #0.前置条件准备
         self.setup()
@@ -87,7 +86,8 @@ class appserver_c():
         #2.wait appdb server_id
         url_id = self.get_url()
         assert url_id #检查返回的id一定存在
-    
+        self.appserver_id = url_id #provision成功后appserver_id值
+
         #3.post id+key+serial /api/eap/appservers/<server_id>/activation
         self.log("3.post id+key+serial /api/admin/register_app_server")
         res_add_app_key = self.httper.add_appserver_lic(num)
@@ -104,33 +104,25 @@ class appserver_c():
         host_id = self.db.get_app_host_id()
         self.log("appserver hostid is %s" % str(host_id))
         self.sh_con.back_up_app_db(host_id)
-        #while 1:
-        #    print "appserver_wait ... --- "
-        #    time.sleep(1)
-        #4.wait log 打印 request url id
-        #a.l2_provision()
+    def get_appserver_id(self):
+        """
+        appserver provision成功后才包含此内容
+        """
+        assert self.appserver_id
+        return self.appserver_id
 
-def start_app(std, app_Mon):
-    for i in xrange(1):
-        try:
-            thread.start_new_thread(app_provision,(i + std , app_Mon, ))
-            print "start app....%d" % int(i +std)
-            time.sleep(5)
-        except:
-            print "start_app err " * 20
-            break
-            
-    #    a = sh_control()
-    #    a.app_provision(i+std)
+    def wait_dev_provision(self, num):
+        """
+        wait dev provision pass
+        """
+        assert self.pex_app
+        self.pex_app.wait_app_client_num(dev_mapping["space_provision_wait_time"],num)
 
 if __name__ == "__main__":
     
-    #std = int(sys.argv[1])
-    #app_provision_res = app_provision_res()
-    #start_app(std, app_provision)
-    #app_provision(2)
+    std = int(sys.argv[1])
     
-    for i in xrange(3):
+    for i in xrange(std):
         x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
         x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
 

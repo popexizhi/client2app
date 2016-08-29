@@ -168,40 +168,10 @@ class dev_c():
         res = self.save_dev_db("npl1.db", server_id)
         #return res
 
-def start_dev(num, app_id):
-    app_provision_wait_time = 0
-    ts = 1
-    for i in xrange(1):
-        res = dev_provision(app_id, num)
-        print "start dev....%d" % int(i + num)
-
-    END = 0
-    L2_PASS = "Completed"
-    while END< num:
-        print "res " * 20
-        END = 0
-        end_list = []
-        for i in res:
-            end_list.append([0,i])
-            print "cfg:%s res is :" % i
-            for key in res[i]:
-                print res[i][key]
-                if re.search(L2_PASS, res[i][key]):
-                    END = END + 1
-                    end_list[i][0] = 1
-                #else:
-                #    print res[i][key]
-        print "now END is %d, num is %d" % (END, num)
-        for j in end_list:
-            if 0 == j[0]:
-                print "%d is no L2" % j[1]
-        time.sleep(5)
-    s =  sh_control() 
-    s.back_use_cp()
 if __name__ == "__main__":
     num = int(sys.argv[1])
     #x = dev_c()
-    server_id = 28
+    server_id = 50
     for i in xrange(num):
         print "*" * 20
         x = dev_c()

@@ -30,4 +30,5 @@ dev_mapping = {
     "cfg" : "alone_dev.cfg",    #dev使用cfg 路径和名称
     "space_http_s": 0,          #dev provision时http请求的间隔时间
     "space_provision_s": 5,          #dev provision的间隔时间
+    "space_provision_wait_time": 10, #dev provision过程中pex UI的最长等待时间，单位为s
 }
