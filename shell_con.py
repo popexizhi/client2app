@@ -43,7 +43,7 @@ class sh_control():
     
     def back_up_dev_db(self, server_id, dev_host):
         #self.back_up = './appbackup.sh %s' % num
-        com_list = ["mkdir dbback//%s" % str(server_id), "cp npl1.db dbback//%s//npl%s.db" % (str(server_id), str(dev_host)), "ls -all dbback//%s" % str(server_id) ]
+        com_list = ["mkdir dbback//%s" % str(server_id), "cp npl1.db dbback//%s//npl%s.db" % (str(server_id), str(dev_host)), "cp npl1.state dbback//%s//npl%s.state" % (str(server_id), str(dev_host)), "ls -all dbback//%s" % str(server_id) ]
         self._list_com(com_list)
 
     def _list_com(self, com_list):

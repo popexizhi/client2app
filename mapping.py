@@ -24,3 +24,10 @@ app_mapping = {
     "app_path" : "app_server",  #app的路径和名称
     "thrift_port_list" : [11000, 12000], # 此位置每次使用根据eap_db.eap_app_server的host_ip + host_port 使用情况
 }
+# ---------------------dev ------------------------
+dev_mapping = {
+    "db_name": "npl1.db",       #dev使用的db name
+    "cfg" : "alone_dev.cfg",    #dev使用cfg 路径和名称
+    "space_http_s": 0,          #dev provision时http请求的间隔时间
+    "space_provision_s": 5,          #dev provision的间隔时间
+}

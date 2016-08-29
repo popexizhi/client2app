@@ -7,19 +7,21 @@ import thread, time
 from shell_con import sh_control
 from pexpect_shell import sh_pex
 from db_Driver import sqlite_Driver
+from mapping import *
 
 
 class dev_c():
-    def __init__(self, dev_num = 10, eap_ip = "192.168.1.43:18080", dev_mod = "alone_dev.cfg"):
+    def __init__(self, dev_num = 10, eap_ip = EAP_Pro_mapping["url"], dev_mod = dev_mapping["cfg"]):
         self.eap_ip = eap_ip
         self.log_file = "dev_file.log"
         #操作间隔时间设置，防止操作太过频繁对服务的压力过大
-        self.space_http_s = 0 #http请求
-        self.space_provision_s = 0.1 #dev provision 的请求间隔
+        self.space_http_s = dev_mapping["space_http_s"] #http请求
+        self.space_provision_s = dev_mapping["space_provision_s"] #dev provision 的请求间隔
 
         
         self.httper = httper(self.eap_ip, self.space_provision_s)
-        self.db = db_mod()
+        #self.db = db_mod()
+        self.db = db_mod(db_name = EAP_Pro_mapping["DB"]["EAP"]["db_name"] , ip = EAP_Pro_mapping["DB"]["EAP"]["ip"], user =     EAP_Pro_mapping["DB"]["EAP"]["user"], pd = EAP_Pro_mapping["DB"]["EAP"]["passwd"])
         self.cfg = filewriter(dev_mod)
         self.sh_control = sh_control()
         self.pex_dev = sh_pex()
@@ -28,7 +30,7 @@ class dev_c():
         self.dev_lic_list_start = int(time.time()) #使用当前时间作为申请的dev_lic起点
 
         self.res_list = {} #记录provision 结果使用 pexpect_dev使用
-        self.sqldb_path = "npl1.db"
+        self.sqldb_path = dev_mapping["db_name"]
     def log_f(self, message):
         f = open(self.log_file,"a")
         f.write(str(message) + str("\n"))
@@ -199,11 +201,11 @@ def start_dev(num, app_id):
 if __name__ == "__main__":
     num = int(sys.argv[1])
     #x = dev_c()
-    server_id = 29
+    server_id = 28
     for i in xrange(num):
         print "*" * 20
         x = dev_c()
         x.dev_provision(str(time.time()), server_id)
         print "*" * 20
-        time.sleep(5)
+        time.sleep(dev_mapping["space_provision_s"])
 
