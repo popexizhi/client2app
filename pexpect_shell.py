@@ -1,46 +1,62 @@
 # -*- encoding:utf8 -*-
 # pexpect use for stdout
 import pexpect,time
-import re
+import re, os
 from httper import httper
 
 class sh_pex():
     def __init__(self):
         self.pexpect = None
     
-    def start_appserver(self, path="app_server", cfg="alone_app.cfg", args = ["-db", "-server_provision"]):
+    def start_appserver(self, path="app_server", cfg="alone_app.cfg", args = ["-db", "-server_provision"], hw_p = None):
         """start appserver """
         self.app = path
         self.cfg = cfg
         self.args_app = args
-        args_list = self.get_args(self.args_app)
-        command_app = './%s -cfg="%s" %s' % (self.app, self.cfg, str(args_list))
-        self.log(command_app)
-        
+        return self._pex_comand(self.app, self.cfg, self.args_app, hw_p)
+        #self._pex_comand(self.app, self.cfg, self.args_app, hw_p)
+
+    def _pex_comand(self, path, cfg, args, hw_p):
+        args_list = self.get_args(args)
+        if re.match("../", path):
+            command = path
+        else:
+            command = "./%s" % path
+        command_app = '%s -cfg="%s" %s' % (command, cfg, str(args_list))
+        self.log("command is %s\t ; os.path is %s " % (command_app, hw_p) )
+        if hw_p: #设置运行的文件夹
+            os.chdir(hw_p)
         self.pexpect = pexpect.spawn(command_app)
         return self.pexpect
+    def wait_app_client_num(self, timeout = 90000 , dev_num = 2):
+        """
+        wait appserver command output:"app server :total online client count: %s" % str(dev_num)
+        """
+        assert self.pexpect
+        client_num_flag = "app server :total online client count: %s" % str(dev_num) #nohup.out
+        self.log("wait app %s" % client_num_flag)
+        self.pexpect.expect(client_num_flag, timeout)
+        return self.pexpect
+
+
     def get_args(self, args_list):
-        assert args_list
+        #assert args_list
         res = ""
         for i in args_list:
             res = res + " %s" % i
 
         return res
     
-    def start_dev(self, path="slim_engine_test", cfg="alone_dev.cfg", args= ["-db", "-provision"]):
+    def start_dev(self, path="slim_engine_test", cfg="alone_dev.cfg", args= ["-db", "-provision"], hw_p = None):
         """
             start dev 
         """
         self.dev = path
         self.cfg_dev = cfg
         self.args_dev = args
-        args_list = self.get_args(self.args_dev)
-        command_dev = './%s -cfg="%s" %s' % (self.dev, self.cfg_dev, str(args_list))
-        self.log(command_dev)
-        self.pexpect = pexpect.spawn(command_dev)
-        #self.pexpect.expect("dpaadfjksjfkjd", timeout = 900000) #getchar before
-        #self.pexpect.expect("dpaadfjksjfkjd", timeout = 900000) #getchar before
-        return self.pexpect
+        return self._pex_comand(self.dev, self.cfg_dev, self.args_dev, hw_p)
+        
+        #return self.pexpect.expect("dasfdfasfjasfasdf", 9000)
     
     def wait_dev_provision(self, timeout = 90000, dev_log_flag = "OnEventDeviceStatusAnswer: status_query_id:10, status(18:Completed)"):
         assert self.pexpect
