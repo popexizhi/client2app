@@ -42,3 +42,4 @@ if __name__ == "__main__":
         log("start app server num is %d" % i)
         doing_test(i, dev_num)
         log("app server num{%d} is pass" % i)
+    log("Provision TEST is pass:: [app_num:%d] [dev_num:%d]" % (app_num, dev_num))

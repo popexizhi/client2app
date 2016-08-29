@@ -116,7 +116,7 @@ class appserver_c():
         wait dev provision pass
         """
         assert self.pex_app
-        self.pex_app.wait_app_client_num(dev_mapping["space_provision_wait_time"],num)
+        self.pex_app.wait_app_client_num(dev_mapping["space_provision_wait_time"]*num, num)
 
 if __name__ == "__main__":
     
