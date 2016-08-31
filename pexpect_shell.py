@@ -26,7 +26,7 @@ class sh_pex():
         self.log("command is %s\t ; os.path is %s " % (command_app, hw_p) )
         if hw_p: #设置运行的文件夹
             os.chdir(hw_p)
-        self.pexpect = pexpect.spawn(command_app)
+        self.pexpect = pexpect.spawn(command_app, timeout=300)
         return self.pexpect
     def wait_app_client_num(self, timeout = 90000 , dev_num = 2):
         """
@@ -34,8 +34,8 @@ class sh_pex():
         """
         assert self.pexpect
         client_num_flag = "app server :total online client count: %s" % str(dev_num) #nohup.out
-        self.log("wait app %s" % client_num_flag)
-        self.pexpect.expect(client_num_flag, timeout)
+        self.log("wait app %s, timeout set %s" % (client_num_flag, str(timeout)) )
+        self.pexpect.expect(client_num_flag, timeout = timeout)
         return self.pexpect
 
 
@@ -60,7 +60,7 @@ class sh_pex():
     
     def wait_dev_provision(self, timeout = 90000, dev_log_flag = "OnEventDeviceStatusAnswer: status_query_id:10, status(18:Completed)"):
         assert self.pexpect
-        self.pexpect.expect(dev_log_flag, timeout) #getchar before
+        self.pexpect.expect(dev_log_flag, timeout = timeout) #getchar before
         return self.pexpect
         
 

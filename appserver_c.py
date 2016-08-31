@@ -29,7 +29,7 @@ class appserver_c():
         self.cfg_path = self.filewriter.change_thrift_port(port)
         assert self.cfg_path
         args_list = ["-db", "-server_provision"]
-        app_path = "app_server"
+        app_path = app_mapping["app_path"] #"app_server"
         self.pex_app.start_appserver(path=app_path ,cfg=self.cfg_path, args= args_list)
 
         return self.pex_app
@@ -70,7 +70,7 @@ class appserver_c():
         2.rm 本地db
         """
         self.db_eap = db_mod(db_name = EAP_Pro_mapping["DB"]["EAP"]["db_name"] , ip = EAP_Pro_mapping["DB"]["EAP"]["ip"], user = EAP_Pro_mapping["DB"]["EAP"]["user"], pd = EAP_Pro_mapping["DB"]["EAP"]["passwd"])
-        self.db_eap.update_app_ip()
+        self.db_eap.update_app_ip(app_mapping["ip"])
         self.sh_con.remove_all_db()
 
     def app_provision(self, num, app_Mon, npls_thrift_port = 10022):
@@ -125,5 +125,4 @@ if __name__ == "__main__":
     for i in xrange(std):
         x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
         x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
-
 

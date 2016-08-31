@@ -35,5 +35,17 @@ class TestDb_mod(unittest.TestCase):
         print res
         self.assertEqual(len(res), 1)
 
+    def test_update_app_ip(self):
+        """ 
+        test update_app_ip
+        """
+        x = db_mod()
+        host_ip = "0.0.0.1"
+        target_host_ip = "0.0.0.2"
+        res = x.update_app_ip(host_ip, target_host_ip)
+        sec_res = x.update_app_ip(target_host_ip, host_ip)
+        self.assertEqual(res<=sec_res, True)
+        
+
 if __name__=="__main__":
     unittest.main()

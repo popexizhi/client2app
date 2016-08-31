@@ -21,6 +21,7 @@ def doing_test(app_num, dev_num):
 def provision_dev(dev_num, server_id):
     for i in xrange(dev_num):
         log("start dev is %d" % i)
+        #time.sleep(30)
         x = dev_c()
         x.dev_provision(str(time.time()), server_id)
         log("stop dev is %d" % i)
@@ -34,12 +35,16 @@ def log(message):
     print "**-- " * 50
     print message
 
-if __name__ == "__main__":
-    app_num = int(sys.argv[1])
-    dev_num = int(sys.argv[2])
+def app_dev_provision(app_num, dev_num):
     log("Provision start [app_num:%d] [dev_num:%d]" % (app_num, dev_num))
     for i in xrange(app_num):
         log("start app server num is %d" % i)
         doing_test(i, dev_num)
         log("app server num{%d} is pass" % i)
     log("Provision TEST is pass:: [app_num:%d] [dev_num:%d]" % (app_num, dev_num))
+    return 0
+    
+if __name__ == "__main__":
+    app_num = int(sys.argv[1])
+    dev_num = int(sys.argv[2])
+    app_dev_provision(app_num, dev_num)

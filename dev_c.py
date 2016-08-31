@@ -107,14 +107,14 @@ class dev_c():
         dev_file = self.cfg.change_dev_pincode(user_email, pincode)
         return dev_file
 
-    def start_dev(self, cfg_dev):
+    def start_dev(self, cfg_dev, path = dev_mapping["dev_path"]):
         """
             1.start dev
             2.wait dev provision is ok
         """
         assert self.pex_dev
         #1
-        self.pex_dev.start_dev(cfg = cfg_dev)
+        self.pex_dev.start_dev(path = path, cfg = cfg_dev)
         #2
         dev_log_flag = "OnEventDeviceStatusIndication: status\(18:Completed\)"
         self.pex_dev.wait_dev_provision(5000, dev_log_flag )

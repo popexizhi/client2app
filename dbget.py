@@ -43,13 +43,12 @@ class db_mod():
         data = self.cursor.fetchone()
         self.db.close()
         return data
-    def update_app_ip(self):
+    def update_app_ip(self, host_ip = "192.168.1.25", target_host_ip = "0.0.0.1"):
         """change eap db 中激活状态app 的ip 防止注册端口冲突临时使用 """
-        host_ip = "192.168.1.25"
-        update_sql = 'UPDATE  eap_app_server  set host_ip = "0.0.0.1" where app_server_status != "LOADING" and host_ip ="%s" ;' % host_ip
+        update_sql = 'UPDATE  eap_app_server  set host_ip = "%s" where app_server_status != "LOADING" and host_ip ="%s" ;' % (target_host_ip, host_ip)
         #self.log(update_sql)
         #self.cursor = self.db.cursor()
-        self.update(update_sql)
+        return self.update(update_sql)
         
     def change_user_appserver(self, user_mail, appserver_id):
         """change the devs of user_mail to  appserver_id 
@@ -81,6 +80,7 @@ class db_mod():
         res = self.cursor.execute(u_sql)
         self.db.commit()
         self.db.close()
+        
         return res
 
 if __name__ == "__main__":
