@@ -1,5 +1,8 @@
 #-*- coding:utf8 -*-
 import sys
+import thread
+import time
+
 from db_Driver import sqlite_Driver
 from pexpect_shell import sh_pex
 from httper import httper
@@ -7,10 +10,10 @@ from shell_con import sh_control
 from cfg_writer import filewriter
 from dbget import db_mod
 from mapping import *
-import thread
-import time
+import err
+
 class appserver_c():
-    def __init__(self, db_name=app_mapping["db_name"], cfg=app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"]):
+    def __init__(self, db_name=app_mapping["db_name"], cfg=app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"], path = app_mapping["app_path"]):
         self.db = sqlite_Driver(db_name)
         self.cfg = cfg
         self.wait_time = 3 * 60 #appserver provision 超时时间
@@ -18,6 +21,7 @@ class appserver_c():
         self.pex_app = sh_pex()
         self.filewriter = None
         self.sh_con = sh_control()
+        self.app_path = path #"app_server"
 
     def log(self, message):
         print "~" * 20
@@ -29,7 +33,8 @@ class appserver_c():
         self.cfg_path = self.filewriter.change_thrift_port(port)
         assert self.cfg_path
         args_list = ["-db", "-server_provision"]
-        app_path = app_mapping["app_path"] #"app_server"
+        #app_path = app_mapping["app_path"] #"app_server"
+        app_path = self.app_path
         self.pex_app.start_appserver(path=app_path ,cfg=self.cfg_path, args= args_list)
 
         return self.pex_app
@@ -104,6 +109,16 @@ class appserver_c():
         host_id = self.db.get_app_host_id()
         self.log("appserver hostid is %s" % str(host_id))
         self.sh_con.back_up_app_db(host_id)
+    def try_app_provision(self,num, app_Mon, npls_thrift_port = 10022):
+        """
+        try app_provision 
+        """
+        try:
+            res = self.app_provision(num, app_Mon, npls_thrift_port)
+        except err.ProvisionError as e:
+            res = "[ERR.ProvisonErr] %s" % str(e) 
+            self.log(res)
+        return res
     def get_appserver_id(self):
         """
         appserver provision成功后才包含此内容
@@ -121,7 +136,7 @@ class appserver_c():
 if __name__ == "__main__":
     
     std = int(sys.argv[1])
-    
+        
     for i in xrange(std):
         x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
         x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)

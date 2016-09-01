@@ -3,6 +3,7 @@
 import pexpect,time
 import re, os
 from httper import httper
+import err
 
 class sh_pex():
     def __init__(self):
@@ -18,6 +19,10 @@ class sh_pex():
 
     def _pex_comand(self, path, cfg, args, hw_p):
         args_list = self.get_args(args)
+        #检查path是否存在
+        #assert True == os.path.isfile(path) #如果进程不存在就返回False
+        if False == os.path.isfile(path): #如果进程不存在就返回False
+            raise err.ProvisionError("%s not find" % path)
         if re.match("../", path):
             command = path
         else:

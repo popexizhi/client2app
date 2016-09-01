@@ -23,6 +23,8 @@ class TestAppserver_C(unittest.TestCase):
         x.get_url() #get db
         res = x.wait_provision()
         self.assertEqual(res, "Actived")
+    
+        
 
     def test_wait_get_url(self):
         db_name = "testdata//nplServer1_wait.db"
@@ -73,6 +75,12 @@ class TestAppserver_C(unittest.TestCase):
         """test app provision all """
         x = appserver_c(db_name="nplServer1.db")       
         x.app_provision(num=str(time.time()), app_Mon =1)
+
+    def test_try_app_provision(self):
+        """test app provision all """
+        x = appserver_c(db_name="nplServerx.db", cfg="testdata/err_eap.cfg", eap_provision_server ="1.1.1.1", path="noapp_path")       
+        res = x.try_app_provision(num=str(time.time()), app_Mon =1)
+        print res
 
 if __name__=="__main__":
     unittest.main()

@@ -3,6 +3,7 @@ from pexpect_shell import sh_pex
 import time
 import unittest
 import threading
+import err
 
 class TestSh_pex(unittest.TestCase):
     def test_start_dev(self):
@@ -39,5 +40,19 @@ class TestSh_pex(unittest.TestCase):
         s1.start()
         res = x.wait_app_client_num(dev_num = 1)
         self.assertNotEqual(res, None)
+    def test_start_app_path_err(self):
+        """ 
+        test wait_app_client_num
+        """
+        app_p = "../../../app_server"
+        app_cfg = "alone_app.cfg"
+
+        x = sh_pex()
+        try:
+            x.start_appserver(app_p, app_cfg, [])
+        except err.ProvisionError as e:
+            print "[err.ProvisionError] %s"% str(e)
+            self.assertEqual(e, e)
+
 if __name__=="__main__":
     unittest.main() 
