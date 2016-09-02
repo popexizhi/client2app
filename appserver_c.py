@@ -16,7 +16,7 @@ class appserver_c():
     def __init__(self, db_name=app_mapping["db_name"], cfg=app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"], path = app_mapping["app_path"]):
         self.db = sqlite_Driver(db_name)
         self.cfg = cfg
-        self.wait_time = 3 * 60 #appserver provision 超时时间
+        self.wait_time = app_mapping["wait_server_id_s"]#3 * 60 #appserver provision 超时时间
         self.httper = httper(eap_provision_server) 
         self.pex_app = sh_pex()
         self.filewriter = None
@@ -50,9 +50,7 @@ class appserver_c():
             server_id = self.db.get_server_id()
 
         if None == server_id:
-            server_id = "timeout err"
-            #res = "timeout err"
-            # wait timeout for server_id
+            raise err.ProvisionError("get server_id is timeout err")
         else:
             res = res % server_id
 
@@ -96,14 +94,17 @@ class appserver_c():
         #3.post id+key+serial /api/eap/appservers/<server_id>/activation
         self.log("3.post id+key+serial /api/admin/register_app_server")
         res_add_app_key = self.httper.add_appserver_lic(num)
-        assert 0 == res_add_app_key["result"] #要求添加结果一定为成功，否则退出后续流程
+        if 0 != res_add_app_key["result"]: #要求添加结果一定为成功，否则退出后续流程
+            raise err.ProvisionError("/api/admin/register_app_server api result %s" % str(res_add_app_key))
         res = self.httper.register_app_server(url_id, num, res_add_app_key["key"], res_add_app_key["serial"])
         self.log(res)
-        assert 0 == res["result"]
+        if 0 != res["result"]:
+            raise err.ProvisionError("register_app_server result %s" % str(res))
         
         app_start = self.wait_provision()
         self.log("appserver provision is %s" % app_start)
-        assert APPSERVERDB["Actived"]  == app_start
+        if APPSERVERDB["Actived"]  != app_start:
+            raise err.ProvisionError("appserver provision db is %s" % str(app_start))
         
         #save db
         host_id = self.db.get_app_host_id()
@@ -136,8 +137,10 @@ class appserver_c():
 if __name__ == "__main__":
     
     std = int(sys.argv[1])
-        
+    app_res_list = {}  
     for i in xrange(std):
         x = appserver_c(db_name=app_mapping["db_name"], cfg =app_mapping["cfg"], eap_provision_server=EAP_Pro_mapping["url"])
-        x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
-
+        #x.app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
+        res = x.try_app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+i)
+        app_res_list["%s" % str(i)] = res
+    print str(app_res_list)

@@ -23,7 +23,8 @@ app_mapping = {
     "cfg" : "alone_app.cfg",    #app使用的cfg 路径和名称
     "app_path" : "provision_code/app_server",  #app的路径和名称
     "thrift_port_list" : [11000, 12000], # 此位置每次使用根据eap_db.eap_app_server的host_ip + host_port 使用情况
-    "ip" : "192.168.1.84", #当前运行appserver的ip
+    "ip" : "192.168.1.25", #当前运行appserver的ip
+    "wait_server_id_s" : 300. #appserver provision 等待本地db有server_id的超时时间
 }
 # ---------------------dev ------------------------
 dev_mapping = {

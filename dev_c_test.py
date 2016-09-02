@@ -2,6 +2,7 @@
 from dev_c import dev_c
 import time
 import unittest
+import err
 
 class TestDev_c(unittest.TestCase):
     def test_dev_provision(self):
@@ -42,6 +43,24 @@ class TestDev_c(unittest.TestCase):
         x = dev_c()
         res = x.start_dev("alone_dev.cfg")
         self.assertNotEqual(res, None)
+    
+    def test_try_dev_provision(self):
+        """
+        test try dev_provision
+        1. test eap_provision_server err
+        2. test dev path err
+        3. 
+        """
+        #1
+        x =  dev_c(eap_ip = "1.1.1.1")
+        res = x.try_dev_provision()
+        print "*" * 20
+        print res
+        #2
+#        x =  dev_c()
+#        res = x.try_dev_provision()
+#        print "*" * 20
+#        print res
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,7 +8,7 @@ from shell_con import sh_control
 from pexpect_shell import sh_pex
 from db_Driver import sqlite_Driver
 from mapping import *
-
+import err
 
 class dev_c():
     def __init__(self, dev_num = 10, eap_ip = EAP_Pro_mapping["url"], dev_mod = dev_mapping["cfg"]):
@@ -49,7 +49,8 @@ class dev_c():
         #1
         user_id = self.db.get_dev_user_id(user_email)
         #2
-        assert user_id
+        if None == user_id:
+            raise err.ProvisionError("EAP db no has user_id for %s" % str(user_email))
         return self.httper.add_dev_lic(user_id)
 
     def add_user(self, user_email, server_id):
@@ -60,7 +61,8 @@ class dev_c():
         # 1
         assert self.httper
         res = self.httper.add_user(user_email)
-        assert 0 == res["result"] #如果添加不成功无法进行后续修改操作
+        if 0 != res["result"]: #如果添加不成功无法进行后续修改操作
+            raise err.ProvisionError("add_user for user_email:%s res is %s" % (str(user_email), str(res)))
         # 2
         assert self.db
         res_server_id = self.db.change_user_appserver(user_email, server_id)
@@ -113,6 +115,7 @@ class dev_c():
             2.wait dev provision is ok
         """
         assert self.pex_dev
+        
         #1
         self.pex_dev.start_dev(path = path, cfg = cfg_dev)
         #2
@@ -151,10 +154,13 @@ class dev_c():
         9.保存dev db
         """
         # 1, 2
-        assert self.add_user(user_name, server_id) #如果添加不成功无法后续操作
+        if False == self.add_user(user_name, server_id): #如果添加不成功无法后续操作
+            raise err.ProvisionError("change user:%s for server_id:%s is False" % (str(user_name), str(server_id)))
 
         # 3
-        assert 0 == self.add_dev_lic(user_name)["result"] 
+        res_add_dev_lic = self.add_dev_lic(user_name)
+        if 0 != res_add_dev_lic["result"] :
+            raise err.ProvisionError("eap add_dev_lic for user_name res is %s" % (str(user_name), str(res_add_dev_lic)))
 
         # 4,5
         cfg_path = self.change_dev_cfg(user_name)
@@ -167,6 +173,17 @@ class dev_c():
         #9
         res = self.save_dev_db("npl1.db", server_id)
         #return res
+
+    def try_dev_provision(self, user_name = int(time.time()), server_id = 29):
+        """
+        try dev_provision
+        """
+        try:
+            res = self.dev_provision(user_name, server_id)
+        except err.ProvisionError as e:
+            res = "[ERR.ProvisionError] %s" % str(e)
+            self.log(res)
+        return res
 
 if __name__ == "__main__":
     num = int(sys.argv[1])

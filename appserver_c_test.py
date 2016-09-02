@@ -78,9 +78,14 @@ class TestAppserver_C(unittest.TestCase):
 
     def test_try_app_provision(self):
         """test app provision all """
-        x = appserver_c(db_name="nplServerx.db", cfg="testdata/err_eap.cfg", eap_provision_server ="1.1.1.1", path="noapp_path")       
+        #x = appserver_c(db_name="nplServerx.db") 
+        #res = x.try_app_provision(num=str(time.time()), app_Mon =1)
+        #print res
+        x = appserver_c(eap_provision_server ="1.1.1.1") 
         res = x.try_app_provision(num=str(time.time()), app_Mon =1)
         print res
-
+        x = appserver_c(path="noapp_path") 
+        res = x.try_app_provision(num=str(time.time()), app_Mon =1)
+        print res
 if __name__=="__main__":
     unittest.main()

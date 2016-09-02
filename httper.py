@@ -2,12 +2,14 @@
 import urllib, urllib2
 import cookielib
 import json, time
+import err
 
 class httper():
-    def __init__(self, http_ip = "192.168.1.55", space_s = 0):
+    def __init__(self, http_ip = "192.168.1.55", space_s = 0, timeout = 30):
         self.http_ip = http_ip
         self.space_http_s = space_s #每个请求的间隔时间，防止服务器请求太过频繁
         self.token = None
+        self.timeout = timeout
 
     def log(self, message):
         print "*" * 20
@@ -70,12 +72,22 @@ class httper():
             header = {'Content-Type': 'application/json', 'Authorization': token}
         self.log("header is %s" % str(header))
         req = urllib2.Request(url, data, header) #添加发送头
-        
-        f = urllib2.urlopen(req)
-        get_data = f.read()
-        f.close()
-        self.log(get_data)
-        return json.loads(get_data)
+        try:                
+            f = urllib2.urlopen(req, timeout = self.timeout)
+            self.log("post send ...")
+            get_data = f.read()
+            f.close()
+            self.log(get_data)
+            return json.loads(get_data)
+
+        except urllib2.HTTPError as e:
+            err_log = "urllib2.HTTPError %s" % str(e)
+            self.log(err_log)
+            raise err.ProvisionError(err_log)
+        except urllib2.URLError as e:
+            err_log = "urllib2.URLError %s" % str(e)
+            self.log(err_log)
+            raise err.ProvisionError(err_log)
 
     def add_devs(self, application_ids =[3], dev_num = 100, dev_start = 0):
         """
