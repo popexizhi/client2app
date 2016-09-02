@@ -43,6 +43,11 @@ class sh_pex():
         self.pexpect.expect(client_num_flag, timeout = timeout)
         return self.pexpect
 
+    def checkou_provision(self):
+        res =  self.pexpect.isalive()
+        if False == res:
+            raise err.ProvisionError("[Process Dead]%s is noalive" % str(self.pexpect.args))
+
 
     def get_args(self, args_list):
         #assert args_list

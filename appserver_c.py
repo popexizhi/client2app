@@ -22,7 +22,7 @@ class appserver_c():
         self.filewriter = None
         self.sh_con = sh_control()
         self.app_path = path #"app_server"
-
+        self.appserver_id = None
     def log(self, message):
         print "~" * 20
         print message
@@ -38,15 +38,29 @@ class appserver_c():
         self.pex_app.start_appserver(path=app_path ,cfg=self.cfg_path, args= args_list)
 
         return self.pex_app
-    def get_url(self):
+    def get_url(self, debug_t = None):
+        """
+        返回appserver的provision url
+        args:
+            debug_t != None为test使用不检查appserver的本地进程是否存在
+        return:
+            appserver server_id
+            excpet:
+                1. appserver 进程退出 [debug_t = None才检查]
+                2. server_id 获得超时
+                
+        """
         wait_time = self.wait_time
         assert self.db
+        assert self.pex_app 
         server_id = self.db.get_server_id()
         res = EAP_Pro_mapping["eap_api"]["appserver_activation"]
         use_time = 0
         while None == server_id and use_time < wait_time:
             time.sleep(5)
             use_time = use_time + 5
+            if None == debug_t : 
+                self.pex_app.checkou_provision()
             server_id = self.db.get_server_id()
 
         if None == server_id:
@@ -124,7 +138,8 @@ class appserver_c():
         """
         appserver provision成功后才包含此内容
         """
-        assert self.appserver_id
+        if None == self.appserver_id:
+            raise err.ProvisionError("appserver_id is None")
         return self.appserver_id
 
     def wait_dev_provision(self, num):

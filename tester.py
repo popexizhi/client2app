@@ -7,6 +7,7 @@ from shell_con import sh_control
 from test_report import logMon_check
 from provision_test import *
 from app_lock import app_provision_res # app_provision use
+import err
 import threading
 def doing_test(app_num, dev_num):
     #app start
@@ -15,7 +16,12 @@ def doing_test(app_num, dev_num):
     app_res = x.try_app_provision(num=str(time.time()), app_Mon =1, npls_thrift_port= app_mapping["thrift_port_list"][0]+int(app_num))
     provision_res_list["app"] = app_res
     provision_res_list["dev"] = {}
-    server_id = x.get_appserver_id()
+    try:
+        server_id = x.get_appserver_id()
+    except err.ProvisionError as e:
+        log("[err.ProvisionError] %s" % str(e))
+        provision_res_list["dev"] = str(e)
+        return provision_res_list
     dev_p = threading.Thread(target=provision_dev, args = (dev_num, server_id, provision_res_list["dev"], ))
     dev_p.start()
     x.wait_dev_provision(dev_num)
