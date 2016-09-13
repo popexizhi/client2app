@@ -1,6 +1,7 @@
 #-*-encoding:utf8 -*-
-from testlink import TestlinkAPIClient, TestLinkHelper
+from testlink import TestlinkAPIClient, TestLinkHelper, testlinkerrors
 import sys,time
+import err
 
 LOGLEVEL="DEBUG"
 class tl_client():
@@ -11,13 +12,22 @@ class tl_client():
         self.tl = self.tl_helper.connect(TestlinkAPIClient)
 
     def log(self, message, level=LOGLEVEL):
-        if "DEBUG" == level:
+        if "DEBUG" == level or "info" == level:
             print "*" * 20
             print "[tl_client] %s" % str(message)
 
     def getTestCasesForTestSuite(self, testsuitid):
-        self.log(testsuitid) 
-        tc_list = self.tl.getTestCasesForTestSuite(testsuitid,'true','full')
+        self.log(testsuitid)
+        try:
+            tc_list = self.tl.getTestCasesForTestSuite(testsuitid,'true','full')
+        except testlinkerrors.TLConnectionError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
+        
+        except testlinkerrors.TLResponseError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
+
         self.log(tc_list)
         return self.gettclist(tc_list)
 

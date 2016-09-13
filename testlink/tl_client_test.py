@@ -1,6 +1,7 @@
 # -*- coding:utf8 -*-
 import unittest
 from tl_client import tl_client
+import err
 
 class TestTl_client(unittest.TestCase):
     def test_gettclist(self):
@@ -12,6 +13,35 @@ class TestTl_client(unittest.TestCase):
         x = tl_client()
         res = x.gettclist(data)
         self.assertEqual(res, pre_res)
+    def test_init_err(self):
+        """
+        test _init_ tl_url and key
+        e :[testframe err]problems connecting the TestLink Server http://127.0.0.1/testlink/lib/api/xmlrpc.php
+        """
+        url = "127.0.0.1"
+        x = tl_client(url)
+        try:
+            x.getTestCasesForTestSuite("3")
+        except err.TFError as e:
+            res = e
+            print res.value
+        pre_err = "404 Not Found"
+        self.assertIn(pre_err, res.value)
+    
+    def test_init_key(self):
+        """
+        test _init_ tl_url and key
+        e:
+        """
+        key = "127.0.0.1"
+        x = tl_client(key=key)
+        try:
+            x.getTestCasesForTestSuite("3")
+        except err.TFError as e:
+            res = e
+            print res.value
+        pre_err = "invalid developer key"
+        self.assertIn(pre_err, res.value)
 
 if __name__=="__main__":
     unittest.main()
