@@ -81,4 +81,8 @@ class tl_client():
 
 if __name__ == "__main__":
     x = tl_client()
-    x.getTestCasesForTestSuite("3")
+    #x.getTestCasesForTestSuite("3")
+    tpid = x.getTestPlanByName("integration_tester")
+    assert tpid[0]["id"]
+    tc_list = x.getTestCasesForTestPlan(tpid[0]["id"])
+    print tc_list
