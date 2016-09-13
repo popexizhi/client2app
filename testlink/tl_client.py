@@ -30,16 +30,51 @@ class tl_client():
 
         self.log(tc_list)
         return self.gettclist(tc_list)
+    def getTestPlanByName(self, testPlanName, testProjectName="nexus"):
+        self.log("testProjectName is %s; testPlanName is %s" % (testProjectName, testPlanName))
+        try:
+            res = self.tl.getTestPlanByName(testProjectName, testPlanName)
+            return res
+        except testlinkerrors.TLConnectionError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
+        
+        except testlinkerrors.TLResponseError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
+    def getTestCasesForTestPlan(self, planid):
+        self.log("planid is %s" % str(planid))
+        try:
+            res_list = self.tl.getTestCasesForTestPlan(planid)
+            return self.gettclist(res_list, "tp")
+        except testlinkerrors.TLConnectionError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
+        
+        except testlinkerrors.TLResponseError as e:
+            self.log(str(e), "info")
+            raise err.TFError(str(e))
 
-    def gettclist(self, tc_list):
+
+    def __doing_tl(self, do_name, args):
+        pass
+
+
+    def gettclist(self, tc_list, type_list = "ts"):
+        """
+        type_list = "ts" tid_key = i["id"] #testsuit_kind use eg:test_gettclist
+        type_list = "tp" tid_key = i     #testplan_kind use eg:test_gettclist_ts 
+        """
+        
         tc_id_list = None
         for i in tc_list:
             self.log(i)
-            self.log("id is %s" % i["id"])
+            tc_id = i["id"] if "ts" == type_list else i
+            self.log("id is %s" % tc_id)
             if tc_id_list:
-                tc_id_list = "%s %s"% (str(tc_id_list),str(i["id"]))
+                tc_id_list = "%s %s"% (str(tc_id_list),str(tc_id))
             else:
-                tc_id_list = str(i["id"])
+                tc_id_list = str(tc_id)
         
         self.log(tc_id_list)
         return tc_id_list
